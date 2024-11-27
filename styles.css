@@ -172,6 +172,7 @@ body {
     list-style-type: none;
     margin: 0px;
     padding: 0;
+    gap: 20px;
 }
 
 .header__nav-link {
@@ -375,9 +376,7 @@ body {
     background-color: #333;
     color: white;
 }
-
 /* fin Diseño alerta envia datos */
-
 
 /* FAQ */
 .faq {
@@ -494,9 +493,6 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-
-
 }
 
 .footer__privacy {
