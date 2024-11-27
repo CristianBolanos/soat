@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOAT Express - Seguro Obligatorio de Accidentes de Tránsito</title>
+    <meta name="description"
+        content="Obtén tu SOAT para carro o moto de manera rápida y sencilla con SOAT Express. Protección integral y proceso rápido garantizado.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="./img/soat-persona.ico" type="image/x-icon">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="index.html" class="header__logo">SOAT</a>
+            
+            <button class="header__menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span class="header__menu-icon"></span>
+            </button>
+            <nav class="header__nav" id="headerNav">
+                <ul class="header__nav-list">
+                    <li><a href="#beneficios" class="header__nav-link">Beneficios</a></li>
+                    <li><a href="#cotizar" class="header__nav-link">Cotizar</a></li>
+                    <li><a href="#faq" class="header__nav-link">Preguntas frecuentes</a></li>
+                </ul>
+            </nav>
+            <a href="#cotizar" class="button button--primary header__contact-button">Contacto</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="container hero__container">
+                <h1 class="hero__title">Protege tu vehículo con SOAT Ya</h1>
+                
+                <p class="hero__subtitle">Obtén tu SOAT para carro o moto de manera rápida y sencilla</p>
+                <button class="button button--secondary hero__cta animate-pulse" id="cotizarButton">Cotiza ahora</button>
+               
+            </div>
+            <!-- <img src="img/soat-persona.png" alt="" > -->
+        </section>
+
+        <section>
+            <img src="./img/banner-soat.webp" alt="BANNER-SOAT"  class="banner__section">
+        </section>
+
+        <section id="beneficios" class="benefits">
+            <div class="container benefits__container">
+                <h2 class="benefits__title">Beneficios de nuestro SOAT</h2>
+                <div class="benefits__list">
+                    <div class="benefit-card">
+                        <div class="benefit-card__icon benefit-card__icon--shield"></div>
+                        <h3 class="benefit-card__title">Cobertura completa</h3>
+                        <p class="benefit-card__description">Protección integral para ti y terceros en caso de
+                            accidentes.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-card__icon benefit-card__icon--clock"></div>
+                        <h3 class="benefit-card__title">Proceso rápido</h3>
+                        <p class="benefit-card__description">Obtén tu SOAT en minutos, sin complicaciones.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-card__icon benefit-card__icon--card"></div>
+                        <h3 class="benefit-card__title">Pago seguro</h3>
+                        <p class="benefit-card__description">Múltiples opciones de pago con la máxima seguridad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cotizar" class="quote">
+            <div class="container quote__container">
+                <h2 class="quote__title">Cotiza tu SOAT</h2>
+                <form class="quote-form" id="quoteForm">
+                    <div class="quote-form__field">
+                        <select id="vehicleType" class="quote-form__select" required>
+                            <option value="">Tipo de vehículo</option>
+                            <option value="car">Carro</option>
+                            <option value="motorcycle">Moto</option>
+                        </select>
+                    </div>
+                    <div class="quote-form__field">
+                        <input type="text" id="plate" class="quote-form__input" placeholder="Placa del vehículo"
+                            required>
+                    </div>
+                    <div class="quote-form__field">
+                        <input type="number" id="cedula" class="quote-form__input" placeholder="Número de cédula"
+                            required>
+                    </div>
+                    <div class="quote-form__field quote-form__field--car" style="display: none;">
+                        <input type="number" id="year" class="quote-form__input" placeholder="Modelo del vehículo">
+                    </div>
+                    <div class="quote-form__field quote-form__field--motorcycle" style="display: none;">
+                        <input type="number" id="engineSize" class="quote-form__input" placeholder="Cilindraje">
+                    </div>
+                    <button type="submit" class="button button--primary quote-form__submit">Obtener cotización</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="faq" class="faq">
+            <div class="container faq__container">
+                <h2 class="faq__title">Preguntas frecuentes</h2>
+                <div class="faq__list">
+                    <div class="faq-item">
+                        <button class="faq-item__question">¿Qué es el SOAT?</button>
+                        <div class="faq-item__answer">
+                            <p>El SOAT es un seguro obligatorio para todos los vehículos que transitan por el territorio
+                                nacional. Cubre los daños corporales causados a las personas en accidentes de tránsito.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-item__question">¿Cómo puedo comprar mi SOAT?</button>
+                        <div class="faq-item__answer">
+                            <p>Puedes comprar tu SOAT en línea a través de nuestra plataforma. Solo necesitas ingresar
+                                los datos de tu vehículo y realizar el pago.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-item__question">¿Cuánto tiempo tarda en activarse mi SOAT?</button>
+                        <div class="faq-item__answer">
+                            <p>Tu SOAT se activa inmediatamente después de realizar la compra. Recibirás una copia
+                                digital por correo electrónico que puedes imprimir o mostrar en tu dispositivo móvil.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__section">
+                
+                <h3 class="footer__title">SOAT Ya</h3>
+
+                <p class="footer__text">Protegiendo tu camino, simplificando tu seguro.</p>
+                <div class="footer__social">
+                    <a href="https://www.facebook.com/refacil.soat" class="footer__social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <!-- <a href="#" class="footer__social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="footer__social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a> -->
+                </div>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Enlaces rápidos</h3>
+                <ul class="footer__links">
+                    <li><a href="#beneficios" class="footer__link">Beneficios</a></li>
+                    <li><a href="#cotizar" class="footer__link">Cotizar</a></li>
+                    <li><a href="#faq" class="footer__link">Preguntas frecuentes</a></li>
+                </ul>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Contacto</h3>
+                <p class="footer__text">Email: productosyservicios02@gmail.com</p>
+                <p class="footer__text">Teléfono: (+57) 316-734-1074</p>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__copyright">© <span id="currentYear"></span> SOAT Express. Todos los derechos reservados.
+            </p>
+            <p class="footer__privacy" >Creada por <span><a href="https://cristianbolanos.github.io/cb/" target="_blank" class="footer__privacy--span">Cristian Bolaños</a></span></p>
+        </div>
+    </footer>
+
+    <button id="colorToggle" class="color-toggle" aria-label="Cambiar tema de color">
+        <i class="fas fa-adjust"></i>
+    </button>
+   
+   
+
+    <div id="customAlert" class="custom-alert">
+        <div class="custom-alert__content">
+            <p>Cotización enviada. Te contactaremos pronto vía WhatsApp con tu cotización.</p>
+            <button id="closeAlert" class="custom-alert__button">Aceptar</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
