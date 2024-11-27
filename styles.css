@@ -207,7 +207,8 @@ body {
 
 /* Hero */
 .hero {
-    background: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
+    /* background: linear-gradient(to right, var(--color-primary), var(--color-primary-dark)); */
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
     color: white;
     text-align: center;
     padding: 120px 0 80px;
