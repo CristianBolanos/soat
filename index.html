@@ -4,13 +4,28 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SOAT YA - Seguro Obligatorio de Accidentes de Tránsito</title>
+    <title>SOAT YA - Seguro Obligatorio de Accidentes de Tránsito al instante</title>
     <meta name="description"
-        content="Obtén tu SOAT para carro o moto de manera rápida y sencilla con SOAT YA. Protección integral y proceso rápido garantizado." />
+        content="Cotiza y compra tu SOAT en minutos para carro o moto con SOAT YA. Asesoría directa por WhatsApp, tarifas oficiales RUNT, pago 100% seguro y entrega inmediata." />
+    
+    <!-- Open Graph / Meta Social -->
+    <meta property="og:title" content="SOAT YA - Seguro Obligatorio al Instante" />
+    <meta property="og:description" content="Protege tu vehículo en minutos con SOAT YA. Cotización inmediata por WhatsApp y registro RUNT." />
+    <meta property="og:type" content="website" />
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="shortcut icon" href="./img/soat-persona.ico" type="image/x-icon" />
-    <!-- Google Analytics -->
+
+    <!-- Google Analytics placeholder -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -23,203 +38,682 @@
 </head>
 
 <body>
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container announcement-bar__container">
+            <span class="announcement-bar__badge"><i class="fas fa-bolt"></i> Atención Rápida</span>
+            <span class="announcement-bar__text">Cotiza hoy con tarifas vigentes 2026 y recibe tu póliza digital directa al correo y WhatsApp.</span>
+            <a href="tel:+573167341074" class="announcement-bar__link"><i class="fas fa-phone-alt"></i> 316 734 1074</a>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
     <header class="header" id="header">
         <div class="container header__container">
-            <a href="index.html" class="header__logo">SOAT</a>
-            <button class="header__menu-toggle" id="menuToggle" aria-label="Toggle menu">
+            <a href="index.html" class="header__brand">
+                <div class="header__logo-icon">
+                    <i class="fas fa-shield-halved"></i>
+                </div>
+                <div class="header__logo-text">
+                    <span class="header__logo-title">SOAT<span class="accent-dot">YA</span></span>
+                    <span class="header__logo-sub">Seguro Oficial RUNT</span>
+                </div>
+            </a>
+
+            <button class="header__menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
                 <span class="header__menu-icon"></span>
             </button>
-            <nav class="header__nav" id="headerNav">
+
+            <nav class="header__nav" id="headerNav" aria-label="Menú principal">
                 <ul class="header__nav-list">
-                    <li>
-                        <a href="#beneficios" class="header__nav-link">Beneficios</a>
-                    </li>
-                    <li><a href="#cotizar" class="header__nav-link">Cotizar</a></li>
-                    <li>
-                        <a href="#faq" class="header__nav-link">Preguntas frecuentes</a>
-                    </li>
+                    <li><a href="#beneficios" class="header__nav-link">Beneficios</a></li>
+                    <li><a href="#tarifas" class="header__nav-link">Precios y Tipos</a></li>
+                    <li><a href="#como-funciona" class="header__nav-link">¿Cómo funciona?</a></li>
+                    <li><a href="#faq" class="header__nav-link">Preguntas</a></li>
+                    <li><a href="#testimonios" class="header__nav-link">Opiniones</a></li>
                 </ul>
+                <div class="header__nav-mobile-actions">
+                    <a href="#cotizar" class="button button--primary header__mobile-cta">
+                        <i class="fab fa-whatsapp"></i> Cotizar Ahora
+                    </a>
+                </div>
             </nav>
-            <a href="#cotizar" class="button button--primary header__contact-button">Contacto</a>
+
+            <div class="header__actions">
+                <button id="colorToggle" class="theme-toggle" aria-label="Cambiar modo oscuro / claro" title="Cambiar tema">
+                    <i class="fas fa-moon theme-icon"></i>
+                </button>
+                <a href="#cotizar" class="button button--primary header__contact-button">
+                    <i class="fab fa-whatsapp"></i> Cotizar Ya
+                </a>
+            </div>
         </div>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section class="hero" id="hero">
-            <div class="container hero__container">
-                <h1 class="hero__title">Protege tu vehículo con SOAT Ya</h1>
+            <div class="hero__glow-bg hero__glow-bg--1"></div>
+            <div class="hero__glow-bg hero__glow-bg--2"></div>
 
-                <p class="hero__subtitle">
-                    Obtén tu SOAT para carro o moto de manera rápida y sencilla
-                </p>
-                <button class="button button--secondary hero__cta animate-pulse" id="cotizarButton">
-                    Cotiza ahora
-                </button>
+            <div class="container hero__container">
+                <div class="hero__content">
+                    <div class="hero__badge">
+                        <span class="hero__badge-dot"></span> 100% Legal & Verificado en RUNT
+                    </div>
+                    <h1 class="hero__title">
+                        Cotiza y obtén tu <span class="gradient-text">SOAT al instante</span> sin filas
+                    </h1>
+                    <p class="hero__subtitle">
+                        Protege tu vehículo en menos de 5 minutos. Recibe asesoría personalizada vía WhatsApp, tarifas reglamentarias y entrega digital inmediata con validez nacional.
+                    </p>
+
+                    <div class="hero__actions">
+                        <a href="#cotizar" class="button button--secondary button--lg hero__cta">
+                            <i class="fas fa-file-invoice-dollar"></i> Cotizar Mi SOAT
+                        </a>
+                        <a href="https://wa.me/573167341074?text=Hola,%20quisiera%20asesoria%20inmediata%20sobre%20mi%20SOAT" target="_blank" rel="noopener noreferrer" class="button button--ghost button--lg">
+                            <i class="fab fa-whatsapp"></i> Hablar con un asesor
+                        </a>
+                    </div>
+
+                    <div class="hero__stats">
+                        <div class="stat-item">
+                            <span class="stat-number">+15.000</span>
+                            <span class="stat-label">Pólizas expedidas</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number">5 min</span>
+                            <span class="stat-label">Tiempo promedio</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number">4.9 ★</span>
+                            <span class="stat-label">Satisfacción clientes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero__visual">
+                    <div class="hero-card-preview">
+                        <div class="hero-card-preview__header">
+                            <span class="tag-pill"><i class="fas fa-check-circle"></i> Póliza Digital Oficial</span>
+                            <span class="hero-card-code">SOAT-2026-CO</span>
+                        </div>
+                        <div class="hero-card-preview__image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Vehículo protegido con SOAT" 
+                                 class="hero-card-preview__image" 
+                                 loading="lazy" />
+                            <div class="floating-badge floating-badge--top">
+                                <i class="fas fa-bolt"></i>
+                                <div>
+                                    <strong>Emisión Rápida</strong>
+                                    <small>Registro RUNT directo</small>
+                                </div>
+                            </div>
+                            <div class="floating-badge floating-badge--bottom">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <strong>Cobertura Total</strong>
+                                    <small>Gastos médicos & amparo</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-card-preview__footer">
+                            <div class="trust-icons">
+                                <span><i class="fas fa-lock"></i> Pago 100% Seguro</span>
+                                <span><i class="fas fa-qrcode"></i> Código QR Válido</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section>
-            <img src="./img/banner-soat.webp" alt="Banner SOAT" class="banner__section" />
+        <!-- Trust Logos / Certifications strip -->
+        <section class="trust-strip">
+            <div class="container trust-strip__container">
+                <p class="trust-strip__title">Garantías y respaldo en cada expedición:</p>
+                <div class="trust-strip__grid">
+                    <div class="trust-badge"><i class="fas fa-shield-check"></i> Vigilado por Superfinanciera</div>
+                    <div class="trust-badge"><i class="fas fa-database"></i> Registro RUNT Inmediato</div>
+                    <div class="trust-badge"><i class="fas fa-file-pdf"></i> Póliza PDF con QR</div>
+                    <div class="trust-badge"><i class="fas fa-lock"></i> Compra Segura y Cifrada</div>
+                </div>
+            </div>
         </section>
 
+        <!-- Vehicle Type Selector / Visual Quick Cards -->
+        <section id="tarifas" class="vehicle-types">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Liquidación Oficial</span>
+                    <h2 class="section-title">Tu SOAT al día en minutos, sin trámites lentos</h2>
+                    <p class="section-subtitle">Selecciona tu vehículo y recibe tu cotización exacta regulada por ley, con registro directo ante el RUNT y entrega digital inmediata.</p>
+                </div>
+
+                <div class="vehicle-grid">
+                    <!-- Card Carro -->
+                    <div class="vehicle-card" onclick="document.getElementById('vehicleType').value='car'; document.getElementById('vehicleType').dispatchEvent(new Event('change')); document.getElementById('cotizar').scrollIntoView({behavior:'smooth'});">
+                        <div class="vehicle-card__media">
+                            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=700&q=80" alt="Carros y Camionetas" loading="lazy">
+                            <span class="vehicle-card__tag">Emisión en 5 Min</span>
+                        </div>
+                        <div class="vehicle-card__body">
+                            <div class="vehicle-card__icon"><i class="fas fa-car-side"></i></div>
+                            <h3 class="vehicle-card__title">Carros y Camionetas</h3>
+                            <p class="vehicle-card__desc">Viaja con tu familia con total respaldo. Liquidamos el valor oficial para vehículos particulares y utilitarios, asegurando validez nacional y reporte inmediato.</p>
+                            <div class="vehicle-card__footer">
+                                <span class="vehicle-card__btn">Cotizar Carro Ahora <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Moto -->
+                    <div class="vehicle-card" onclick="document.getElementById('vehicleType').value='motorcycle'; document.getElementById('vehicleType').dispatchEvent(new Event('change')); document.getElementById('cotizar').scrollIntoView({behavior:'smooth'});">
+                        <div class="vehicle-card__media">
+                            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=700&q=80" alt="Motos y Motocarros" loading="lazy">
+                            <span class="vehicle-card__tag vehicle-card__tag--highlight">Tarifa Oficial Diferencial</span>
+                        </div>
+                        <div class="vehicle-card__body">
+                            <div class="vehicle-card__icon"><i class="fas fa-motorcycle"></i></div>
+                            <h3 class="vehicle-card__title">Motos y Motocarros</h3>
+                            <p class="vehicle-card__desc">Rueda seguro por carretera y ciudad. Aplicamos de inmediato la tarifa especial estipulada por el Gobierno Nacional según el cilindraje de tu motocicleta.</p>
+                            <div class="vehicle-card__footer">
+                                <span class="vehicle-card__btn">Cotizar Moto Ahora <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Carga y Pesados -->
+                    <div class="vehicle-card" onclick="document.getElementById('vehicleType').value='heavy'; document.getElementById('vehicleType').dispatchEvent(new Event('change')); document.getElementById('cotizar').scrollIntoView({behavior:'smooth'});">
+                        <div class="vehicle-card__media">
+                            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=700&q=80" alt="Carga y Transporte" loading="lazy">
+                            <span class="vehicle-card__tag">Operación Continua</span>
+                        </div>
+                        <div class="vehicle-card__body">
+                            <div class="vehicle-card__icon"><i class="fas fa-truck-moving"></i></div>
+                            <h3 class="vehicle-card__title">Carga, Taxis y Flotas</h3>
+                            <p class="vehicle-card__desc">Mantén tu negocio en marcha sin paradas ni riesgos viales. Expedición prioritaria para vehículos de trabajo, servicio público, camiones y flotas comerciales.</p>
+                            <div class="vehicle-card__footer">
+                                <span class="vehicle-card__btn">Cotizar Pesado Ahora <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
         <section id="beneficios" class="benefits">
             <div class="container benefits__container">
-                <h2 class="benefits__title">Beneficios de nuestro SOAT</h2>
+                <div class="section-header">
+                    <span class="section-tag">¿Por qué elegirnos?</span>
+                    <h2 class="section-title">Beneficios pensados para tu tranquilidad</h2>
+                    <p class="section-subtitle">Un servicio ágil, transparente y seguro respaldado por las principales aseguradoras de Colombia.</p>
+                </div>
+
                 <div class="benefits__list">
                     <div class="benefit-card">
-                        <div class="benefit-card__icon benefit-card__icon--shield"></div>
-                        <h3 class="benefit-card__title">Cobertura completa</h3>
+                        <div class="benefit-card__icon-wrap">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="benefit-card__title">Cobertura Integral de Ley</h3>
                         <p class="benefit-card__description">
-                            Protección integral para ti y terceros en caso de accidentes.
+                            Amparo de gastos médicos, quirúrgicos, farmacéuticos, hospitalarios e indemnización por incapacidad permanente y muerte accidental.
                         </p>
                     </div>
+
                     <div class="benefit-card">
-                        <div class="benefit-card__icon benefit-card__icon--clock"></div>
-                        <h3 class="benefit-card__title">Proceso rápido</h3>
+                        <div class="benefit-card__icon-wrap">
+                            <i class="fas fa-stopwatch-20"></i>
+                        </div>
+                        <h3 class="benefit-card__title">Entrega en Minutos</h3>
                         <p class="benefit-card__description">
-                            Obtén tu SOAT en minutos, sin complicaciones.
+                            Sin filas ni desplazamientos. Tramitamos tu SOAT con validación ante el RUNT y te enviamos tu PDF directamente por WhatsApp o correo.
                         </p>
                     </div>
+
                     <div class="benefit-card">
-                        <div class="benefit-card__icon benefit-card__icon--card"></div>
-                        <h3 class="benefit-card__title">Pago seguro</h3>
+                        <div class="benefit-card__icon-wrap">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3 class="benefit-card__title">Asesoría Humana 1 a 1</h3>
                         <p class="benefit-card__description">
-                            Múltiples opciones de pago con la máxima seguridad.
+                            Un asesor real te acompaña paso a paso verificando los datos de tu tarjeta de propiedad para evitar cualquier error de expedición.
+                        </p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-card__icon-wrap">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h3 class="benefit-card__title">Múltiples Métodos de Pago</h3>
+                        <p class="benefit-card__description">
+                            Paga con PSE, transferencia bancaria Bancolombia, Daviplata, Nequi o tarjeta de crédito mediante plataformas seguras.
+                        </p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-card__icon-wrap">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h3 class="benefit-card__title">Recordatorio de Vencimiento</h3>
+                        <p class="benefit-card__description">
+                            Te avisamos con anticipación el próximo año antes de que expire tu póliza para que nunca tengas multas ni inmovilizaciones.
+                        </p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-card__icon-wrap">
+                            <i class="fas fa-qrcode"></i>
+                        </div>
+                        <h3 class="benefit-card__title">Póliza 100% Digital y Segura</h3>
+                        <p class="benefit-card__description">
+                            Llévala siempre en tu celular con su código QR verificable ante cualquier agente de tránsito o centro hospitalario.
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="cotizar" class="quote">
-            <div class="container quote__container">
-                <h2 class="quote__title">Cotiza tu SOAT</h2>
-                <form class="quote-form" id="quoteForm">
-                    <div class="quote-form__field">
-                        <select id="vehicleType" class="quote-form__select" required>
-                            <option value="">Tipo de vehículo</option>
-                            <option value="car">Carro</option>
-                            <option value="motorcycle">Moto</option>
-                        </select>
+        <!-- How it works (Paso a Paso) -->
+        <section id="como-funciona" class="how-it-works">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Proceso simple</span>
+                    <h2 class="section-title">¿Cómo comprar tu SOAT en 3 pasos?</h2>
+                    <p class="section-subtitle">Fácil, transparente y sin complicaciones técnicas.</p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-card__number">1</div>
+                        <div class="step-card__icon"><i class="fas fa-file-alt"></i></div>
+                        <h3 class="step-card__title">Digita tu Placa y Cédula</h3>
+                        <p class="step-card__desc">Llena el formulario abajo con la placa de tu carro o moto y número de cédula del propietario.</p>
                     </div>
-                    <div class="quote-form__field">
-                        <input type="text" id="plate" class="quote-form__input" placeholder="Placa del vehículo"
-                            required />
+
+                    <div class="step-card">
+                        <div class="step-card__number">2</div>
+                        <div class="step-card__icon"><i class="fab fa-whatsapp"></i></div>
+                        <h3 class="step-card__title">Confirmamos Valor Oficial</h3>
+                        <p class="step-card__desc">Te conectamos a WhatsApp donde verificamos en la base de datos RUNT el valor exacto según las tablas vigentes de ley.</p>
                     </div>
-                    <div class="quote-form__field">
-                        <input type="number" id="cedula" class="quote-form__input" placeholder="Número de cédula"
-                            required />
+
+                    <div class="step-card">
+                        <div class="step-card__number">3</div>
+                        <div class="step-card__icon"><i class="fas fa-download"></i></div>
+                        <h3 class="step-card__title">Pagas y Recibes tu SOAT</h3>
+                        <p class="step-card__desc">Efectúas tu pago de forma segura y en contados minutos recibes tu póliza digital con código QR.</p>
                     </div>
-                    <div class="quote-form__field quote-form__field--car" style="display: none">
-                        <input type="number" id="year" class="quote-form__input" placeholder="Modelo del vehículo" />
-                    </div>
-                    <div class="quote-form__field quote-form__field--motorcycle" style="display: none">
-                        <input type="number" id="engineSize" class="quote-form__input" placeholder="Cilindraje" />
-                    </div>
-                    <button type="submit" class="button button--primary quote-form__submit">
-                        Obtener cotización
-                    </button>
-                </form>
+                </div>
             </div>
         </section>
 
+        <!-- Quote Form Section -->
+        <section id="cotizar" class="quote">
+            <div class="container quote__container">
+                <div class="quote__wrapper">
+                    <div class="quote__info">
+                        <span class="section-tag">Cotización en Vivo</span>
+                        <h2 class="quote__title">Cotiza tu SOAT en segundos</h2>
+                        <p class="quote__desc">
+                            Ingresa los datos para cotizar de inmediato. Nuestro sistema preparará la consulta oficial y un asesor te responderá por WhatsApp con el valor liquidado y opciones de pago.
+                        </p>
+
+                        <div class="quote__features-list">
+                            <div class="quote__feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Consulta con tarifas oficiales 2026</span>
+                            </div>
+                            <div class="quote__feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Liquidación exacta según normatividad vigente</span>
+                            </div>
+                            <div class="quote__feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Sin cobros ocultos ni comisiones extra</span>
+                            </div>
+                        </div>
+
+                        <div class="quote__contact-box">
+                            <p class="quote__contact-title"><i class="fas fa-headset"></i> ¿Prefieres atención telefónica?</p>
+                            <p class="quote__contact-phone">Llámanos al <strong>(+57) 316 734 1074</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="quote__form-card">
+                        <div class="quote__form-header">
+                            <i class="fas fa-calculator"></i>
+                            <div>
+                                <h3>Formulario de Cotización</h3>
+                                <p>Rápido y confidencial</p>
+                            </div>
+                        </div>
+
+                        <form class="quote-form" id="quoteForm" novalidate>
+                            <div class="quote-form__field">
+                                <label for="vehicleType" class="quote-form__label">Tipo de vehículo <span class="required">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-car input-icon"></i>
+                                    <select id="vehicleType" class="quote-form__select" required>
+                                        <option value="">Selecciona el tipo de vehículo</option>
+                                        <option value="car">Carro / Camioneta</option>
+                                        <option value="motorcycle">Moto / Motocarro</option>
+                                        <option value="heavy">Camión / Transporte Pesado / Taxi</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="quote-form__row">
+                                <div class="quote-form__field">
+                                    <label for="plate" class="quote-form__label">Placa <span class="required">*</span></label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-id-card input-icon"></i>
+                                        <input type="text" id="plate" class="quote-form__input uppercase" placeholder="Ej: ABC123" maxlength="6" required />
+                                    </div>
+                                    <span class="field-hint">6 caracteres alfanuméricos</span>
+                                </div>
+
+                                <div class="quote-form__field">
+                                    <label for="cedula" class="quote-form__label">Cédula del propietario <span class="required">*</span></label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-user input-icon"></i>
+                                        <input type="number" id="cedula" class="quote-form__input" placeholder="Número de cédula" required />
+                                    </div>
+                                    <span class="field-hint">Sin puntos ni comas</span>
+                                </div>
+                            </div>
+
+                            <div class="quote-form__field quote-form__field--car" style="display: none">
+                                <label for="year" class="quote-form__label">Modelo / Año (Opcional)</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-calendar-alt input-icon"></i>
+                                    <input type="number" id="year" class="quote-form__input" placeholder="Ej: 2021" min="1970" max="2027" />
+                                </div>
+                            </div>
+
+                            <div class="quote-form__field quote-form__field--motorcycle" style="display: none">
+                                <label for="engineSize" class="quote-form__label">Cilindraje c.c. (Opcional)</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-tachometer-alt input-icon"></i>
+                                    <input type="number" id="engineSize" class="quote-form__input" placeholder="Ej: 125, 150, 250" />
+                                </div>
+                            </div>
+
+                            <div class="quote-form__terms">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="termsCheck" checked required>
+                                    <span class="checkmark"></span>
+                                    <span class="terms-text">Acepto los términos y el tratamiento de datos para recibir la cotización vía WhatsApp.</span>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="button button--secondary button--block quote-form__submit" id="submitBtn">
+                                <i class="fab fa-whatsapp"></i> Obtener Cotización Inmediata
+                            </button>
+
+                            <p class="form-secure-notice">
+                                <i class="fas fa-lock"></i> Tus datos están protegidos y solo se usan para liquidar el SOAT.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonios" class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Testimonios</span>
+                    <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+                    <p class="section-subtitle">Conductores satisfechos en todo el país que ahorran tiempo y manejan protegidos.</p>
+                </div>
+
+                <div class="testimonials__grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-card__stars">★★★★★</div>
+                        <p class="testimonial-card__text">
+                            "Excelente servicio. Tenía el SOAT de mi moto vencido y en menos de 10 minutos me enviaron la póliza a mi WhatsApp y verifiqué en el RUNT de una vez. ¡Muy recomendados!"
+                        </p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">JR</div>
+                            <div>
+                                <strong>Julián Rodríguez</strong>
+                                <small>Bogotá · Yamaha FZ</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-card__stars">★★★★★</div>
+                        <p class="testimonial-card__text">
+                            "Estaba cansada de páginas caídas donde no dejaba pagar. Aquí la atención fue personalizada por WhatsApp, pagué con PSE seguro y la póliza llegó impecable."
+                        </p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">MC</div>
+                            <div>
+                                <strong>Marcela Cardona</strong>
+                                <small>Medellín · Renault Duster</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-card__stars">★★★★★</div>
+                        <p class="testimonial-card__text">
+                            "Compré el SOAT para mi taxi y mi carro particular. Me liquidaron la tarifa exacta que fija el gobierno y el soporte por WhatsApp fue inmediato y muy claro."
+                        </p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__avatar">HO</div>
+                            <div>
+                                <strong>Hernando Ospina</strong>
+                                <small>Cali · Kia Picanto</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
         <section id="faq" class="faq">
             <div class="container faq__container">
-                <h2 class="faq__title">Preguntas frecuentes</h2>
+                <div class="section-header">
+                    <span class="section-tag">Dudas Frecuentes</span>
+                    <h2 class="faq__title">Preguntas Frecuentes sobre el SOAT</h2>
+                    <p class="section-subtitle">Todo lo que necesitas saber antes de expedir o renovar tu póliza.</p>
+                </div>
+
                 <div class="faq__list">
                     <div class="faq-item">
-                        <button class="faq-item__question">¿Qué es el SOAT?</button>
-                        <div class="faq-item__answer">
-                            <p>
-                                El SOAT es un seguro obligatorio para todos los vehículos que
-                                transitan por el territorio nacional. Cubre los daños
-                                corporales causados a las personas en accidentes de tránsito.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-item__question">
-                            ¿Cómo puedo comprar mi SOAT?
+                        <button class="faq-item__question" aria-expanded="false">
+                            <span>¿Qué es el SOAT y qué amparos cubre?</span>
+                            <i class="fas fa-chevron-down faq-item__arrow"></i>
                         </button>
                         <div class="faq-item__answer">
                             <p>
-                                Puedes comprar tu SOAT en línea a través de nuestra
-                                plataforma. Solo necesitas ingresar los datos de tu vehículo y
-                                realizar el pago.
+                                El Seguro Obligatorio de Accidentes de Tránsito (SOAT) cubre la atención médica integral de todas las personas involucradas en un accidente de tránsito (conductor, acompañantes y peatones): gastos de transporte al centro asistencial, atención hospitalaria, medicamentos, cirugías, indemnización por incapacidad permanente y amparo por muerte y gastos funerarios.
                             </p>
                         </div>
                     </div>
+
                     <div class="faq-item">
-                        <button class="faq-item__question">
-                            ¿Cuánto tiempo tarda en activarse mi SOAT?
+                        <button class="faq-item__question" aria-expanded="false">
+                            <span>¿Cuánto tiempo tarda en registrarse en el sistema RUNT?</span>
+                            <i class="fas fa-chevron-down faq-item__arrow"></i>
                         </button>
                         <div class="faq-item__answer">
                             <p>
-                                Tu SOAT se activa inmediatamente después de realizar la
-                                compra. Recibirás una copia digital por correo electrónico que
-                                puedes imprimir o mostrar en tu dispositivo móvil. Pero su registro en el RUNT puede tardar hasta 24 horas.
+                                La póliza digital entra en vigencia en la fecha acordada y la aseguradora reporta la expedición inmediatamente. En la plataforma oficial de consulta RUNT el reflejo suele tardar entre unos minutos y un máximo de 24 horas hábiles. Tu comprobante digital con código QR te respalda desde el primer instante.
                             </p>
                         </div>
                     </div>
+
+                    <div class="faq-item">
+                        <button class="faq-item__question" aria-expanded="false">
+                            <span>¿Cómo se determinan las tarifas oficiales del SOAT?</span>
+                            <i class="fas fa-chevron-down faq-item__arrow"></i>
+                        </button>
+                        <div class="faq-item__answer">
+                            <p>
+                                Las tarifas del SOAT están reguladas anualmente por la Superintendencia Financiera de Colombia. El valor exacto se calcula con base en la clase de vehículo, cilindraje, modelo, antigüedad y capacidad de carga o pasajeros registrada en el RUNT.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-item__question" aria-expanded="false">
+                            <span>¿Cómo demuestro el SOAT a las autoridades de tránsito?</span>
+                            <i class="fas fa-chevron-down faq-item__arrow"></i>
+                        </button>
+                        <div class="faq-item__answer">
+                            <p>
+                                En Colombia el formato físico de papel de seguridad ya no es obligatorio. Es completamente válido portar el archivo PDF del SOAT descargado en tu celular, o mostrarlo desde tu correo. Los agentes de tránsito leen el código QR o consultan tu placa en el RUNT.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-item__question" aria-expanded="false">
+                            <span>¿Qué métodos de pago tienen disponibles?</span>
+                            <i class="fas fa-chevron-down faq-item__arrow"></i>
+                        </button>
+                        <div class="faq-item__answer">
+                            <p>
+                                Puedes cancelar mediante PSE (cualquier banco de Colombia), Nequi, Daviplata, transferencias directas a cuentas empresariales o tarjetas de crédito a través de pasarelas de pago certificadas con altos estándares de seguridad y cifrado SSL.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner Final -->
+        <section class="cta-banner">
+            <div class="container cta-banner__container">
+                <div class="cta-banner__content">
+                    <h2 class="cta-banner__title">¿Listo para viajar con total tranquilidad?</h2>
+                    <p class="cta-banner__desc">No dejes vencer tu seguro. Evita comparendos de más de 30 salarios mínimos diarios e inmovilización de tu vehículo.</p>
+                </div>
+                <div class="cta-banner__actions">
+                    <a href="#cotizar" class="button button--secondary button--lg">
+                        <i class="fas fa-file-invoice"></i> Cotizar Ahora
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container footer__container">
-            <div class="footer__section">
-                <h3 class="footer__title">SOAT Ya</h3>
+            <div class="footer__section footer__section--brand">
+                <div class="header__brand footer__brand">
+                    <div class="header__logo-icon">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <div class="header__logo-text">
+                        <span class="header__logo-title">SOAT<span class="accent-dot">YA</span></span>
+                        <span class="header__logo-sub">Expedición Ágil & Segura</span>
+                    </div>
+                </div>
                 <p class="footer__text">
-                    Protegiendo tu camino, simplificando tu seguro.
+                    Plataforma especializada en asesoría, cotización y gestión del Seguro Obligatorio de Accidentes de Tránsito en Colombia con respaldo oficial.
                 </p>
                 <div class="footer__social">
-                    <a href="https://www.facebook.com/refacil.soat" class="footer__social-link" aria-label="Facebook"><i
-                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.facebook.com/refacil.soat" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://wa.me/573167341074" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
                 </div>
             </div>
+
             <div class="footer__section">
-                <h3 class="footer__title">Enlaces rápidos</h3>
+                <h3 class="footer__title">Enlaces Rápidos</h3>
                 <ul class="footer__links">
-                    <li><a href="#beneficios" class="footer__link">- Beneficios</a></li>
-                    <li><a href="#cotizar" class="footer__link">- Cotizar</a></li>
-                    <li>
-                        <a href="#faq" class="footer__link">- Preguntas frecuentes</a>
-                    </li>
+                    <li><a href="#beneficios" class="footer__link"><i class="fas fa-chevron-right"></i> Beneficios</a></li>
+                    <li><a href="#tarifas" class="footer__link"><i class="fas fa-chevron-right"></i> Categorías de vehículos</a></li>
+                    <li><a href="#como-funciona" class="footer__link"><i class="fas fa-chevron-right"></i> ¿Cómo funciona?</a></li>
+                    <li><a href="#cotizar" class="footer__link"><i class="fas fa-chevron-right"></i> Cotizar en línea</a></li>
+                    <li><a href="#faq" class="footer__link"><i class="fas fa-chevron-right"></i> Preguntas frecuentes</a></li>
                 </ul>
             </div>
+
             <div class="footer__section">
-                <h3 class="footer__title">Contacto</h3>
-                <p class="footer__text">Email: ventasypublicidad7@gmail.com</p>
-                <p class="footer__text">Teléfono: (+57) 316-734-1074</p>
+                <h3 class="footer__title">Información y Ley</h3>
+                <ul class="footer__links">
+                    <li><a href="https://www.runt.gov.co/" target="_blank" rel="noopener noreferrer" class="footer__link"><i class="fas fa-external-link-alt"></i> Consulta oficial RUNT</a></li>
+                    <li><a href="#faq" class="footer__link"><i class="fas fa-chevron-right"></i> Tarifas y regulación oficial</a></li>
+                    <li><a href="#cotizar" class="footer__link"><i class="fas fa-chevron-right"></i> Política de privacidad</a></li>
+                    <li><a href="#cotizar" class="footer__link"><i class="fas fa-chevron-right"></i> Términos de servicio</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__section">
+                <h3 class="footer__title">Canales de Atención</h3>
+                <p class="footer__text footer__contact-item">
+                    <i class="fas fa-envelope"></i> ventasypublicidad7@gmail.com
+                </p>
+                <p class="footer__text footer__contact-item">
+                    <i class="fab fa-whatsapp"></i> (+57) 316-734-1074
+                </p>
+                <p class="footer__text footer__contact-item">
+                    <i class="fas fa-clock"></i> Lunes a Domingo: 7:00 AM - 10:00 PM
+                </p>
+                <div class="footer__secure-pill">
+                    <i class="fas fa-lock"></i> Conexión Cifrada SSL 256-bit
+                </div>
             </div>
         </div>
+
         <div class="footer__bottom">
-            <p class="footer__copyright">
-                ©<span id="currentYear"></span> SOAT YA.<br>Todos los derechos
-                reservados
-            </p>
-            <p class="footer__privacy">
-                Creada por
-                <span><a href="https://cristianbolanos.github.io/cb/" target="_blank"
-                        class="footer__privacy--span">Cristian Bolaños</a></span>
-            </p>
+            <div class="container footer__bottom-container">
+                <p class="footer__copyright">
+                    © <span id="currentYear"></span> <strong>SOAT YA</strong>. Todos los derechos reservados.
+                </p>
+                <p class="footer__privacy">
+                    Desarrollado y optimizado por
+                    <span><a href="https://cristianbolanos.github.io/cb/" target="_blank" rel="noopener noreferrer" class="footer__privacy--span">Cristian Bolaños</a></span>
+                </p>
+            </div>
         </div>
     </footer>
 
-    <button id="colorToggle" class="color-toggle" aria-label="Cambiar tema de color">
-        <i class="fas fa-adjust"></i>
+    <!-- Floating WhatsApp Action Button for Mobile & Desktop -->
+    <a href="https://wa.me/573167341074?text=Hola,%20deseo%20cotizar%20mi%20SOAT" target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Escríbenos por WhatsApp" title="Escríbenos por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="floating-whatsapp__tooltip">¿Necesitas ayuda? Escríbenos</span>
+    </a>
+
+    <!-- Scroll to Top button -->
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Volver arriba" title="Subir al inicio">
+        <i class="fas fa-arrow-up"></i>
     </button>
 
-    <div id="customAlert" class="custom-alert">
+    <!-- Custom Modal / Confirmation Alert -->
+    <div id="customAlert" class="custom-alert" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="custom-alert__backdrop"></div>
         <div class="custom-alert__content">
-            <p>
-                Cotización enviada. Te contactaremos pronto vía WhatsApp con tu
-                cotización.
+            <div class="custom-alert__icon-wrap">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+            <h3 class="custom-alert__title">¡Cotización Generada!</h3>
+            <p class="custom-alert__text">
+                Te hemos redirigido a WhatsApp con los datos de tu vehículo prellenados. Uno de nuestros asesores verificará la liquidación oficial en RUNT y te dará respuesta inmediata.
             </p>
-            <button id="closeAlert" class="custom-alert__button">Aceptar</button>
+            <div class="custom-alert__summary" id="alertSummary"></div>
+            <button id="closeAlert" class="button button--primary button--block">Entendido, gracias</button>
         </div>
     </div>
+
+    <!-- Script -->
     <script src="script.js"></script>
 </body>
 
