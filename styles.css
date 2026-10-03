@@ -1692,6 +1692,27 @@ body.dark-mode .benefit-card__icon-wrap {
     color: var(--color-secondary);
 }
 
+/* Actionable channels (WhatsApp, phone, email). The schedule line stays a
+   plain <p>, so these rules are scoped to the anchor variant only. */
+a.footer__contact-item {
+    width: fit-content;
+    max-width: 100%;
+    cursor: pointer;
+    word-break: break-word;
+    transition: color var(--transition-fast);
+    /* Padding traded against margin so the tap target grows without
+       shifting the vertical rhythm of the contact list. */
+    margin-top: 6px;
+    padding: 5px 0;
+}
+
+a.footer__contact-item:hover,
+a.footer__contact-item:focus-visible {
+    color: #ffffff;
+    text-decoration: none;
+    text-underline-offset: 3px;
+}
+
 .footer__social {
     display: flex;
     gap: 10px;
