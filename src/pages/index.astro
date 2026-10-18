@@ -1,25 +1,21 @@
 ---
-// Página provisional (F2): valida la cadena de herramientas. Se reemplaza por la
-// landing en F5, después de las compuertas G1 (contenido) y G2 (diseño).
+// Landing en construcción por fases: F3 (diseño) trae el header y el hero; las demás
+// secciones (¿Cuánto cuesta?, Cómo funciona, Compra segura, FAQ, pie) llegan en F5.
+import Header from '@/components/layout/Header.astro';
+import Hero from '@/components/sections/Hero.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { site } from '@/config/site';
+import { currentYear } from '@/lib/dates';
 
-const whatsappHref = `https://wa.me/${site.contact.whatsapp}`;
+const year = currentYear(site.timeZone);
 ---
 
 <BaseLayout
-  title="SOAT YA | Sitio en construcción"
-  description="Cotiza tu SOAT de moto o carro por WhatsApp con SOAT YA."
-  noindex
+  title={`Compra tu SOAT ${year} para moto o carro | SOAT YA`}
+  description={`Cotiza y compra tu SOAT ${year} para moto o carro por WhatsApp. Te confirmamos el valor antes de pagar y tu póliza es verificable en el RUNT.`}
 >
-  <main class="mx-auto flex min-h-dvh max-w-xl flex-col justify-center gap-6 px-4 py-16">
-    <h1 class="text-3xl font-extrabold text-balance">SOAT YA: sitio en construcción</h1>
-    <p class="text-muted">Mientras tanto, cotiza tu SOAT de moto o carro por WhatsApp.</p>
-    <a
-      href={whatsappHref}
-      class="bg-wa text-on-wa inline-flex min-h-11 items-center justify-center rounded-xl px-6 font-bold"
-    >
-      Cotizar por WhatsApp
-    </a>
+  <Header />
+  <main>
+    <Hero />
   </main>
 </BaseLayout>

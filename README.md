@@ -11,21 +11,22 @@ Landing de conversión para cotizar y comprar el **SOAT de moto o carro en Colom
 
 ## Comandos
 
-| Comando                             | Qué hace                                                        |
-| ----------------------------------- | --------------------------------------------------------------- |
-| `pnpm install`                      | Instala las dependencias                                        |
-| `pnpm dev`                          | Servidor de desarrollo en http://localhost:4321                 |
-| `pnpm build`                        | Genera el sitio estático en `dist/`                             |
-| `pnpm preview`                      | Sirve `dist/` en local                                          |
-| `pnpm lint`                         | ESLint (incluye las reglas de accesibilidad y de código limpio) |
-| `pnpm format` / `pnpm format:check` | Prettier                                                        |
-| `pnpm check`                        | Revisión de tipos (`astro check`)                               |
-| `pnpm test`                         | Pruebas unitarias (Vitest)                                      |
-| `pnpm test:build`                   | Pruebas de integración sobre `dist/`                            |
-| `pnpm validate:html`                | html-validate y el Nu HTML Checker del W3C                      |
-| `pnpm test:e2e`                     | Playwright más axe (5 perfiles de navegador)                    |
-| `pnpm lhci`                         | Lighthouse CI (meta: 100 en las 4 categorías)                   |
-| `pnpm verify`                       | Todo lo anterior salvo E2E y Lighthouse                         |
+| Comando                             | Qué hace                                                                     |
+| ----------------------------------- | ---------------------------------------------------------------------------- |
+| `pnpm install`                      | Instala las dependencias                                                     |
+| `pnpm dev`                          | Servidor de desarrollo en http://localhost:4321                              |
+| `pnpm build`                        | Genera el sitio estático en `dist/`                                          |
+| `pnpm preview`                      | Sirve `dist/` en local                                                       |
+| `pnpm lint`                         | ESLint (incluye las reglas de accesibilidad y de código limpio)              |
+| `pnpm format` / `pnpm format:check` | Prettier                                                                     |
+| `pnpm check`                        | Revisión de tipos (`astro check`)                                            |
+| `pnpm test`                         | Pruebas unitarias (Vitest)                                                   |
+| `pnpm test:build`                   | Pruebas de integración sobre `dist/`                                         |
+| `pnpm validate:html`                | html-validate y el Nu HTML Checker del W3C                                   |
+| `pnpm test:e2e`                     | Playwright más axe (5 perfiles de navegador)                                 |
+| `pnpm lhci`                         | Lighthouse CI (meta: 100 en las 4 categorías)                                |
+| `pnpm brand`                        | Regenera logo, favicons, imagen OG e ilustración del hero (`scripts/brand/`) |
+| `pnpm verify`                       | Todo lo anterior salvo E2E y Lighthouse                                      |
 
 ## Estructura
 
@@ -58,6 +59,9 @@ docs/                 Decisiones, marca, copy, SEO, medición, soporte y desplie
 - `docs/despliegue.md`: Cloudflare Pages, lanzamiento y reversa
 - `docs/linea-base/`: medición del sitio anterior
 - `docs/wireframes/`: wireframes de baja fidelidad (compuerta G1)
+- `docs/creditos.md`: origen y licencia de cada recurso visual
+- `docs/marca/`: logo e ilustración en vector
+- `docs/diseno/`: capturas del diseño (compuerta G2)
 
 ## Mantenimiento
 

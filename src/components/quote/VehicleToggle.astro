@@ -1,0 +1,33 @@
+---
+/**
+ * Selector Moto/Carro con radios nativos (accesibles con teclado y lectores de
+ * pantalla), con aspecto de botones segmentados.
+ */
+import Icon from '@/components/ui/Icon.astro';
+
+const options = [
+  { value: 'moto', label: 'Moto', icon: 'motorbike' },
+  { value: 'carro', label: 'Carro', icon: 'car-front' },
+] as const;
+---
+
+<fieldset>
+  <legend class="mb-2 font-bold">¿Qué vehículo vas a asegurar?</legend>
+  <div class="grid grid-cols-2 gap-2">
+    {options.map((option) => (
+      <label class="relative cursor-pointer">
+        <input
+          type="radio"
+          name="tipo"
+          value={option.value}
+          class="peer sr-only"
+          data-vehicle-option
+        />
+        <span class="flex min-h-12 items-center justify-center gap-2 rounded-control border-2 border-line bg-bg font-bold transition peer-checked:border-fg peer-checked:bg-surface peer-focus-visible:outline-3 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-brand">
+          <Icon name={option.icon} class="size-5" />
+          {option.label}
+        </span>
+      </label>
+    ))}
+  </div>
+</fieldset>

@@ -23,3 +23,6 @@ coverage/
 # Sistema
 .DS_Store
 Thumbs.db
+
+# Configuración local de herramientas
+.claude/launch.json

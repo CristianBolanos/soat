@@ -1,0 +1,62 @@
+---
+/**
+ * Cotizador (#cotizador-pasos). Sin JavaScript el formulario va directo a wa.me
+ * con un mensaje genérico (wa.me ignora los demás campos). Con JavaScript (F5)
+ * valida la placa y arma el mensaje con el tipo y la placa.
+ */
+import Button from '@/components/ui/Button.astro';
+import Icon from '@/components/ui/Icon.astro';
+import { site } from '@/config/site';
+import { MESSAGES, whatsappUrl, withOrigin } from '@/lib/whatsapp';
+import PlateInput from './PlateInput.astro';
+import VehicleToggle from './VehicleToggle.astro';
+
+const otherVehicleHref = whatsappUrl(
+  site.contact.whatsapp,
+  withOrigin(MESSAGES.otherVehicle, 'web'),
+);
+const trust = ['Valor confirmado antes de pagar', 'Verificable en el RUNT', site.hours.short];
+---
+
+<form
+  id="cotizador-pasos"
+  action={`https://wa.me/${site.contact.whatsapp}`}
+  method="get"
+  novalidate
+  aria-label="Cotizador de SOAT"
+  class="rounded-card border border-line bg-bg p-5 shadow-card sm:p-6"
+  data-quote-form
+>
+  <input type="hidden" name="text" value={withOrigin(MESSAGES.generic, 'web')} />
+  <div class="space-y-4">
+    <VehicleToggle />
+    <PlateInput />
+    <Button type="submit" variant="cta" size="lg" block icon="simple-icons:whatsapp">
+      Cotizar por WhatsApp
+    </Button>
+  </div>
+  <p class="mt-3 text-sm text-muted">
+    Al continuar se abrirá WhatsApp con tu placa para que un asesor te responda.
+    <a href="/politica-de-datos" class="font-semibold text-brand underline underline-offset-2">
+      Consulta cómo tratamos tus datos.
+    </a>
+  </p>
+  <p class="mt-3 text-sm">
+    <a
+      href={otherVehicleHref}
+      class="font-semibold text-brand underline underline-offset-2"
+      data-track="whatsapp_click"
+      data-track-ubicacion="otro_vehiculo"
+    >
+      ¿Taxi, camión, bus u otro vehículo? Escríbenos por WhatsApp
+    </a>
+  </p>
+  <ul class="mt-4 flex flex-wrap gap-x-4 gap-y-1 border-t border-line pt-4 text-xs text-muted">
+    {trust.map((item) => (
+      <li class="flex items-center gap-1.5">
+        <Icon name="check" class="size-4 text-success" />
+        {item}
+      </li>
+    ))}
+  </ul>
+</form>

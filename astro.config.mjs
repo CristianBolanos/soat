@@ -54,6 +54,10 @@ export default defineConfig({
       ],
     },
   },
+  // Sin resaltado de código: el sitio no lo usa y Shiki requiere estilos en línea (incompatibles con la CSP).
+  markdown: {
+    syntaxHighlight: false,
+  },
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/404'),

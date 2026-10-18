@@ -69,3 +69,19 @@
 - **Tipografía:** Plus Jakarta Sans Variable: títulos en 800, texto en 400–500 y la placa con cifras tabulares.
 - **Íconos:** Lucide (trazo de 2 px, esquinas redondeadas), siempre acompañados de texto.
 - **Fotografía:** personas reales en contexto colombiano (motos y carros comunes). Nada de placas extranjeras, logos de marcas ni poses de banco de imágenes. Prioridad a las fotos propias del cliente.
+
+## 6. Recursos generados (F3.1)
+
+Se generan con `pnpm brand` a partir de la fuente real (los textos se convierten en trazados vectoriales), así que se ven igual en cualquier navegador:
+
+| Archivo                                                                                                     | Uso                                                                       |
+| ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `src/components/ui/logo-geometry.ts`                                                                        | Trazados del logo para el componente `Logo.astro` (adapta «SOAT» al tema) |
+| `docs/marca/logo.svg`, `docs/marca/logo-oscuro.svg`                                                         | Logo para fondo claro y para fondo oscuro                                 |
+| `public/favicon.svg`, `public/favicon.ico` (16, 32 y 48 px)                                                 | Pestaña del navegador                                                     |
+| `public/apple-touch-icon.png`, `public/icon-192.png`, `public/icon-512.png`, `public/icon-maskable-512.png` | Pantalla de inicio (iOS y Android)                                        |
+| `public/manifest.webmanifest`                                                                               | Nombre y colores al instalar o fijar el sitio                             |
+| `public/og-image.png`                                                                                       | Vista previa al compartir (sin año ni precios)                            |
+| `src/assets/hero/hero-chat.png` y `docs/marca/hero-chat.svg`                                                | Ilustración del hero (Astro la convierte a AVIF/WebP)                     |
+
+Para cambiar algo de la identidad visual, se edita `scripts/brand/` y se vuelve a correr `pnpm brand`. Los archivos generados no se editan a mano.

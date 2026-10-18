@@ -1,0 +1,30 @@
+---
+/**
+ * Campo de placa con aspecto de placa colombiana (fondo amarillo, borde navy,
+ * mayúsculas espaciadas). La ayuda y el error se enlazan con aria-describedby.
+ */
+---
+
+<div>
+  <label for="placa" class="mb-1.5 block text-sm font-semibold">
+    Placa del vehículo
+  </label>
+  <input
+    id="placa"
+    name="placa"
+    type="text"
+    inputmode="text"
+    autocomplete="off"
+    autocapitalize="characters"
+    spellcheck="false"
+    maxlength="7"
+    placeholder="ABC123"
+    aria-describedby="placa-ayuda placa-error"
+    class="block h-14 w-full rounded-control border-[3px] border-on-cta bg-cta text-center text-2xl font-extrabold tracking-[0.2em] text-on-cta uppercase tabular-nums placeholder:font-bold placeholder:text-on-cta/35 focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-brand"
+    data-plate-input
+  />
+  <p id="placa-ayuda" class="mt-1.5 text-sm text-muted" data-plate-hint>
+    Carro: ABC123 · Moto: ABC12D
+  </p>
+  <p id="placa-error" class="mt-1.5 text-sm font-semibold text-danger" data-plate-error hidden></p>
+</div>

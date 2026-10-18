@@ -1,0 +1,49 @@
+---
+/**
+ * Header mínimo (docs/copy.md): logo, 3 anclas solo en escritorio, llamada y tema.
+ * Sin menú hamburguesa (decisión T8): en móvil la acción vive en el cotizador y
+ * en la barra fija inferior.
+ */
+import Container from '@/components/ui/Container.astro';
+import Icon from '@/components/ui/Icon.astro';
+import Logo from '@/components/ui/Logo.astro';
+import { site } from '@/config/site';
+import ThemeToggle from './ThemeToggle.astro';
+
+const links = [
+  { href: '#tarifas', label: '¿Cuánto cuesta?' },
+  { href: '#como-funciona', label: 'Cómo funciona' },
+  { href: '#faq', label: 'Preguntas' },
+];
+---
+
+<header class="border-b border-line">
+  <Container class="flex h-16 items-center gap-3">
+    <a href="#hero" aria-label="SOAT YA, ir al inicio" class="rounded-md text-fg">
+      <Logo class="h-8 w-auto" />
+    </a>
+    <nav aria-label="Secciones" class="ml-auto hidden lg:block">
+      <ul class="flex gap-6 text-sm font-semibold">
+        {links.map((link) => (
+          <li>
+            <a href={link.href} class="text-muted transition hover:text-fg">
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <div class="ml-auto flex items-center gap-2 lg:ml-6">
+      <a
+        href={`tel:${site.contact.phone}`}
+        aria-label={`Llamar al ${site.contact.phoneDisplay}`}
+        class="inline-flex size-11 items-center justify-center rounded-control border border-line text-fg transition hover:border-fg"
+        data-track="phone_click"
+        data-track-ubicacion="header"
+      >
+        <Icon name="phone" class="size-5" />
+      </a>
+      <ThemeToggle />
+    </div>
+  </Container>
+</header>
