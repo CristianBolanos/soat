@@ -1,0 +1,92 @@
+@import 'tailwindcss';
+
+/*
+ * Tokens de color (plan, anexo 2.4). Los contrastes de texto cumplen WCAG AA
+ * en los dos temas. Los componentes usan solo estos tokens semánticos.
+ */
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #f5f7fb;
+  --text: #0b1f3a;
+  --text-muted: #475569;
+  --brand: #1f4fd1;
+  --cta: #ffc629;
+  --on-cta: #0b1f3a;
+  --wa: #0b7a43;
+  --on-wa: #ffffff;
+  --border: #e2e8f0;
+  --danger: #b42318;
+  --success: #067647;
+}
+
+/* Tema oscuro: por preferencia del sistema (también sin JS) o por elección guardada. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #0a1424;
+    --surface: #111e33;
+    --text: #e6edf7;
+    --text-muted: #9fb0c8;
+    --brand: #7aa2ff;
+    --border: #1e2c44;
+    --danger: #f97066;
+    --success: #47cd89;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0a1424;
+  --surface: #111e33;
+  --text: #e6edf7;
+  --text-muted: #9fb0c8;
+  --brand: #7aa2ff;
+  --border: #1e2c44;
+  --danger: #f97066;
+  --success: #47cd89;
+}
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+@theme inline {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--text);
+  --color-muted: var(--text-muted);
+  --color-brand: var(--brand);
+  --color-cta: var(--cta);
+  --color-on-cta: var(--on-cta);
+  --color-wa: var(--wa);
+  --color-on-wa: var(--on-wa);
+  --color-line: var(--border);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-bg font-sans text-fg antialiased;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--brand);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
