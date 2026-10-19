@@ -23,10 +23,10 @@ Estos son todos los textos del sitio. Se aprueban en la compuerta **G1** antes d
 
 ## Hero (`#hero`)
 
-- **Antetítulo:** SOAT {año} · Moto y carro
 - **H1 (opción A, recomendada):** Tu SOAT {año} para moto o carro, listo hoy por WhatsApp `[Confirmar que la expedición es el mismo día]`
 - **H1 (opción B, sin promesa de tiempo):** Tu SOAT {año} para moto o carro, por WhatsApp y sin filas
-- **Subtítulo:** Te confirmamos el valor exacto antes de pagar, te acompaña un asesor real y recibes tu póliza electrónica, verificable en el RUNT.
+- **Subtítulo** (lleva el ancla `#beneficios` del sitio anterior, D8): Te confirmamos el valor exacto antes de pagar, te acompaña un asesor real y recibes tu póliza electrónica, verificable en el RUNT.
+- **Sin antetítulo ni imagen** (D8): el antetítulo repetía el H1 y la ilustración pasó al CTA final.
 
 ### Cotizador (`#cotizador-pasos`)
 
@@ -40,54 +40,51 @@ Estos son todos los textos del sitio. Se aprueban en la compuerta **G1** antes d
 - **CTA principal:** Cotizar por WhatsApp
 - **Aviso de datos (bajo el botón):** Al continuar se abrirá WhatsApp con tu placa para que un asesor te responda. [Consulta cómo tratamos tus datos](/politica-de-datos).
 - **Enlace secundario:** ¿Taxi, camión, bus u otro vehículo? Escríbenos por WhatsApp
-- **Microcopy de confianza:** Valor confirmado antes de pagar · Verificable en el RUNT · L–D, 7 a. m.–10 p. m.
+- **Horario (al pie del cotizador, T27):** Te atendemos L–D, 7 a. m.–10 p. m.
 - **Errores** (en línea, anunciados a lectores de pantalla):
   - Sin tipo elegido: «Elige si es moto o carro.»
   - Placa vacía: «Escribe la placa de tu vehículo.»
   - Placa con formato poco común (aviso, no bloquea): «Revisa la placa: normalmente es ABC123 (carro) o ABC12D (moto). Si está bien, pulsa de nuevo “Cotizar por WhatsApp”.»
-- **Alt de la imagen principal:** depende de la foto elegida en F3.6. Ejemplo: «Conductor revisando su SOAT en el celular junto a su moto».
-
-## Franja de confianza (`#beneficios`)
-
-1. **Valor claro antes de pagar:** Te confirmamos el valor exacto de tu SOAT antes de cualquier pago.
-2. **Póliza verificable:** Tu SOAT queda registrado en el RUNT y lo consultas con tu placa.
-3. **Asesor real:** Te atiende una persona por WhatsApp, todos los días de 7 a. m. a 10 p. m. `[Confirmar horario]`
 
 ## ¿Cuánto cuesta? (`#tarifas`; se conserva el ancla del sitio anterior)
 
 - **H2:** ¿Cuánto cuesta el SOAT de tu moto o carro?
-- **Introducción:** El valor cambia cada año y depende de tu vehículo. Por eso no te mostramos una tabla genérica: te confirmamos el valor exacto para tu placa antes de que pagues.
-- **Tres factores** (tarjetas):
-  1. **Tipo de vehículo:** moto, carro familiar, camioneta o campero.
-  2. **Cilindraje:** los c.c. que aparecen en la licencia de tránsito.
-  3. **Modelo:** en carros y camionetas también cuenta la antigüedad.
+- **Introducción:** El valor cambia cada año y depende de 3 datos de tu licencia de tránsito. Por eso no te mostramos una tabla genérica: con tu placa te confirmamos el valor exacto antes de que pagues.
+- **Licencia de tránsito de ejemplo** (dibujo decorativo, D8): placa ABC12D, clase de vehículo MOTOCICLETA (1), cilindrada 125 (2), modelo 2019 (3) y servicio PARTICULAR; marca y propietario van como barras grises.
+  - **Pie de la imagen:** Licencia de tránsito de ejemplo. Los datos marcados definen el valor.
+- **Tres datos** (lista numerada, con los mismos números de la licencia):
+  1. **Clase de vehículo:** Moto, carro familiar, camioneta o campero.
+  2. **Cilindraje:** Los c.c. del motor.
+  3. **Modelo:** En carros y camionetas también cuenta la antigüedad.
 - **Botones:** Consultar el valor de mi moto · Consultar el valor de mi carro. Cada uno preselecciona el tipo y lleva al cotizador.
 - **Enlace:** ¿Ciclomotor, motocarro u otro vehículo? Escríbenos
 
-## Así de fácil (`#como-funciona`)
+## Así compras tu SOAT por WhatsApp (`#como-funciona`)
 
-- **H2:** Así de fácil: tu SOAT en 3 pasos
-
-1. **Envía tu placa.** Elige moto o carro, escribe la placa y abre WhatsApp.
-2. **Confirma y paga.** Un asesor revisa los datos de tu vehículo, y te confirma el valor y las opciones de pago.
-3. **Recibe tu póliza.** Te llega la póliza electrónica en PDF. Verifícala en el RUNT con tu placa.
-
+- **H2:** Así compras tu SOAT por WhatsApp
+- **Introducción:** Te atiende una persona de principio a fin, todos los días de 7 a. m. a 10 p. m.
+- **Los 3 pasos, contados como la conversación** (rótulo del paso y su mensaje):
+  1. **Envía tu placa.** Tú: «Hola, quiero el SOAT de mi moto de placa ABC12D. ¿Me ayudas con el valor?» (el mismo mensaje que arma el cotizador).
+  2. **Confirma y paga.** Asesor: «¡Hola! Ya revisé los datos de tu moto. Te envío el valor exacto y las opciones de pago: puedes pagar por transferencia, con link de pago o en efectivo en persona.»
+  3. **Recibe tu póliza.** Asesor, con el adjunto «SOAT-ABC12D.pdf»: «Lista tu póliza. También te llega al correo. Verifícala en el RUNT con tu placa.»
+- **Para lectores de pantalla:** cada mensaje empieza con «Tú escribes:» o «El asesor responde:».
 - **CTA:** Empezar ahora (lleva al cotizador)
 
-## Compra segura (`#verificacion`, que contiene `#antifraude`)
+## Cómo evitar un SOAT falso (`#verificacion`, que contiene `#antifraude`)
 
-- **H2:** Compra segura: evita el SOAT falso
-- **Introducción:** Cada año aparecen ofertas de SOAT falso. Con estos tres consejos compras con tranquilidad.
+- **H2:** Cómo evitar un SOAT falso (franja navy con una señal preventiva amarilla, D8)
+- **Introducción:** Cada año aparecen ofertas de SOAT falso. Antes de pagar, revisa estas tres cosas:
 
 1. **Desconfía de lo demasiado barato.** Las ofertas que parecen demasiado buenas son la trampa más común del SOAT falso.
 2. **Verifica quién te cobra.** Solo te damos los datos de pago desde nuestro número (+57) 316 734 1074, por WhatsApp o llamada. Si te escriben desde otro número, no pagues. (Medios de pago confirmados por el cliente, D7.)
-3. **Verifica en el RUNT.** Toda póliza válida queda registrada en el RUNT. Consúltala con tu placa después de comprar.
+3. **Consulta tu póliza en el RUNT.** Toda póliza válida queda registrada en el RUNT. Consúltala con tu placa después de comprar.
 
 - **Botón:** Verificar mi SOAT en el RUNT (abre runt.gov.co en otra pestaña; texto para lectores de pantalla: «se abre en una pestaña nueva»)
 
 ## Preguntas frecuentes (`#faq`)
 
 - **H2:** Preguntas frecuentes sobre el SOAT
+- **Salida a WhatsApp (bajo el título):** ¿Tienes otra pregunta? Escríbenos por WhatsApp
 
 1. **¿Cuánto cuesta el SOAT de mi moto o carro?**
    Depende del tipo de vehículo, el cilindraje y, en carros y camionetas, la antigüedad. Además, el valor cambia cada año. Escríbenos tu placa por WhatsApp y te confirmamos el valor exacto antes de que pagues.
@@ -111,6 +108,7 @@ Estos son todos los textos del sitio. Se aprueban en la compuerta **G1** antes d
 - **H2:** ¿Tu SOAT vence pronto? Déjalo listo hoy.
 - **Texto:** Escríbenos por WhatsApp: te confirmamos el valor y te acompañamos en la compra.
 - **Botones:** Cotizar por WhatsApp · Llamar al (+57) 316 734 1074
+- **Ilustración** (chat con placa y póliza, D8 opción A): «Chat de WhatsApp: un cliente envía la placa de su moto y recibe su póliza SOAT en PDF».
 
 ## Pie de página
 

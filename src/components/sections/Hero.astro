@@ -1,11 +1,11 @@
 ---
 /**
- * Hero (#hero): propuesta de valor y cotizador visibles sin scroll en móvil
- * (360×740). La imagen principal es compacta en móvil y lleva prioridad alta
- * (R68); Astro la convierte a AVIF/WebP responsive.
+ * Hero (#hero): propuesta de valor y cotizador visibles sin scroll en móvil (360×740).
+ * Sin imagen (decisión D8): el título en letra vial y la placa amarilla del cotizador
+ * son la cara de la marca, y el contenido más grande de la primera pantalla (LCP) es
+ * el título, así que no hay imagen que priorizar. La ilustración del chat pasó al cierre.
+ * El subtítulo lleva el ancla #beneficios del sitio anterior: resume los mismos beneficios.
  */
-import { Picture } from 'astro:assets';
-import heroChat from '@/assets/hero/hero-chat.png';
 import QuoteForm from '@/components/quote/QuoteForm.astro';
 import Container from '@/components/ui/Container.astro';
 import { site } from '@/config/site';
@@ -15,29 +15,12 @@ const year = currentYear(site.timeZone);
 ---
 
 <section id="hero" aria-labelledby="hero-titulo" class="pt-6 pb-12 sm:pt-12 lg:pb-20">
-  <Container class="grid items-start gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
-    <div class="lg:flex lg:flex-col">
-      <Picture
-        src={heroChat}
-        formats={['avif', 'webp']}
-        widths={[240, 480, 720, 1080]}
-        sizes="(min-width: 1024px) 540px, 120px"
-        alt="Chat de WhatsApp: un cliente envía la placa de su moto y recibe su póliza SOAT en PDF"
-        loading="eager"
-        fetchpriority="high"
-        class="h-auto w-full"
-        pictureAttributes={{
-          class:
-            'float-right mb-2 ml-3 w-[120px] lg:order-last lg:float-none lg:mt-6 lg:mb-0 lg:ml-0 lg:w-full lg:max-w-[540px]',
-        }}
-      />
-      <p class="hidden text-sm font-bold tracking-widest text-muted uppercase sm:block">
-        SOAT {year} · Moto y carro
-      </p>
-      <h1 id="hero-titulo" class="text-display-sm sm:text-display mt-2 font-extrabold">
+  <Container class="grid items-start gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-12">
+    <div>
+      <h1 id="hero-titulo" class="font-display text-display-sm sm:text-display font-bold">
         Tu SOAT {year} para moto o carro, listo hoy por WhatsApp
       </h1>
-      <p class="sm:text-lead mt-3 max-w-xl text-base text-muted">
+      <p id="beneficios" class="sm:text-lead lg:text-lead-lg mt-3 max-w-xl text-base text-muted">
         Te confirmamos el valor exacto antes de pagar, te acompaña un asesor real y recibes tu
         póliza electrónica, verificable en el RUNT.
       </p>

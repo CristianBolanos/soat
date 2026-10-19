@@ -1,30 +1,74 @@
 ---
-/** Así de fácil (#como-funciona): 3 pasos y un CTA que vuelve al cotizador. */
+/**
+ * Así compras tu SOAT por WhatsApp (#como-funciona): los 3 pasos contados como la
+ * conversación real con el asesor, sin precios (D5). Cada paso es un título (h3, como
+ * los rótulos de fecha de un chat) y su mensaje; el lector de pantalla oye quién habla.
+ * En escritorio el chat va a la izquierda y el título con el botón a la derecha.
+ */
 import Button from '@/components/ui/Button.astro';
 import Icon from '@/components/ui/Icon.astro';
+import NumberBadge from '@/components/ui/NumberBadge.astro';
 import Section from '@/components/ui/Section.astro';
-import { steps } from '@/data/landing';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import { site } from '@/config/site';
+import { steps, stepsSection } from '@/data/landing';
+
+const SPEAKER = { cliente: 'Tú escribes:', asesor: 'El asesor responde:' } as const;
 ---
 
-<Section id="como-funciona" title="Así de fácil: tu SOAT en 3 pasos" tone="surface">
-  <ol class="grid gap-4 sm:grid-cols-3">
-    {steps.map((step, index) => (
-      <li class="rounded-card bg-bg p-5 shadow-card">
-        <div class="flex items-center gap-3">
-          <span
-            class="flex size-10 items-center justify-center rounded-full bg-cta font-extrabold text-on-cta"
-            aria-hidden="true"
+<Section
+  id="como-funciona"
+  estimate="[contain-intrinsic-size:auto_1040px] sm:[contain-intrinsic-size:auto_960px] lg:[contain-intrinsic-size:auto_740px]"
+  class="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-x-18 lg:gap-y-7"
+>
+  <SectionHeading
+    id="como-funciona"
+    title={stepsSection.title}
+    intro={stepsSection.intro}
+    class="lg:col-start-2 lg:self-end"
+  />
+  <div class="max-w-lg overflow-hidden rounded-card border border-line bg-surface shadow-card lg:col-start-1 lg:row-span-2 lg:row-start-1">
+    <div aria-hidden="true" class="flex items-center gap-3 border-b border-line bg-bg px-4 py-3">
+      <span class="flex size-10 items-center justify-center rounded-[0.625rem] border-[2.5px] border-on-cta bg-cta text-sm font-extrabold text-on-cta">
+        YA
+      </span>
+      <span>
+        <span class="block leading-tight font-extrabold">{site.name}</span>
+        <span class="block text-sm text-muted">Asesor</span>
+      </span>
+    </div>
+    <ol class="grid gap-4.5 px-4 pt-4.5 pb-5">
+      {steps.map((step, index) => (
+        <li class="grid gap-2.5">
+          <h3 class="inline-flex items-center gap-2 justify-self-center rounded-full border border-line bg-bg py-1 pr-3.5 pl-1 text-sm font-extrabold">
+            <NumberBadge n={index + 1} tone="cta" />
+            {step.title}
+          </h3>
+          <div
+            class:list={[
+              'max-w-[86%] rounded-2xl px-3.5 py-2.5 leading-snug',
+              step.from === 'cliente'
+                ? 'justify-self-end rounded-br-sm bg-bubble-out'
+                : 'justify-self-start rounded-bl-sm border border-line bg-bg',
+            ]}
           >
-            {index + 1}
-          </span>
-          <Icon name={step.icon} class="size-5 text-muted" />
-        </div>
-        <h3 class="mt-3 font-bold">{step.title}</h3>
-        <p class="mt-1 text-sm text-muted">{step.text}</p>
-      </li>
-    ))}
-  </ol>
-  <div class="mt-8">
+            <span class="sr-only">{SPEAKER[step.from]}</span>
+            {step.file && (
+              <span class="mb-2 flex items-center gap-2.5 rounded-[0.625rem] bg-surface px-2.5 py-2">
+                <Icon name="file-text" class="size-7 text-danger" />
+                <span>
+                  <span class="block text-sm font-extrabold">{step.file}</span>
+                  <span class="block text-sm text-muted">PDF</span>
+                </span>
+              </span>
+            )}
+            <p>{step.message}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+  <div class="lg:col-start-2 lg:self-start">
     <Button
       href="#cotizador-pasos"
       variant="cta"

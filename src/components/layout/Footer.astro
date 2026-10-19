@@ -22,7 +22,8 @@ const linkClass =
 const phoneLabel = nbsp(`Teléfono ${site.contact.phoneDisplay}`);
 ---
 
-<footer class="border-t border-line bg-surface">
+<!-- Se prepara al acercarse (content-visibility, T32); altura estimada por pantalla. -->
+<footer class="border-t border-line bg-surface [content-visibility:auto] [contain-intrinsic-size:auto_915px] sm:[contain-intrinsic-size:auto_675px] lg:[contain-intrinsic-size:auto_390px]">
   <Container class="grid gap-8 py-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
     <div>
       <a href={`${base}#hero`} aria-label="SOAT YA, ir al inicio" class="inline-block text-fg">

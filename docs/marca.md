@@ -66,8 +66,9 @@
   - No se permite deformarlo, cambiar sus colores, ponerle sombras ni usarlo sobre fotos sin un fondo sólido.
 - **Favicon:** solo la placa con «YA».
 - **Colores:** los tokens del plan (anexo 2.4). El amarillo se reserva para el CTA principal y la placa, el verde solo para WhatsApp y el navy para el texto y la confianza.
-- **Tipografía:** Plus Jakarta Sans Variable: títulos en 800, texto en 400–500 y la placa con cifras tabulares.
-- **Íconos:** Lucide (trazo de 2 px, esquinas redondeadas), siempre acompañados de texto.
+- **Tipografía (D8, T29):** títulos y placa en **Barlow Semi Condensed 700**, la letra «vial» (nace de las placas y señales de tránsito); el texto en **Plus Jakarta Sans Variable** (400–800). El logo sigue en Plus Jakarta Sans.
+- **Íconos:** Lucide (trazo de 2 px, esquinas redondeadas), solo cuando informan (botones, contacto, adjunto PDF) y siempre acompañados de texto. Nada de íconos de adorno sobre cada título.
+- **Composición (D8, requisito «que no parezca hecho con IA»):** cada sección tiene la forma que pide su función y usa objetos reales del trámite: la placa (cotizador), la licencia de tránsito (precio), la conversación de WhatsApp (cómo se compra) y la señal preventiva amarilla (antifraude). Se evitan la misma grilla de tarjetas repetida, los títulos con fórmula «X: Y», los antetítulos que repiten el título y los textos que repiten beneficios.
 - **Fotografía:** personas reales en contexto colombiano (motos y carros comunes). Nada de placas extranjeras, logos de marcas ni poses de banco de imágenes. Prioridad a las fotos propias del cliente.
 
 ## 6. Recursos generados (F3.1)
@@ -82,6 +83,6 @@ Se generan con `pnpm brand` a partir de la fuente real (los textos se convierten
 | `public/apple-touch-icon.png`, `public/icon-192.png`, `public/icon-512.png`, `public/icon-maskable-512.png` | Pantalla de inicio (iOS y Android)                                        |
 | `public/manifest.webmanifest`                                                                               | Nombre y colores al instalar o fijar el sitio                             |
 | `public/og-image.png`                                                                                       | Vista previa al compartir (sin año ni precios)                            |
-| `src/assets/hero/hero-chat.png` y `docs/marca/hero-chat.svg`                                                | Ilustración del hero (Astro la convierte a AVIF/WebP)                     |
+| `src/assets/hero/hero-chat.png` y `docs/marca/hero-chat.svg`                                                | Ilustración del chat, en el CTA final (Astro la convierte a AVIF/WebP)    |
 
 Para cambiar algo de la identidad visual, se edita `scripts/brand/` y se vuelve a correr `pnpm brand`. Los archivos generados no se editan a mano.

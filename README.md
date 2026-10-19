@@ -26,7 +26,7 @@ Landing de conversión para cotizar y comprar el **SOAT de moto o carro en Colom
 | `pnpm test:release`                 | Puerta de lanzamiento: falla si quedan datos «[PENDIENTE…]» en el sitio      |
 | `pnpm test:e2e`                     | Playwright más axe (5 perfiles de navegador)                                 |
 | `pnpm lhci`                         | Lighthouse CI (meta: 100 en las 4 categorías)                                |
-| `pnpm brand`                        | Regenera logo, favicons, imagen OG e ilustración del hero (`scripts/brand/`) |
+| `pnpm brand`                        | Regenera logo, favicons, imagen OG e ilustración del chat (`scripts/brand/`) |
 | `pnpm verify`                       | Todo lo anterior salvo E2E y Lighthouse                                      |
 
 ## Estructura

@@ -9,13 +9,13 @@
 - **Meta description** (138 caracteres): `Cotiza y compra tu SOAT {año} para moto o carro por WhatsApp. Te confirmamos el valor antes de pagar y tu póliza es verificable en el RUNT.`
 - **H1:** `Tu SOAT {año} para moto o carro, listo hoy por WhatsApp` (`{año}` se calcula al compilar)
 
-| Sección                                        | Palabra clave principal   | Secundarias                                                                        | Dónde aparece                                |
-| ---------------------------------------------- | ------------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------- |
-| Hero / cotizador (`#hero`, `#cotizador-pasos`) | comprar SOAT              | SOAT moto, SOAT carro, cotizar SOAT, SOAT por WhatsApp                             | H1, subtítulo y CTA                          |
-| ¿Cuánto cuesta? (`#tarifas`)                   | cuánto cuesta el SOAT     | valor del SOAT de moto, valor del SOAT de carro, de qué depende el precio del SOAT | H2, factores y botones                       |
-| Cómo funciona (`#como-funciona`)               | comprar SOAT por WhatsApp | SOAT en línea, SOAT sin filas                                                      | H2 y pasos                                   |
-| Compra segura (`#verificacion`, `#antifraude`) | verificar SOAT en el RUNT | SOAT falso, consultar SOAT por placa                                               | H2, consejos y botón                         |
-| Preguntas (`#faq`)                             | preguntas sobre el SOAT   | SOAT vencido, qué necesito para comprar el SOAT, póliza electrónica                | Preguntas en `<summary>` y JSON-LD `FAQPage` |
+| Sección                                                    | Palabra clave principal   | Secundarias                                                                        | Dónde aparece                                |
+| ---------------------------------------------------------- | ------------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------- |
+| Hero / cotizador (`#hero`, `#cotizador-pasos`)             | comprar SOAT              | SOAT moto, SOAT carro, cotizar SOAT, SOAT por WhatsApp                             | H1, subtítulo y CTA                          |
+| ¿Cuánto cuesta? (`#tarifas`)                               | cuánto cuesta el SOAT     | valor del SOAT de moto, valor del SOAT de carro, de qué depende el precio del SOAT | H2, factores y botones                       |
+| Cómo funciona (`#como-funciona`)                           | comprar SOAT por WhatsApp | SOAT en línea, SOAT sin filas                                                      | H2 y pasos                                   |
+| Cómo evitar un SOAT falso (`#verificacion`, `#antifraude`) | verificar SOAT en el RUNT | SOAT falso, consultar SOAT por placa                                               | H2, consejos y botón                         |
+| Preguntas (`#faq`)                                         | preguntas sobre el SOAT   | SOAT vencido, qué necesito para comprar el SOAT, póliza electrónica                | Preguntas en `<summary>` y JSON-LD `FAQPage` |
 
 ## Páginas secundarias
 

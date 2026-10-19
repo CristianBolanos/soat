@@ -1,14 +1,18 @@
 ---
 /**
- * ¿Cuánto cuesta? (#tarifas, ancla del sitio anterior). Sin precios (D5): explica
- * de qué depende el valor y lleva al cotizador con el tipo ya elegido.
+ * ¿Cuánto cuesta? (#tarifas, ancla del sitio anterior). Sin precios (D5): la licencia de
+ * tránsito de ejemplo marca los 3 datos que definen el valor, la lista los explica y los
+ * botones llevan al cotizador con el tipo ya elegido. En escritorio, la licencia va a la
+ * derecha a lo alto de las tres filas.
  */
 import Button from '@/components/ui/Button.astro';
-import Icon from '@/components/ui/Icon.astro';
+import NumberBadge from '@/components/ui/NumberBadge.astro';
 import Section from '@/components/ui/Section.astro';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
 import { site } from '@/config/site';
 import { priceSection } from '@/data/landing';
 import { MESSAGES, whatsappUrl, withOrigin } from '@/lib/whatsapp';
+import LicenseCard from './LicenseCard.astro';
 
 const otherVehicleHref = whatsappUrl(
   site.contact.whatsapp,
@@ -16,44 +20,55 @@ const otherVehicleHref = whatsappUrl(
 );
 ---
 
-<Section id="tarifas" title={priceSection.title} intro={priceSection.intro}>
-  <ul class="grid gap-4 sm:grid-cols-3">
-    {priceSection.factors.map((factor) => (
-      <li class="rounded-card border border-line bg-bg p-5">
-        <Icon name={factor.icon} class="size-6 text-brand" />
-        <h3 class="mt-3 font-bold">{factor.title}</h3>
-        <p class="mt-1 text-sm text-muted">{factor.text}</p>
+<Section
+  id="tarifas"
+  tone="surface"
+  estimate="[contain-intrinsic-size:auto_1250px] sm:[contain-intrinsic-size:auto_1150px] lg:[contain-intrinsic-size:auto_800px]"
+  class="grid gap-8 lg:grid-cols-2 lg:gap-x-18 lg:gap-y-7"
+>
+  <SectionHeading id="tarifas" title={priceSection.title} intro={priceSection.intro} />
+  <LicenseCard class="lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:self-center" />
+  <ol class="border-t border-line lg:col-start-1">
+    {priceSection.factors.map((factor, index) => (
+      <li class="flex gap-3.5 border-b border-line py-4">
+        <NumberBadge n={index + 1} />
+        <div>
+          <h3 class="leading-6 font-bold">{factor.title}</h3>
+          <p class="mt-0.5 text-muted">{factor.text}</p>
+        </div>
       </li>
     ))}
-  </ul>
-  <div class="mt-8 grid gap-3 sm:flex">
-    <Button
-      href="#cotizador-pasos"
-      variant="cta"
-      size="lg-long"
-      icon="motorbike"
-      data-preselect="moto"
-    >
-      Consultar el valor de mi moto
-    </Button>
-    <Button
-      href="#cotizador-pasos"
-      variant="cta"
-      size="lg-long"
-      icon="car-front"
-      data-preselect="carro"
-    >
-      Consultar el valor de mi carro
-    </Button>
+  </ol>
+  <div class="lg:col-start-1">
+    <div class="grid gap-3 sm:flex sm:flex-wrap">
+      <Button
+        href="#cotizador-pasos"
+        variant="cta"
+        size="lg-long"
+        icon="motorbike"
+        data-preselect="moto"
+      >
+        Consultar el valor de mi moto
+      </Button>
+      <Button
+        href="#cotizador-pasos"
+        variant="cta"
+        size="lg-long"
+        icon="car-front"
+        data-preselect="carro"
+      >
+        Consultar el valor de mi carro
+      </Button>
+    </div>
+    <p class="mt-4 text-sm">
+      <a
+        href={otherVehicleHref}
+        class="font-semibold text-brand underline underline-offset-2"
+        data-track="whatsapp_click"
+        data-track-ubicacion="otro_vehiculo"
+      >
+        ¿Ciclomotor, motocarro u otro vehículo? Escríbenos
+      </a>
+    </p>
   </div>
-  <p class="mt-4 text-sm">
-    <a
-      href={otherVehicleHref}
-      class="font-semibold text-brand underline underline-offset-2"
-      data-track="whatsapp_click"
-      data-track-ubicacion="otro_vehiculo"
-    >
-      ¿Ciclomotor, motocarro u otro vehículo? Escríbenos
-    </a>
-  </p>
 </Section>

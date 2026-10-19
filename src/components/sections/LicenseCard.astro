@@ -1,0 +1,48 @@
+---
+/**
+ * Licencia de tránsito de ejemplo (#tarifas): dibujo simplificado, no una réplica del
+ * documento, que marca en amarillo los 3 datos que definen el valor del SOAT. Es
+ * decorativa (aria-hidden): la lista numerada de la sección dice lo mismo en texto de
+ * 16 px, por eso aquí las etiquetas pueden ir a 12 px como en la tarjeta real (T29).
+ */
+import NumberBadge from '@/components/ui/NumberBadge.astro';
+import { licenseExample } from '@/data/landing';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<figure class:list={['m-0', className]}>
+  <div
+    aria-hidden="true"
+    class="max-w-lg rounded-2xl border border-line bg-bg px-4 pt-4 pb-4.5 shadow-card sm:px-5"
+  >
+    <div class="mb-3.5 flex items-center justify-between gap-4 border-b border-line pb-2.5 text-xs font-extrabold tracking-widest uppercase">
+      {licenseExample.title}
+      <span class="h-2.5 w-1/4 rounded-full bg-line"></span>
+    </div>
+    <dl class="grid grid-cols-2 items-end gap-x-4 gap-y-3.5">
+      {licenseExample.fields.map((field) => (
+        <div class:list={['min-w-0', field.wide && 'col-span-2']}>
+          <dt class="text-xs font-bold tracking-wide text-muted uppercase">{field.label}</dt>
+          <dd class="mt-1 flex min-h-7 items-center gap-1.5 font-extrabold tracking-wide uppercase">
+            {field.value === undefined ? (
+              <span class="h-2.5 w-3/4 rounded-full bg-line" />
+            ) : field.mark ? (
+              <>
+                <NumberBadge n={field.mark} size="sm" />
+                <mark class="rounded-[0.3125rem] bg-cta px-1.5 text-on-cta">{field.value}</mark>
+              </>
+            ) : (
+              field.value
+            )}
+          </dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+  <figcaption class="mt-3 text-sm text-muted">{licenseExample.caption}</figcaption>
+</figure>

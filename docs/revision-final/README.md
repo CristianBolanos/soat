@@ -4,6 +4,18 @@
 - **Qué se revisó:** el sitio completo en local (rama `astro-migration`), con el texto, el diseño y el código finales.
 - **Resultado:** **listo para aprobar G3.** Los «No» que aparecieron se corrigieron en esta misma revisión (requisito R108). Quedan pendientes que necesitan la URL pública o a personas reales: se hacen durante el despliegue, **antes** de pasar a producción.
 
+## Actualización del 19 de octubre: rediseño D8
+
+Pediste como requisito prioritario que el diseño no pareciera hecho con IA. Se aprobó sobre una maqueta (`docs/propuesta-diseno/`) y se aplicó al sitio:
+
+- **Cada sección con su propia forma**, hecha con objetos reales del trámite: la licencia de tránsito en «¿Cuánto cuesta?», la conversación de WhatsApp en «Así compras tu SOAT por WhatsApp» y una señal preventiva con lista de verificación en «Cómo evitar un SOAT falso» (franja navy).
+- **Letra vial** (Barlow Semi Condensed) en los títulos y en la placa del cotizador (T29).
+- **Sin repeticiones:** se quitaron la franja de beneficios (repetía el subtítulo), el antetítulo (repetía el título) y los íconos de adorno.
+- **La ilustración del chat pasó al cierre**, más pequeña y con carga diferida (opción A). El hero queda con el título y el cotizador (T31).
+- **Preguntas frecuentes en dos columnas** en el computador, con «¿Tienes otra pregunta? Escríbenos por WhatsApp».
+
+Las capturas de esta carpeta ya muestran el diseño nuevo. Las pruebas y las medidas de esta revisión se volvieron a correr con el diseño nuevo; los resultados están en cada rol.
+
 ## Cómo leer la lista
 
 | Marca | Significado                                                             |
@@ -37,8 +49,8 @@
 | ---------------------------------------------------------------- | ---------------------------- | ------------------------------------------------ |
 | Lighthouse: rendimiento / accesibilidad / buenas prácticas / SEO | 71 / 96 / 100 / 100          | **100 / 100 / 100 / 100**                        |
 | LCP (carga del contenido principal)                              | 4,7 s                        | 1,5 s                                            |
-| Peso de la página                                                | 613 KiB                      | 57,6 KiB                                         |
-| Alto de la página en 360 px                                      | 14.344 px                    | 6.181 px                                         |
+| Peso de la página                                                | 613 KiB                      | 77 KiB (incluye la letra vial)                   |
+| Alto de la página en 360 px                                      | 14.344 px                    | 6.607 px                                         |
 | Cotizador en 360×740                                             | Bajo el pliegue (y = 765 px) | Completo en la primera pantalla                  |
 | Pasos para pedir la cotización                                   | 4 pasos con cédula           | Placa y un botón (el tipo se deduce de la placa) |
 
@@ -46,8 +58,8 @@
 
 ### UX/UI senior: 🔧 → ✅
 
-- Capturas en esta carpeta: 360, 768 y 1440 px, en tema claro y oscuro, más la primera pantalla en 360 px.
-- El diseño visual se aprobó en G2.
+- Capturas en esta carpeta: 360, 768 y 1440 px, en tema claro y oscuro, más la primera pantalla en 360 px (actualizadas el 19-oct con el diseño D8).
+- El diseño visual se aprobó en G2, y el rediseño D8 sobre una maqueta (`docs/propuesta-diseno/`).
 - **Se corrigieron dos defectos:**
   - En celulares de 360 a 390 px, la barra fija y los botones «Consultar el valor de mi moto / carro» partían el texto en dos líneas pegadas al borde. Ahora caben en una línea (T26).
   - La lista de beneficios dentro del cotizador repetía la franja que va justo debajo. Ahora queda solo el horario (T27).
@@ -111,14 +123,15 @@
 ### Accesibilidad: ✅ · ⏳ · 👤
 
 - axe: 0 violaciones en los dos temas (pruebas automáticas). Accesibilidad de Lighthouse: 100.
-- Recorrido con teclado: 36 paradas de foco, todas con indicador visible y en orden lógico. Funcionan el enlace «Saltar al contenido» y las preguntas frecuentes con teclado.
+- Recorrido con teclado: 37 paradas de foco (una más con D8: «Escríbenos por WhatsApp» en las preguntas), todas con indicador visible y en orden lógico. Funcionan el enlace «Saltar al contenido» y las preguntas frecuentes con teclado.
 - Se respeta «reducir movimiento», no hay textos de menos de 14 px y los contrastes cumplen 4,5:1.
 - ⏳ WAVE se corre con la URL de la vista previa.
 - 👤 **[Opcional]** Prueba con TalkBack o VoiceOver en tu celular (está en `docs/qa-checklist.md`).
 
 ### Rendimiento: ✅ · ⏳
 
-- Lighthouse en móvil (mediana de 3 corridas): 100 en rendimiento, accesibilidad, buenas prácticas y SEO en la página principal, la política y los términos. Presupuestos cumplidos: JavaScript 6,2 KiB (máximo 20), peso total 57,6 KiB (máximo 250), LCP 1,5 s (máximo 2,0), CLS 0,029 (máximo 0,05) y TBT 71 ms (máximo 100).
+- Lighthouse en móvil (mediana de 3 corridas, 19-oct con el diseño D8): 100 en rendimiento, accesibilidad, buenas prácticas y SEO en la página principal, la política y los términos. Presupuestos cumplidos: JavaScript 6,2 KiB (máximo 20), peso total 77 KiB (máximo 250), LCP 1,5 s (máximo 2,0), CLS 0 (máximo 0,05) y TBT 94 ms (máximo 100).
+- El diseño D8 subió el tiempo de bloqueo por encima de la meta; se corrigió haciendo que el navegador prepare las secciones de abajo cuando el visitante se acerca (T32).
 - ⏳ PageSpeed Insights y WebPageTest se corren con la URL de la vista previa.
 
 ### Seguridad: ✅ · ⏳ · 👤
@@ -132,9 +145,9 @@
 ### QA: ✅ · 👤
 
 - Pruebas automáticas:
-  - 82 unitarias.
+  - 96 unitarias.
   - 68 de build.
-  - 250 E2E y de accesibilidad en Chromium, Firefox, WebKit, Pixel 7 e iPhone 14.
+  - 255 E2E y de accesibilidad en Chromium, Firefox, WebKit, Pixel 7 e iPhone 14 (19-oct, con el diseño D8).
   - Validador W3C y html-validate sin errores.
 - Paridad con el sitio viejo: 26 de 26 funciones en OK (`docs/paridad.md`).
 - 👤 Lista en celulares y navegadores reales: `docs/qa-checklist.md`. Se puede hacer con la vista previa.

@@ -23,18 +23,25 @@ test.describe('hero y cotizador en móvil (360×740)', () => {
   });
 });
 
-test('la imagen principal tiene prioridad alta, dimensiones y texto alternativo', async ({
+test('el hero no tiene imagen: el título y el cotizador van primero (D8)', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('#hero img')).toHaveCount(0);
+  await expect(page.locator('#hero h1')).toHaveCSS('font-family', /Barlow Semi Condensed/);
+});
+
+test('la ilustración del cierre carga diferida, con dimensiones y texto alternativo', async ({
   page,
 }) => {
   await page.goto('/');
-  const img = page.locator('#hero picture img');
-  await expect(img).toHaveAttribute('fetchpriority', 'high');
-  await expect(img).toHaveAttribute('loading', 'eager');
+  const closing = page.locator('section[aria-labelledby="cta-final-titulo"]');
+  const img = closing.locator('picture img');
+  await expect(img).toHaveAttribute('loading', 'lazy');
+  await expect(img).not.toHaveAttribute('fetchpriority', /.+/);
   await expect(img).toHaveAttribute('width', /\d+/);
   await expect(img).toHaveAttribute('height', /\d+/);
   await expect(img).toHaveAttribute('alt', /placa/);
-  await expect(page.locator('#hero picture source[type="image/avif"]')).toHaveCount(1);
-  await expect(page.locator('#hero picture source[type="image/webp"]')).toHaveCount(1);
+  await expect(closing.locator('picture source[type="image/avif"]')).toHaveCount(1);
+  await expect(closing.locator('picture source[type="image/webp"]')).toHaveCount(1);
 });
 
 test('el formulario sin JavaScript apunta a wa.me con un mensaje genérico', async ({ page }) => {

@@ -15,22 +15,23 @@
 
 ## Funciones usadas y su respaldo (revisadas en Can I Use, R105)
 
-| Función                               | Para qué                           | Soporte                                 | Si no está                                                                |
-| ------------------------------------- | ---------------------------------- | --------------------------------------- | ------------------------------------------------------------------------- |
-| Variables CSS                         | Tokens de color y temas            | Universal                               | —                                                                         |
-| `@layer`                              | Capas de Tailwind                  | Safari 15.4+                            | En navegadores anteriores las capas se ignoran                            |
-| `@property`                           | Variables tipadas de Tailwind      | Safari 16.4+, Firefox 128+              | Se pierden transiciones de sombras y gradientes; el contenido se ve igual |
-| `color-mix()`                         | Opacidades de Tailwind (`bg-x/50`) | Safari 16.2+                            | Se evita en elementos críticos; se usan tokens sólidos                    |
-| `prefers-color-scheme`                | Tema automático                    | Universal                               | Tema claro                                                                |
-| `prefers-reduced-motion`              | Desactivar animaciones             | Universal                               | —                                                                         |
-| `:focus-visible`                      | Anillo de foco                     | Safari 15.4+                            | Sale el foco por defecto del navegador                                    |
-| `text-wrap: balance`                  | Títulos equilibrados               | Chrome 114+, Safari 17.5+               | Ajuste normal (mejora progresiva)                                         |
-| Unidades `dvh`                        | Alto del hero en móvil             | Safari 15.4+                            | Se declara antes un valor en `vh`                                         |
-| `<details>` / `<summary>`             | FAQ sin JS                         | Universal                               | —                                                                         |
-| `IntersectionObserver`                | Ocultar la barra móvil             | Universal                               | La barra queda siempre visible                                            |
-| `localStorage`                        | Recordar el tema                   | Universal; puede fallar en modo privado | Va dentro de try/catch y se usa el tema del sistema                       |
-| `fetchpriority`                       | Prioridad de la imagen principal   | Chrome 101+, Safari 17.2+, Firefox 132+ | Se ignora sin efectos negativos                                           |
-| AVIF con respaldo WebP en `<picture>` | Imágenes                           | AVIF: Safari 16.4+                      | El navegador toma WebP                                                    |
+| Función                                               | Para qué                                           | Soporte                                 | Si no está                                                                |
+| ----------------------------------------------------- | -------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------- |
+| Variables CSS                                         | Tokens de color y temas                            | Universal                               | —                                                                         |
+| `@layer`                                              | Capas de Tailwind                                  | Safari 15.4+                            | En navegadores anteriores las capas se ignoran                            |
+| `@property`                                           | Variables tipadas de Tailwind                      | Safari 16.4+, Firefox 128+              | Se pierden transiciones de sombras y gradientes; el contenido se ve igual |
+| `color-mix()`                                         | Opacidades de Tailwind (`bg-x/50`)                 | Safari 16.2+                            | Se evita en elementos críticos; se usan tokens sólidos                    |
+| `prefers-color-scheme`                                | Tema automático                                    | Universal                               | Tema claro                                                                |
+| `prefers-reduced-motion`                              | Desactivar animaciones                             | Universal                               | —                                                                         |
+| `:focus-visible`                                      | Anillo de foco                                     | Safari 15.4+                            | Sale el foco por defecto del navegador                                    |
+| `text-wrap: balance`                                  | Títulos equilibrados                               | Chrome 114+, Safari 17.5+               | Ajuste normal (mejora progresiva)                                         |
+| `content-visibility: auto` y `contain-intrinsic-size` | Preparar las secciones de abajo al acercarse (T32) | Chrome 85+, Firefox 125+, Safari 18+    | Se preparan todas al cargar, como antes (solo pierde velocidad)           |
+| Unidades `dvh`                                        | Alto del hero en móvil                             | Safari 15.4+                            | Se declara antes un valor en `vh`                                         |
+| `<details>` / `<summary>`                             | FAQ sin JS                                         | Universal                               | —                                                                         |
+| `IntersectionObserver`                                | Ocultar la barra móvil                             | Universal                               | La barra queda siempre visible                                            |
+| `localStorage`                                        | Recordar el tema                                   | Universal; puede fallar en modo privado | Va dentro de try/catch y se usa el tema del sistema                       |
+| `fetchpriority`                                       | Sin uso desde D8 (el hero no tiene imagen)         | Chrome 101+, Safari 17.2+, Firefox 132+ | Se ignora sin efectos negativos                                           |
+| AVIF con respaldo WebP en `<picture>`                 | Imágenes                                           | AVIF: Safari 16.4+                      | El navegador toma WebP                                                    |
 
 ## Cómo se verifica
 

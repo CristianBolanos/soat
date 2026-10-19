@@ -1,92 +1,108 @@
 /**
- * Contenido de las secciones de la landing (docs/copy.md, aprobado en G1).
+ * Contenido de las secciones de la landing (docs/copy.md; diseño de la decisión D8).
  * Separado de la presentación: los componentes solo lo pintan.
  */
-import { paymentNotice } from '@/data/payment';
+import { site } from '@/config/site';
+import { paymentMethods, paymentNotice } from '@/data/payment';
+import { quoteMessage } from '@/lib/whatsapp';
 
-export interface Feature {
-  icon: string;
+export interface Point {
   title: string;
   text: string;
 }
 
-/** Franja de confianza (#beneficios). */
-export const trustItems: Feature[] = [
-  {
-    icon: 'badge-check',
-    title: 'Valor claro antes de pagar',
-    text: 'Te confirmamos el valor exacto de tu SOAT antes de cualquier pago.',
-  },
-  {
-    icon: 'shield-check',
-    title: 'Póliza verificable',
-    text: 'Tu SOAT queda registrado en el RUNT y lo consultas con tu placa.',
-  },
-  {
-    icon: 'message-circle',
-    title: 'Asesor real',
-    text: 'Te atiende una persona por WhatsApp, todos los días de 7 a. m. a 10 p. m.',
-  },
-];
+/** Placas de ejemplo: las mismas en la ayuda del cotizador, la licencia y el chat. */
+export const examplePlates = { carro: 'ABC123', moto: 'ABC12D' } as const;
 
 /** ¿Cuánto cuesta? (#tarifas): de qué depende el valor, sin precios (D5). */
 export const priceSection = {
   title: '¿Cuánto cuesta el SOAT de tu moto o carro?',
   intro:
-    'El valor cambia cada año y depende de tu vehículo. Por eso no te mostramos una tabla genérica: te confirmamos el valor exacto para tu placa antes de que pagues.',
+    'El valor cambia cada año y depende de 3 datos de tu licencia de tránsito. Por eso no te mostramos una tabla genérica: con tu placa te confirmamos el valor exacto antes de que pagues.',
   factors: [
-    {
-      icon: 'car-front',
-      title: 'Tipo de vehículo',
-      text: 'Moto, carro familiar, camioneta o campero.',
-    },
-    {
-      icon: 'gauge',
-      title: 'Cilindraje',
-      text: 'Los c.c. que aparecen en la licencia de tránsito.',
-    },
-    {
-      icon: 'calendar',
-      title: 'Modelo',
-      text: 'En carros y camionetas también cuenta la antigüedad.',
-    },
-  ] satisfies Feature[],
+    { title: 'Clase de vehículo', text: 'Moto, carro familiar, camioneta o campero.' },
+    { title: 'Cilindraje', text: 'Los c.c. del motor.' },
+    { title: 'Modelo', text: 'En carros y camionetas también cuenta la antigüedad.' },
+  ] satisfies Point[],
 };
 
-/** Así de fácil (#como-funciona). */
-export const steps: Feature[] = [
+export interface LicenseField {
+  label: string;
+  /** Sin valor se dibuja una barra gris (dato que no importa para el precio). */
+  value?: string;
+  /** Número del dato en la lista de `priceSection.factors`. */
+  mark?: 1 | 2 | 3;
+  /** Ocupa las dos columnas de la tarjeta. */
+  wide?: boolean;
+}
+
+/** Licencia de tránsito de ejemplo (dibujo simplificado, no es una réplica del documento). */
+export const licenseExample = {
+  title: 'Licencia de tránsito',
+  caption: 'Licencia de tránsito de ejemplo. Los datos marcados definen el valor.',
+  fields: [
+    { label: 'Placa', value: examplePlates.moto },
+    { label: 'Marca' },
+    { label: 'Clase de vehículo', value: 'Motocicleta', mark: 1, wide: true },
+    { label: 'Cilindrada c.c.', value: '125', mark: 2 },
+    { label: 'Modelo', value: '2019', mark: 3 },
+    { label: 'Servicio', value: 'Particular' },
+    { label: 'Propietario' },
+  ] satisfies LicenseField[],
+};
+
+export interface ChatStep {
+  title: string;
+  from: 'cliente' | 'asesor';
+  message: string;
+  /** Nombre del adjunto (la póliza en PDF). */
+  file?: string;
+}
+
+/** Así compras tu SOAT por WhatsApp (#como-funciona): los 3 pasos contados como el chat real. */
+export const stepsSection = {
+  title: 'Así compras tu SOAT por WhatsApp',
+  // La frase del horario termina en «p. m.»: ese punto cierra la oración (sin «p. m..»).
+  intro: `Te atiende una persona de principio a fin, ${site.hours.phrase}`,
+};
+
+export const steps: ChatStep[] = [
   {
-    icon: 'send',
     title: 'Envía tu placa',
-    text: 'Elige moto o carro, escribe la placa y abre WhatsApp.',
+    from: 'cliente',
+    // El mismo mensaje que arma el cotizador (sin la etiqueta de origen).
+    message: quoteMessage('moto', examplePlates.moto),
   },
   {
-    icon: 'message-circle-check',
     title: 'Confirma y paga',
-    text: 'Un asesor revisa los datos de tu vehículo y te confirma el valor y las opciones de pago.',
+    from: 'asesor',
+    message: `¡Hola! Ya revisé los datos de tu moto. Te envío el valor exacto y las opciones de pago: puedes pagar ${paymentMethods}.`,
   },
   {
-    icon: 'file-check',
     title: 'Recibe tu póliza',
-    text: 'Te llega la póliza electrónica en PDF. Verifícala en el RUNT con tu placa.',
+    from: 'asesor',
+    file: `SOAT-${examplePlates.moto}.pdf`,
+    message: 'Lista tu póliza. También te llega al correo. Verifícala en el RUNT con tu placa.',
   },
 ];
 
-/** Compra segura (#verificacion / #antifraude). */
-export const safetyTips: Feature[] = [
+/** Cómo evitar un SOAT falso (#verificacion / #antifraude). */
+export const safetySection = {
+  title: 'Cómo evitar un SOAT falso',
+  intro: 'Cada año aparecen ofertas de SOAT falso. Antes de pagar, revisa estas tres cosas:',
+};
+
+export const safetyTips: Point[] = [
   {
-    icon: 'badge-alert',
     title: 'Desconfía de lo demasiado barato',
     text: 'Las ofertas que parecen demasiado buenas son la trampa más común del SOAT falso.',
   },
   {
-    icon: 'shield-user',
     title: 'Verifica quién te cobra',
     text: `${paymentNotice}. Si te escriben desde otro número, no pagues.`,
   },
   {
-    icon: 'search-check',
-    title: 'Verifica en el RUNT',
+    title: 'Consulta tu póliza en el RUNT',
     text: 'Toda póliza válida queda registrada en el RUNT. Consúltala con tu placa después de comprar.',
   },
 ];

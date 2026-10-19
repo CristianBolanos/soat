@@ -47,6 +47,15 @@ const PAIRS: [foreground: string, background: string][] = [
   ['on-wa', 'wa'],
   ['danger', 'bg'],
   ['success', 'bg'],
+  ['text', 'bubble-out'],
+  ['alert-fg', 'alert-bg'],
+  ['alert-muted', 'alert-bg'],
+];
+
+/** Elementos que no son texto (foco, señal, casillas, bordes de botón): WCAG 1.4.11, ≥ 3:1. */
+const NON_TEXT_PAIRS: [foreground: string, background: string][] = [
+  ['alert-brand', 'alert-bg'],
+  ['cta', 'alert-bg'],
 ];
 
 describe('tokens de color: contraste WCAG AA', () => {
@@ -69,5 +78,20 @@ describe('tokens de color: contraste WCAG AA', () => {
   it('el anillo de foco (--brand) se distingue del fondo (≥ 3:1) en ambos temas', () => {
     expect(contrast(light['brand'] ?? '', light['bg'] ?? '')).toBeGreaterThanOrEqual(3);
     expect(contrast(dark['brand'] ?? '', dark['bg'] ?? '')).toBeGreaterThanOrEqual(3);
+  });
+
+  for (const [theme, tokens] of [
+    ['claro', light],
+    ['oscuro', dark],
+  ] as const) {
+    for (const [fg, bg] of NON_TEXT_PAIRS) {
+      it(`${theme}: --${fg} sobre --${bg} ≥ 3:1 (no texto)`, () => {
+        expect(contrast(tokens[fg] ?? '', tokens[bg] ?? '')).toBeGreaterThanOrEqual(3);
+      });
+    }
+  }
+
+  it('claro: el borde del botón outline en la franja de alerta se ve (≥ 3:1)', () => {
+    expect(contrast(light['alert-line'] ?? '', light['alert-bg'] ?? '')).toBeGreaterThanOrEqual(3);
   });
 });

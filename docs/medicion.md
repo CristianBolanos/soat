@@ -17,17 +17,17 @@
 
 ## Eventos
 
-| Evento           | Se dispara cuando                                                | Parámetros (valores permitidos)                                            | ¿Conversión?          |
-| ---------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------------- | --------------------- |
-| `quote_start`    | Primer foco o clic dentro del cotizador                          | —                                                                          | No                    |
-| `vehicle_select` | Elige moto o carro                                               | `tipo`: `moto` o `carro`                                                   | No                    |
-| `generate_lead`  | Pulsa «Cotizar por WhatsApp» con placa válida y se abre WhatsApp | `tipo`: `moto` o `carro`; `origen`: `web` o `ads`                          | **Sí (evento clave)** |
-| `whatsapp_click` | Pulsa cualquier otro enlace de WhatsApp                          | `ubicacion`: `header`, `otro_vehiculo`, `barra_movil`, `cta_final` o `pie` | Secundaria            |
-| `phone_click`    | Pulsa un enlace `tel:`                                           | `ubicacion`                                                                | Secundaria            |
-| `cta_click`      | Pulsa «Empezar ahora» o «Consultar el valor de mi moto/carro»    | `ubicacion`: `como_funciona` o `cuanto_cuesta`; `tipo` cuando aplica       | No                    |
-| `runt_click`     | Pulsa «Verificar mi SOAT en el RUNT»                             | —                                                                          | No                    |
-| `faq_open`       | Abre una pregunta                                                | `pregunta`: número del 1 al 8                                              | No                    |
-| `theme_change`   | Cambia el tema                                                   | `tema`: `claro` u `oscuro`                                                 | No                    |
+| Evento           | Se dispara cuando                                                | Parámetros (valores permitidos)                                                   | ¿Conversión?          |
+| ---------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------- |
+| `quote_start`    | Primer foco o clic dentro del cotizador                          | —                                                                                 | No                    |
+| `vehicle_select` | Elige moto o carro                                               | `tipo`: `moto` o `carro`                                                          | No                    |
+| `generate_lead`  | Pulsa «Cotizar por WhatsApp» con placa válida y se abre WhatsApp | `tipo`: `moto` o `carro`; `origen`: `web` o `ads`                                 | **Sí (evento clave)** |
+| `whatsapp_click` | Pulsa cualquier otro enlace de WhatsApp                          | `ubicacion`: `header`, `otro_vehiculo`, `barra_movil`, `faq`, `cta_final` o `pie` | Secundaria            |
+| `phone_click`    | Pulsa un enlace `tel:`                                           | `ubicacion`                                                                       | Secundaria            |
+| `cta_click`      | Pulsa «Empezar ahora» o «Consultar el valor de mi moto/carro»    | `ubicacion`: `como_funciona` o `cuanto_cuesta`; `tipo` cuando aplica              | No                    |
+| `runt_click`     | Pulsa «Verificar mi SOAT en el RUNT»                             | —                                                                                 | No                    |
+| `faq_open`       | Abre una pregunta                                                | `pregunta`: número del 1 al 8                                                     | No                    |
+| `theme_change`   | Cambia el tema                                                   | `tema`: `claro` u `oscuro`                                                        | No                    |
 
 Los eventos que llevan a otra página (WhatsApp, `tel:`, RUNT) se envían con `transport_type: 'beacon'`, para no perderlos al salir.
 

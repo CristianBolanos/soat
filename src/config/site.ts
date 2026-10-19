@@ -21,6 +21,8 @@ export const site = {
   hours: {
     display: 'Lunes a domingo, 7:00 a. m. a 10:00 p. m.',
     short: 'L–D, 7 a. m.–10 p. m.',
+    /** Para usar dentro de una frase: «Te atiende una persona …, todos los días de …». */
+    phrase: 'todos los días de 7 a. m. a 10 p. m.',
     opens: '07:00',
     closes: '22:00',
   },

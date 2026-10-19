@@ -1,15 +1,40 @@
 ---
 /**
  * Preguntas frecuentes (#faq) con <details> nativo: funciona sin JavaScript y con
- * teclado. El contenido sale de data/faq.ts, igual que el JSON-LD FAQPage.
+ * teclado. El contenido sale de data/faq.ts, igual que el JSON-LD FAQPage. En
+ * escritorio el título queda a la izquierda, con la salida a WhatsApp para quien no
+ * encuentra su respuesta.
  */
 import Icon from '@/components/ui/Icon.astro';
 import Section from '@/components/ui/Section.astro';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import { site } from '@/config/site';
 import { faq } from '@/data/faq';
+import { MESSAGES, whatsappUrl, withOrigin } from '@/lib/whatsapp';
+
+const whatsappHref = whatsappUrl(site.contact.whatsapp, withOrigin(MESSAGES.generic, 'web'));
 ---
 
-<Section id="faq" title="Preguntas frecuentes sobre el SOAT" tone="surface">
-  <div class="max-w-3xl divide-y divide-line rounded-card border border-line bg-bg">
+<Section
+  id="faq"
+  estimate="[contain-intrinsic-size:auto_900px] sm:[contain-intrinsic-size:auto_910px] lg:[contain-intrinsic-size:auto_780px]"
+  tone="surface"
+  class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.75fr)] lg:items-start lg:gap-x-18"
+>
+  <SectionHeading id="faq" title="Preguntas frecuentes sobre el SOAT">
+    <p class="mt-3 text-muted">
+      ¿Tienes otra pregunta?
+      <a
+        href={whatsappHref}
+        class="font-semibold text-brand underline underline-offset-2"
+        data-track="whatsapp_click"
+        data-track-ubicacion="faq"
+      >
+        Escríbenos por WhatsApp
+      </a>
+    </p>
+  </SectionHeading>
+  <div class="divide-y divide-line rounded-card border border-line bg-bg">
     {faq.map((item, index) => (
       <details class="group px-5 py-4" data-faq-index={index + 1}>
         <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 font-bold [&::-webkit-details-marker]:hidden">

@@ -1,8 +1,8 @@
 ---
 /**
  * Landing (plan, anexo 2.9): cada sección empuja a una sola acción, cotizar por
- * WhatsApp. Orden: propuesta y cotizador → confianza → valor → pasos → seguridad
- * → dudas → último empujón.
+ * WhatsApp. Orden: propuesta y cotizador → valor → cómo se compra → seguridad →
+ * dudas → último empujón. Sin franja de beneficios: repetía el subtítulo (D8).
  */
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
@@ -13,7 +13,6 @@ import Hero from '@/components/sections/Hero.astro';
 import HowItWorks from '@/components/sections/HowItWorks.astro';
 import PriceFactors from '@/components/sections/PriceFactors.astro';
 import SafePurchase from '@/components/sections/SafePurchase.astro';
-import TrustStrip from '@/components/sections/TrustStrip.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { site } from '@/config/site';
 import { faq } from '@/data/faq';
@@ -53,7 +52,6 @@ const jsonLd = graph(
   <Header />
   <main id="contenido">
     <Hero />
-    <TrustStrip />
     <PriceFactors />
     <HowItWorks />
     <SafePurchase />

@@ -1,12 +1,21 @@
 import { describe, expect, it } from 'vitest';
 import { faq } from '../../src/data/faq';
-import { priceSection, safetyTips, steps, trustItems } from '../../src/data/landing';
+import {
+  examplePlates,
+  licenseExample,
+  priceSection,
+  safetySection,
+  safetyTips,
+  steps,
+  stepsSection,
+} from '../../src/data/landing';
 import {
   faqSchema,
   graph,
   serializeJsonLd,
   organizationSchema,
 } from '../../src/lib/structured-data';
+import { quoteMessage } from '../../src/lib/whatsapp';
 
 const PRICE = /\$\s?\d|\bCOP\b|\d{3}\.\d{3}/;
 
@@ -15,23 +24,40 @@ describe('contenido de la landing', () => {
     ...faq.flatMap((f) => [f.question, f.answer]),
     priceSection.title,
     priceSection.intro,
-    ...[...trustItems, ...priceSection.factors, ...steps, ...safetyTips].flatMap((f) => [
-      f.title,
-      f.text,
-    ]),
+    ...priceSection.factors.flatMap((f) => [f.title, f.text]),
+    licenseExample.caption,
+    stepsSection.title,
+    stepsSection.intro,
+    ...steps.flatMap((s) => [s.title, s.message]),
+    safetySection.title,
+    safetySection.intro,
+    ...safetyTips.flatMap((t) => [t.title, t.text]),
   ];
 
   it('no publica precios (D5)', () => {
     expect(texts.filter((t) => PRICE.test(t))).toEqual([]);
   });
 
+  it('no deja puntos dobles al unir frases («p. m..»)', () => {
+    expect(texts.filter((t) => /[^.]\.\.(?!\.)/.test(t))).toEqual([]);
+  });
+
   it('cada sección tiene la cantidad acordada en el copy', () => {
-    expect(trustItems).toHaveLength(3);
     expect(priceSection.factors).toHaveLength(3);
     expect(steps).toHaveLength(3);
     expect(safetyTips).toHaveLength(3);
     expect(faq.length).toBeGreaterThanOrEqual(6);
     expect(faq.length).toBeLessThanOrEqual(8);
+  });
+
+  it('la licencia de ejemplo marca los datos 1, 2 y 3 en el orden de la lista', () => {
+    const marks = licenseExample.fields.flatMap((f) => ('mark' in f ? [f.mark] : []));
+    expect(marks).toEqual([1, 2, 3]);
+  });
+
+  it('el chat empieza con el mismo mensaje que arma el cotizador', () => {
+    expect(steps[0]?.from).toBe('cliente');
+    expect(steps[0]?.message).toBe(quoteMessage('moto', examplePlates.moto));
   });
 
   it('las preguntas del FAQ terminan en «?» y no se repiten', () => {

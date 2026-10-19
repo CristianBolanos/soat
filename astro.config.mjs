@@ -68,6 +68,24 @@ export default defineConfig({
         ],
       },
     },
+    {
+      // Letra «vial» de títulos y placa: Barlow nace de las placas y señales de tránsito.
+      provider: fontProviders.local(),
+      name: 'Barlow Semi Condensed',
+      cssVariable: '--font-vial',
+      fallbacks: ['sans-serif'],
+      options: {
+        variants: [
+          {
+            src: [
+              '@fontsource/barlow-semi-condensed/files/barlow-semi-condensed-latin-700-normal.woff2',
+            ],
+            weight: '700',
+            style: 'normal',
+          },
+        ],
+      },
+    },
   ],
   security: {
     csp: {
