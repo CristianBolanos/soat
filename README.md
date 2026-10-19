@@ -70,7 +70,8 @@ Lo hace `.github/workflows/pages.yml`: compila con `DEPLOY_BASE=soat` (el sitio 
 Proyecto `soatya`, conectado a este repositorio (sin `DEPLOY_BASE`, el sitio queda en la raíz):
 
 - Rama de producción: `main` (cada push publica). Las demás ramas generan una vista previa con `noindex`.
-- Configuración del proyecto: comando de build `pnpm build`, directorio de salida `dist` (si quedan vacíos, Cloudflare publica el repositorio sin compilar y todo da 404) y variable `PNPM_VERSION` = `10.17.1`. No definas `NODE_VERSION`: Cloudflare toma `.node-version`.
+- **Para crear el proyecto de nuevo** (Workers y Pages → Crear → pestaña **Pages** → Conectar a Git → este repositorio): elige **Framework preset: Astro**, que rellena el comando de build y el directorio de salida `dist`. No hace falta nada más: Cloudflare lee `.node-version` y el campo `packageManager` de `package.json` para usar Node 22 y pnpm 10. Si el build fallara por la versión de pnpm, agrega la variable `PNPM_VERSION` = `10.17.1`.
+- **Importante:** con «Framework preset: None» y el comando de build y la salida vacíos, Cloudflare no compila: publica el repositorio tal cual y todo da 404 aunque el despliegue salga en verde. No definas `NODE_VERSION`: Cloudflare toma `.node-version`.
 - Las cabeceras de seguridad (CSP, HSTS, etc.) salen de `public/_headers` y de la CSP con hashes que genera Astro.
 - **Analítica opcional:** define `PUBLIC_GA4_ID` (`G-XXXXXXX`) en Cloudflare, en Producción y Vista previa. Sin esa variable no se carga nada de Google. Las visitas también se pueden contar con Cloudflare Web Analytics (sin cookies).
 - **Cada enero:** el año («SOAT 2027») se calcula al compilar, así que hay que reconstruir el sitio. Crea un _Deploy hook_ en Cloudflare (Settings → Builds) y ábrelo el 1 de enero, o pulsa _Retry deployment_ en el último despliegue.
