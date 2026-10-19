@@ -7,8 +7,10 @@
  * - `surface`: fondo alterno para separar bloques sin líneas.
  * - `alert`: franja navy (isla de color `tone-alert` en global.css).
  *
- * Todas van bajo el primer pantallazo, así que el navegador las prepara cuando el
- * visitante se acerca (`content-visibility: auto`, T32). `estimate` son las clases con
+ * Las cuatro secciones grandes van bajo el primer pantallazo, así que el navegador las
+ * prepara cuando el visitante se acerca (`content-visibility: auto`, T32). No se aplica
+ * al cierre ni al pie: sus enlaces deben poder alcanzarse de un salto (en WebKit sobre
+ * Linux, un clic en el pie recién saltado no llegaba al enlace). `estimate` son las clases con
  * la altura estimada por tamaño de pantalla (medida en 412, 768 y 1280 px): así la
  * barra de desplazamiento y los saltos a las anclas no se descuadran.
  */
