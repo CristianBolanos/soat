@@ -5,13 +5,18 @@ const PAGES = [
   { path: '/', h1: /Tu SOAT \d{4} para moto o carro/ },
   { path: '/politica-de-datos', h1: 'Política de tratamiento de datos personales' },
   { path: '/terminos', h1: 'Términos del servicio' },
+  { path: '/esta-pagina-no-existe', h1: 'Esta página no existe' },
 ];
 
 for (const { path, h1 } of PAGES) {
   test.describe(`página ${path}`, () => {
     test('carga sin errores de consola (incluye violaciones de CSP)', async ({ page }) => {
       const errors: string[] = [];
-      page.on('console', (msg) => msg.type() === 'error' && errors.push(msg.text()));
+      page.on('console', (msg) => {
+        // En la 404 el navegador registra el propio código 404 del documento: es lo esperado.
+        const expected404 = path.includes('no-existe') && msg.text().includes('404');
+        if (msg.type() === 'error' && !expected404) errors.push(msg.text());
+      });
       page.on('pageerror', (err) => errors.push(err.message));
       await page.goto(path);
       await expect(page.getByRole('heading', { level: 1 })).toHaveText(h1);

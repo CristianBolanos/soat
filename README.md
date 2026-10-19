@@ -2,7 +2,7 @@
 
 Landing de conversión para cotizar y comprar el **SOAT de moto o carro en Colombia por WhatsApp**. Es un sitio 100 % estático, hecho con Astro y alojado gratis en Cloudflare Pages.
 
-> **Estado:** landing completa (F0–F5): cotizador funcional, secciones, páginas legales y 404. Faltan SEO técnico (F6), analítica GA4 (F7), cabeceras de seguridad (F8), QA final y lanzamiento. El sitio anterior está en `legacy/` mientras dura la migración; las decisiones están en `docs/decisiones.md`.
+> **Estado:** landing completa con SEO técnico, analítica GA4 lista para activar y cabeceras de seguridad (F0–F8). Lighthouse: 100 en las cuatro categorías. Faltan QA en dispositivos reales (F9), revisión final (G3) y lanzamiento, que solo espera fijar la fecha de vigencia de la política al publicar. El sitio anterior está en `legacy/`; las decisiones están en `docs/decisiones.md`.
 
 ## Requisitos
 
@@ -57,7 +57,9 @@ docs/                 Decisiones, marca, copy, SEO, medición, soporte y desplie
 - `docs/paridad.md`: qué pasa con cada función del sitio anterior
 - `docs/insumos-cliente.md`: datos pendientes del cliente
 - `docs/soporte.md`: navegadores soportados
-- `docs/despliegue.md`: Cloudflare Pages, lanzamiento y reversa
+- `docs/despliegue.md`: Cloudflare Pages paso a paso, lanzamiento y reversa
+- `docs/qa-checklist.md`: pruebas en celulares y navegadores reales (F9)
+- `docs/seguridad.md`: controles activos, controles que no aplican y seguridad de las cuentas
 - `docs/linea-base/`: medición del sitio anterior
 - `docs/wireframes/`: wireframes de baja fidelidad (compuerta G1)
 - `docs/creditos.md`: origen y licencia de cada recurso visual

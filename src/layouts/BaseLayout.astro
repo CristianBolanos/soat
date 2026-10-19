@@ -1,14 +1,35 @@
 ---
+/**
+ * Layout base: SEO (canonical, Open Graph, X Cards, JSON-LD), tema sin parpadeo,
+ * fuente auto-alojada y scripts globales de medición. Las URL absolutas salen de
+ * `site` en astro.config.mjs, así un cambio de dominio se propaga solo.
+ */
 import { Font } from 'astro:assets';
+import { site } from '@/config/site';
+import { serializeJsonLd } from '@/lib/structured-data';
 import '@/styles/global.css';
 
 interface Props {
   title: string;
   description: string;
   noindex?: boolean;
+  /** Documento JSON-LD (`graph(...)`), solo en las páginas que lo necesitan. */
+  jsonLd?: object;
+  ogImageAlt?: string;
 }
 
-const { title, description, noindex = false } = Astro.props;
+const {
+  title,
+  description,
+  noindex = false,
+  jsonLd,
+  ogImageAlt = 'SOAT YA: cotiza tu SOAT de moto o carro por WhatsApp',
+} = Astro.props;
+
+// Con build.format 'file' la ruta llega como /terminos.html o /index.html: URL limpia.
+const cleanPath = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
+const canonical = new URL(cleanPath, Astro.site).href;
+const ogImage = new URL('/og-image.png', Astro.site).href;
 ---
 
 <!doctype html>
@@ -18,7 +39,7 @@ const { title, description, noindex = false } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    {noindex && <meta name="robots" content="noindex" />}
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0a1424" media="(prefers-color-scheme: dark)" />
@@ -42,6 +63,24 @@ const { title, description, noindex = false } = Astro.props;
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <Font cssVariable="--font-jakarta" preload />
+
+    <!-- Open Graph (Facebook, WhatsApp) y X Cards -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
+    {jsonLd && <script is:inline type="application/ld+json" set:html={serializeJsonLd(jsonLd)} />}
   </head>
   <body>
     <a
@@ -54,6 +93,7 @@ const { title, description, noindex = false } = Astro.props;
     <script>
       import '@/scripts/track-clicks';
       import '@/scripts/lead-origin';
+      import '@/scripts/analytics';
     </script>
   </body>
 </html>

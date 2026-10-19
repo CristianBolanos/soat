@@ -45,6 +45,24 @@ export function websiteSchema(name: string, url: string) {
   return { '@type': 'WebSite', '@id': `${url}#sitio`, name, url, inLanguage: 'es-CO' };
 }
 
+export function webPageSchema(input: {
+  url: string;
+  siteUrl: string;
+  name: string;
+  description: string;
+}) {
+  return {
+    '@type': 'WebPage',
+    '@id': `${input.url}#pagina`,
+    url: input.url,
+    name: input.name,
+    description: input.description,
+    inLanguage: 'es-CO',
+    isPartOf: { '@id': `${input.siteUrl}#sitio` },
+    about: { '@id': `${input.siteUrl}#organizacion` },
+  };
+}
+
 export function faqSchema(items: readonly FaqItem[]) {
   return {
     '@type': 'FAQPage',

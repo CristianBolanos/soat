@@ -4,7 +4,7 @@
  * wa.me con un mensaje genérico).
  */
 import { PLATE_HINTS, PLATE_PLACEHOLDERS, QUOTE_ERRORS } from '@/data/quote-messages';
-import { track } from '@/lib/analytics';
+import { track, trackThenNavigate } from '@/lib/analytics';
 import {
   inferVehicle,
   isVehicleType,
@@ -97,8 +97,7 @@ function submitQuote(els: Elements, state: State): void {
     els.number,
     withOrigin(quoteMessage(result.vehicle, result.plate), origin),
   );
-  track('generate_lead', { tipo: result.vehicle, origen: origin });
-  window.location.href = url;
+  trackThenNavigate('generate_lead', { tipo: result.vehicle, origen: origin }, url);
 }
 
 function onPlateInput(els: Elements, state: State): void {

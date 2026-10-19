@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { currentYear } from '../../src/lib/dates';
+import { currentYear, formatLongDate } from '../../src/lib/dates';
 
 describe('lib/dates: currentYear', () => {
   it('devuelve el año de la fecha dada', () => {
@@ -15,5 +15,15 @@ describe('lib/dates: currentYear', () => {
 
   it('usa Colombia por defecto', () => {
     expect(currentYear(undefined, new Date('2030-03-01T00:00:00Z'))).toBe(2030);
+  });
+});
+
+describe('lib/dates: formatLongDate', () => {
+  it('escribe la fecha en español de Colombia', () => {
+    expect(formatLongDate('2026-10-18')).toBe('18 de octubre de 2026');
+  });
+
+  it('no se corre un día por la zona horaria', () => {
+    expect(formatLongDate('2027-01-01')).toBe('1 de enero de 2027');
   });
 });

@@ -51,7 +51,9 @@ const { title, description, heading, noindex = false } = Astro.props;
   .legal :global(strong) {
     color: var(--text);
   }
-  .legal :global(a) {
+  /* Solo los enlaces del texto: los botones (p. ej. en la 404) conservan sus colores. */
+  .legal :global(p a),
+  .legal :global(li a) {
     color: var(--brand);
     font-weight: 600;
     text-decoration: underline;

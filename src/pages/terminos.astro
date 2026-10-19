@@ -2,8 +2,10 @@
 /** Términos del servicio. Fecha y responsable desde config/site.ts. */
 import PageLayout from '@/layouts/PageLayout.astro';
 import { site } from '@/config/site';
+import { formatLongDate } from '@/lib/dates';
 
 const { legal, contact } = site;
+const updated = legal.policyDate ? formatLongDate(legal.policyDate) : null;
 const partner = site.partnerNetwork ?? 'una red autorizada para la venta del SOAT';
 ---
 
@@ -16,7 +18,8 @@ const partner = site.partnerNetwork ?? 'una red autorizada para la venta del SOA
   <p>
     SOAT YA es un servicio de cotización y compra asistida del SOAT para motos y carros en Colombia.
     Somos punto aliado de {partner}. No somos una aseguradora: las pólizas las expiden aseguradoras
-    vigiladas por la Superintendencia Financiera de Colombia. Responsable: {legal.responsibleName}.
+    vigiladas por la Superintendencia Financiera de Colombia.
+    {legal.responsibleName && <>Responsable: {legal.responsibleName}.</>}
   </p>
 
   <h2>2. El servicio</h2>
@@ -68,6 +71,7 @@ const partner = site.partnerNetwork ?? 'una red autorizada para la venta del SOA
   <h2>8. Ley aplicable y cambios</h2>
   <p>
     Estos términos se rigen por las leyes de la República de Colombia. Podemos actualizarlos y la
-    versión vigente siempre estará en esta página. Última actualización: {legal.policyDate}.
+    versión vigente siempre estará en esta página.
+    {updated && <>Última actualización: {updated}.</>}
   </p>
 </PageLayout>

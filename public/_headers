@@ -1,0 +1,16 @@
+# Cabeceras de seguridad y caché para Cloudflare Pages (plan, F8.1).
+# La CSP de scripts y estilos (con hashes) la genera Astro en una <meta>; aquí van
+# las directivas que una <meta> no admite (frame-ancestors) y el resto de cabeceras.
+
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: frame-ancestors 'none'; base-uri 'self'; object-src 'none'; form-action 'self' https://wa.me https://api.whatsapp.com
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()
+  Cross-Origin-Opener-Policy: same-origin
+
+# Archivos con hash en el nombre: se pueden guardar en caché para siempre.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable

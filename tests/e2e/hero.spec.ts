@@ -34,6 +34,7 @@ test('la imagen principal tiene prioridad alta, dimensiones y texto alternativo'
   await expect(img).toHaveAttribute('height', /\d+/);
   await expect(img).toHaveAttribute('alt', /placa/);
   await expect(page.locator('#hero picture source[type="image/avif"]')).toHaveCount(1);
+  await expect(page.locator('#hero picture source[type="image/webp"]')).toHaveCount(1);
 });
 
 test('el formulario sin JavaScript apunta a wa.me con un mensaje genérico', async ({ page }) => {

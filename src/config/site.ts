@@ -36,15 +36,24 @@ export const site = {
   /** Pendiente (decisión D4): nombre de la red aliada, solo con su permiso. */
   partnerNetwork: null as string | null,
   /**
-   * Responsable del tratamiento de datos (Ley 1581 de 2012). Los valores
-   * «[PENDIENTE…]» bloquean el lanzamiento: `pnpm test:release` falla mientras existan.
+   * Responsable del tratamiento de datos (Ley 1581 de 2012): quien vende como punto
+   * aliado y recibe los datos por WhatsApp (decisión D6). El Decreto 1377 de 2013
+   * (art. 13) exige nombre, domicilio, dirección, correo y teléfono; no exige cédula ni NIT.
+   * Mientras un dato esté en null, la política se muestra sin él y `pnpm test:release`
+   * impide publicar.
    */
   legal: {
-    responsibleName: '[PENDIENTE: nombre o razón social]',
-    responsibleId: '[PENDIENTE: cédula o NIT]',
-    responsibleAddress: '[PENDIENTE: dirección y ciudad]',
+    /** Nombre completo de la persona (o razón social). */
+    responsibleName: 'Cristian Bolaños' as string | null,
+    /** Domicilio: ciudad y departamento. */
+    city: 'Cali, Valle del Cauca' as string | null,
+    /** Dirección para notificaciones (comercial o de correspondencia). */
+    address: 'La Buitrera, Cali' as string | null,
     requestsEmail: 'ventasypublicidad7@gmail.com',
-    policyDate: '[PENDIENTE: fecha de publicación]',
+    /** Fecha de entrada en vigencia de la política (AAAA-MM-DD); se fija al publicar. */
+    policyDate: null as string | null,
+    /** Plataforma de recaudo y expedición con la que se emite la póliza (se informa en la política). */
+    issuingPlatform: 'Refácil',
   },
 } as const;
 
