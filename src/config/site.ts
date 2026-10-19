@@ -53,7 +53,7 @@ export const site = {
     address: 'La Buitrera, Cali' as string | null,
     requestsEmail: 'ventasypublicidad7@gmail.com',
     /** Fecha de entrada en vigencia de la política (AAAA-MM-DD); se fija al publicar. */
-    policyDate: null as string | null,
+    policyDate: '2026-10-19' as string | null,
     /** Plataforma de recaudo y expedición con la que se emite la póliza (se informa en la política). */
     issuingPlatform: 'Refácil',
   },
