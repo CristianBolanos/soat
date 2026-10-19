@@ -1,0 +1,136 @@
+---
+/**
+ * Muestrario del sistema de diseño (plan, F3.5). Solo existe en desarrollo:
+ * en el build de producción getStaticPaths no devuelve rutas.
+ * Ver en: http://localhost:4321/dev/sistema
+ */
+import PlateInput from '@/components/quote/PlateInput.astro';
+import VehicleToggle from '@/components/quote/VehicleToggle.astro';
+import Header from '@/components/layout/Header.astro';
+import Button from '@/components/ui/Button.astro';
+import Container from '@/components/ui/Container.astro';
+import Icon from '@/components/ui/Icon.astro';
+import Logo from '@/components/ui/Logo.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  return import.meta.env.DEV ? [{ params: { page: 'sistema' } }] : [];
+}
+
+// Clases completas: Tailwind no detecta nombres armados dinámicamente.
+const swatches = [
+  ['bg-bg', 'bg', 'Fondo'],
+  ['bg-surface', 'surface', 'Superficie'],
+  ['bg-fg', 'text', 'Texto'],
+  ['bg-muted', 'text-muted', 'Texto secundario'],
+  ['bg-brand', 'brand', 'Marca / enlaces'],
+  ['bg-cta', 'cta', 'CTA principal'],
+  ['bg-wa', 'wa', 'WhatsApp'],
+  ['bg-line', 'border', 'Bordes'],
+  ['bg-danger', 'danger', 'Error'],
+  ['bg-success', 'success', 'Éxito'],
+] as const;
+const icons = [
+  'motorbike',
+  'car-front',
+  'phone',
+  'shield-check',
+  'file-check',
+  'badge-check',
+  'clock',
+  'simple-icons:whatsapp',
+];
+---
+
+<BaseLayout title="Sistema de diseño | SOAT YA" description="Muestrario interno" noindex>
+  <Header />
+  <main>
+    <Container class="space-y-14 py-10">
+      <section aria-labelledby="s-marca">
+        <h2 id="s-marca" class="font-display text-title font-bold">
+          Marca
+        </h2>
+        <div class="mt-4 flex flex-wrap items-center gap-8">
+          <Logo class="h-14 w-auto text-fg" />
+          <img src="/favicon.svg" width="48" height="48" alt="Favicon" />
+          <img
+            src="/apple-touch-icon.png"
+            width="60"
+            height="60"
+            alt="Ícono de app"
+            class="rounded-xl"
+          />
+        </div>
+      </section>
+
+      <section aria-labelledby="s-color">
+        <h2 id="s-color" class="font-display text-title font-bold">
+          Color (cambia con el tema)
+        </h2>
+        <ul class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5">
+          {swatches.map(([className, token, label]) => (
+            <li class="overflow-hidden rounded-card border border-line">
+              <div class:list={['h-16', className]} />
+              <p class="p-2 text-xs">
+                <b>{label}</b>
+                <br />
+                <code>--{token}</code>
+              </p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section aria-labelledby="s-tipo" class="space-y-3">
+        <h2 id="s-tipo" class="font-display text-title font-bold">
+          Tipografía (Barlow Semi Condensed en títulos y placa; Plus Jakarta Sans en el texto)
+        </h2>
+        <p class="font-display text-display-sm sm:text-display font-bold">
+          Tu SOAT para moto o carro
+        </p>
+        <p class="font-display text-title-lg font-bold">Título de sección</p>
+        <p class="text-lead text-muted">Texto destacado para subtítulos y párrafos de apoyo.</p>
+        <p>Texto normal de 16 px. Cotiza por WhatsApp con un asesor real.</p>
+        <p class="text-sm text-muted">Texto pequeño para ayudas y avisos.</p>
+      </section>
+
+      <section aria-labelledby="s-botones" class="space-y-4">
+        <h2 id="s-botones" class="font-display text-title font-bold">
+          Botones
+        </h2>
+        <div class="flex flex-wrap gap-3">
+          <Button variant="cta" size="lg" icon="simple-icons:whatsapp">
+            Cotizar por WhatsApp
+          </Button>
+          <Button variant="whatsapp" href="#" icon="simple-icons:whatsapp">
+            WhatsApp
+          </Button>
+          <Button variant="outline" href="#" icon="phone">
+            Llamar
+          </Button>
+          <Button variant="outline">Empezar ahora</Button>
+        </div>
+      </section>
+
+      <section aria-labelledby="s-form" class="grid gap-6 sm:grid-cols-2">
+        <h2 id="s-form" class="font-display text-title font-bold sm:col-span-2">
+          Controles del cotizador
+        </h2>
+        <div class="space-y-4 rounded-card border border-line p-5 shadow-card">
+          <VehicleToggle />
+          <PlateInput />
+        </div>
+        <div class="space-y-2">
+          <p class="font-bold">Íconos (Lucide y Simple Icons)</p>
+          <ul class="flex flex-wrap gap-4">
+            {icons.map((name) => (
+              <li class="flex size-12 items-center justify-center rounded-control border border-line">
+                <Icon name={name} class="size-6" label={name} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    </Container>
+  </main>
+</BaseLayout>

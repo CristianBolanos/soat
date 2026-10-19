@@ -1,0 +1,38 @@
+---
+/**
+ * Logo «SOAT [YA]». «SOAT» toma el color del texto (currentColor) para adaptarse al
+ * tema; la placa es siempre amarilla con borde navy. Los trazados se generan con
+ * `pnpm brand` (scripts/brand/generate.mjs). Es decorativo: el enlace que lo
+ * contiene lleva el nombre accesible.
+ */
+import { logoGeometry as g } from './logo-geometry';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = 'h-8 w-auto' } = Astro.props;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox={g.viewBox.join(' ')}
+  class={className}
+  aria-hidden="true"
+  focusable="false"
+>
+  <path d={g.soat} fill="currentColor"></path>
+  <rect
+    x={g.plate.x}
+    y={g.plate.y}
+    width={g.plate.w}
+    height={g.plate.h}
+    rx={g.plate.rx}
+    class="fill-cta stroke-on-cta"
+    stroke-width={g.stroke}
+  ></rect>
+  {g.bolts.map((b) => (
+    <circle cx={b.cx} cy={b.cy} r={b.r} class="fill-on-cta" />
+  ))}
+  <path d={g.ya} class="fill-on-cta"></path>
+</svg>

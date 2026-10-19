@@ -1,0 +1,25 @@
+---
+/**
+ * Número en un círculo: enlaza los datos de la licencia con su lista y marca los pasos
+ * del chat. Es decorativo (aria-hidden): la lista o el título ya dicen el orden.
+ * - `ink`: navy (color del texto); `cta`: amarillo de la placa.
+ */
+interface Props {
+  n: number;
+  tone?: 'ink' | 'cta';
+  size?: 'sm' | 'md';
+}
+
+const { n, tone = 'ink', size = 'md' } = Astro.props;
+---
+
+<span
+  aria-hidden="true"
+  class:list={[
+    'inline-flex shrink-0 items-center justify-center rounded-full font-extrabold tabular-nums',
+    size === 'sm' ? 'size-5 text-xs' : 'size-6 text-sm',
+    tone === 'cta' ? 'bg-cta text-on-cta' : 'bg-fg text-bg',
+  ]}
+>
+  {n}
+</span>

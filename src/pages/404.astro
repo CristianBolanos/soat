@@ -1,0 +1,33 @@
+---
+/** Página 404 (Cloudflare Pages la sirve para rutas que no existen). No se indexa. */
+import Button from '@/components/ui/Button.astro';
+import PageLayout from '@/layouts/PageLayout.astro';
+import { site } from '@/config/site';
+import { MESSAGES, whatsappUrl, withOrigin } from '@/lib/whatsapp';
+
+const whatsappHref = whatsappUrl(site.contact.whatsapp, withOrigin(MESSAGES.generic, 'web'));
+---
+
+<PageLayout
+  title="Página no encontrada | SOAT YA"
+  description="La página que buscas no existe. Cotiza tu SOAT de moto o carro por WhatsApp."
+  heading="Esta página no existe"
+  noindex
+>
+  <p>Puede que el enlace esté mal escrito o que la página ya no exista.</p>
+  <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+    <Button href="/" variant="cta" size="lg" icon="house">
+      Ir al inicio
+    </Button>
+    <Button
+      href={whatsappHref}
+      variant="whatsapp"
+      size="lg"
+      icon="simple-icons:whatsapp"
+      data-track="whatsapp_click"
+      data-track-ubicacion="pagina_404"
+    >
+      Cotizar por WhatsApp
+    </Button>
+  </div>
+</PageLayout>

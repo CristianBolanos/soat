@@ -1,0 +1,41 @@
+---
+/**
+ * Sección de la landing: el `id` mantiene las anclas del sitio anterior y el título
+ * (SectionHeading con el mismo `id`) le da el nombre accesible. Cada sección arma su
+ * propia composición en el slot (decisión D8: nada de la misma grilla de tarjetas
+ * repetida); `class` va al Container, por ejemplo la grilla de dos columnas.
+ * - `surface`: fondo alterno para separar bloques sin líneas.
+ * - `alert`: franja navy (isla de color `tone-alert` en global.css).
+ *
+ * Todas van bajo el primer pantallazo, así que el navegador las prepara cuando el
+ * visitante se acerca (`content-visibility: auto`, T32). `estimate` son las clases con
+ * la altura estimada por tamaño de pantalla (medida en 412, 768 y 1280 px): así la
+ * barra de desplazamiento y los saltos a las anclas no se descuadran.
+ */
+import Container from './Container.astro';
+
+interface Props {
+  id: string;
+  /** Clases literales `[contain-intrinsic-size:auto_…px]` (con `sm:` y `lg:`). */
+  estimate: string;
+  tone?: 'default' | 'surface' | 'alert';
+  class?: string;
+}
+
+const { id, estimate, tone = 'default', class: className } = Astro.props;
+const TONES = {
+  default: '',
+  surface: 'bg-surface',
+  alert: 'tone-alert border-y border-line',
+} as const;
+---
+
+<section
+  id={id}
+  aria-labelledby={`${id}-titulo`}
+  class:list={['py-14 [content-visibility:auto] sm:py-20', estimate, TONES[tone]]}
+>
+  <Container class={className ?? ''}>
+    <slot />
+  </Container>
+</section>

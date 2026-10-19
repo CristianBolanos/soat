@@ -1,0 +1,25 @@
+---
+/**
+ * Título (h2, letra vial) e introducción de una sección. El id del título es
+ * `${id}-titulo`, el que usa Section en aria-labelledby. El slot `before` va antes del
+ * título (p. ej. la señal de alerta) y el slot normal, después de la introducción.
+ */
+interface Props {
+  /** id de la sección. */
+  id: string;
+  title: string;
+  intro?: string;
+  class?: string;
+}
+
+const { id, title, intro, class: className } = Astro.props;
+---
+
+<div class={className}>
+  <slot name="before" />
+  <h2 id={`${id}-titulo`} class="font-display text-title sm:text-title-lg font-bold">
+    {title}
+  </h2>
+  {intro && <p class="text-lead mt-3 max-w-xl text-muted">{intro}</p>}
+  <slot />
+</div>

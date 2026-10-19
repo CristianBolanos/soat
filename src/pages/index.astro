@@ -1,0 +1,63 @@
+---
+/**
+ * Landing (plan, anexo 2.9): cada sección empuja a una sola acción, cotizar por
+ * WhatsApp. Orden: propuesta y cotizador → valor → cómo se compra → seguridad →
+ * dudas → último empujón. Sin franja de beneficios: repetía el subtítulo (D8).
+ */
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/Header.astro';
+import MobileCtaBar from '@/components/layout/MobileCtaBar.astro';
+import Faq from '@/components/sections/Faq.astro';
+import FinalCta from '@/components/sections/FinalCta.astro';
+import Hero from '@/components/sections/Hero.astro';
+import HowItWorks from '@/components/sections/HowItWorks.astro';
+import PriceFactors from '@/components/sections/PriceFactors.astro';
+import SafePurchase from '@/components/sections/SafePurchase.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site } from '@/config/site';
+import { faq } from '@/data/faq';
+import { currentYear } from '@/lib/dates';
+import {
+  faqSchema,
+  graph,
+  organizationSchema,
+  webPageSchema,
+  websiteSchema,
+} from '@/lib/structured-data';
+
+const year = currentYear(site.timeZone);
+const title = `Compra tu SOAT ${year} para moto o carro | SOAT YA`;
+const description = `Cotiza y compra tu SOAT ${year} para moto o carro por WhatsApp. Te confirmamos el valor antes de pagar y tu póliza es verificable en el RUNT.`;
+
+// JSON-LD desde los mismos datos que se muestran (sin precios, D5).
+const siteUrl = new URL('/', Astro.site).href;
+const jsonLd = graph(
+  organizationSchema({
+    name: site.name,
+    url: siteUrl,
+    logoUrl: new URL('/icon-512.png', Astro.site).href,
+    phone: site.contact.phone,
+    email: site.contact.email,
+    opens: site.hours.opens,
+    closes: site.hours.closes,
+    ...(site.social.facebook ? { sameAs: [site.social.facebook] } : {}),
+  }),
+  websiteSchema(site.name, siteUrl),
+  webPageSchema({ url: siteUrl, siteUrl, name: title, description }),
+  faqSchema(faq),
+);
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <Header />
+  <main id="contenido">
+    <Hero />
+    <PriceFactors />
+    <HowItWorks />
+    <SafePurchase />
+    <Faq />
+    <FinalCta />
+  </main>
+  <Footer />
+  <MobileCtaBar />
+</BaseLayout>

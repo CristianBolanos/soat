@@ -1,0 +1,21 @@
+---
+/**
+ * Botón de tema claro/oscuro. Se oculta sin JavaScript (no podría funcionar) y su
+ * texto accesible describe la acción («Activar tema oscuro»).
+ */
+import Icon from '@/components/ui/Icon.astro';
+---
+
+<button
+  type="button"
+  data-theme-toggle
+  aria-label="Activar tema oscuro"
+  class="inline-flex size-11 items-center justify-center rounded-control border border-line text-fg transition hover:border-fg [:root:not([data-theme])_&]:hidden"
+>
+  <Icon name="moon" class="size-5 dark:hidden" />
+  <Icon name="sun" class="hidden size-5 dark:block" />
+</button>
+
+<script>
+  import '@/scripts/theme-toggle';
+</script>

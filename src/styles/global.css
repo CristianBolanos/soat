@@ -1,0 +1,172 @@
+@import 'tailwindcss';
+
+/*
+ * Tokens de color (plan, anexo 2.4). Los contrastes los verifica
+ * tests/unit/contrast.test.ts leyendo este archivo. Los componentes usan solo
+ * estos tokens semánticos, nunca colores sueltos.
+ */
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #f5f7fb;
+  --text: #0b1f3a;
+  --text-muted: #475569;
+  --brand: #1f4fd1;
+  --cta: #ffc629;
+  --on-cta: #0b1f3a;
+  --wa: #0b7a43;
+  --on-wa: #ffffff;
+  --border: #e2e8f0;
+  --danger: #b42318;
+  --success: #067647;
+  /* Burbuja del cliente en el chat de «Así compras» (verde WhatsApp al 15 % sobre --bg). */
+  --bubble-out: #daebe3;
+  /* Franja de alerta («Cómo evitar un SOAT falso»): navy de la placa con señal amarilla. */
+  --alert-bg: #0b1f3a;
+  --alert-fg: #ffffff;
+  --alert-muted: #c9d3e3;
+  --alert-brand: #7aa2ff;
+  --alert-line: #5b6b85;
+}
+
+/*
+ * Tema oscuro. Se declara dos veces a propósito: por preferencia del sistema
+ * (funciona sin JS) y por elección guardada (data-theme). La prueba de contraste
+ * comprueba que ambos bloques sean idénticos.
+ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #0a1424;
+    --surface: #111e33;
+    --text: #e6edf7;
+    --text-muted: #9fb0c8;
+    --brand: #7aa2ff;
+    --border: #1e2c44;
+    --danger: #f97066;
+    --success: #47cd89;
+    --bubble-out: #0a3b30;
+    --alert-bg: #111e33;
+    --alert-fg: #e6edf7;
+    --alert-muted: #9fb0c8;
+    --alert-brand: #7aa2ff;
+    --alert-line: #2c3d5c;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0a1424;
+  --surface: #111e33;
+  --text: #e6edf7;
+  --text-muted: #9fb0c8;
+  --brand: #7aa2ff;
+  --border: #1e2c44;
+  --danger: #f97066;
+  --success: #47cd89;
+  --bubble-out: #0a3b30;
+  --alert-bg: #111e33;
+  --alert-fg: #e6edf7;
+  --alert-muted: #9fb0c8;
+  --alert-brand: #7aa2ff;
+  --alert-line: #2c3d5c;
+}
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+@theme inline {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  /* Títulos y placa: Barlow Semi Condensed, de la familia visual de placas y señales viales. */
+  --font-display: var(--font-vial), ui-sans-serif, system-ui, sans-serif;
+  --color-bubble-out: var(--bubble-out);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--text);
+  --color-muted: var(--text-muted);
+  --color-brand: var(--brand);
+  --color-cta: var(--cta);
+  --color-on-cta: var(--on-cta);
+  --color-wa: var(--wa);
+  --color-on-wa: var(--on-wa);
+  --color-line: var(--border);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+}
+
+/* Escala tipográfica, radios y sombras (docs/marca.md). */
+@theme {
+  /* Escala de títulos para la letra vial (font-display), más estrecha que la del texto. */
+  --text-display-sm: 2.25rem;
+  --text-display-sm--line-height: 1.04;
+  --text-display-sm--letter-spacing: -0.005em;
+  --text-display: 3.875rem;
+  --text-display--line-height: 1;
+  --text-display--letter-spacing: -0.005em;
+  --text-title: 1.875rem;
+  --text-title--line-height: 1.08;
+  --text-title--letter-spacing: -0.005em;
+  --text-title-lg: 2.625rem;
+  --text-title-lg--line-height: 1.05;
+  --text-title-lg--letter-spacing: -0.005em;
+  --text-lead: 1.0625rem;
+  --text-lead--line-height: 1.6;
+  --text-lead-lg: 1.1875rem;
+  --text-lead-lg--line-height: 1.55;
+
+  --radius-control: 0.75rem;
+  --radius-card: 1.25rem;
+
+  --shadow-card: 0 1px 2px rgb(11 31 58 / 0.06), 0 12px 32px -12px rgb(11 31 58 / 0.18);
+  --shadow-cta: 0 8px 20px -8px rgb(11 31 58 / 0.45);
+}
+
+/*
+ * Isla de color de la franja de alerta: redefine los tokens semánticos, así lo que va
+ * adentro (texto, bordes, botón outline y anillo de foco) se adapta sin variantes nuevas.
+ */
+@utility tone-alert {
+  --bg: var(--alert-bg);
+  --text: var(--alert-fg);
+  --text-muted: var(--alert-muted);
+  --brand: var(--alert-brand);
+  --border: var(--alert-line);
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-bg font-sans text-fg antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--brand);
+    outline-offset: 2px;
+  }
+
+  /*
+   * Sin desplazamiento suave (T32): con content-visibility, Safari calcula el destino
+   * del salto antes de preparar las secciones y se pasa de la ancla. El salto inmediato
+   * llega exacto en todos los navegadores.
+   */
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

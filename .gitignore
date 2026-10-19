@@ -1,0 +1,28 @@
+# Dependencias y build
+node_modules/
+dist/
+.astro/
+
+# Pruebas y reportes
+playwright-report/
+test-results/
+.lighthouseci/
+coverage/
+
+# Entorno (nunca se versionan secretos)
+.env
+.env.*
+!.env.example
+.wrangler/
+
+# Documentos de trabajo del cliente y temporales de Office
+*.docx
+~$*
+~WRL*.tmp
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Configuración local de herramientas
+.claude/launch.json

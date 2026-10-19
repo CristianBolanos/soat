@@ -1,0 +1,11 @@
+# Finales de línea LF en todos los sistemas (Prettier y el CI en Linux los esperan así).
+* text=auto eol=lf
+
+# Binarios
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.woff2 binary

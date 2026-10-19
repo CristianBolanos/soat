@@ -1,0 +1,71 @@
+---
+/**
+ * CTA final: último empujón a WhatsApp o a la llamada. Aquí vive la ilustración del chat
+ * (decisión D8, opción A): fuera del primer pantallazo, más pequeña y con carga diferida,
+ * así no empuja el cotizador ni retrasa la carga. En escritorio va a la derecha del texto.
+ */
+import { Picture } from 'astro:assets';
+import heroChat from '@/assets/hero/hero-chat.png';
+import Button from '@/components/ui/Button.astro';
+import Container from '@/components/ui/Container.astro';
+import { site } from '@/config/site';
+import { nbsp } from '@/lib/text';
+import { MESSAGES, whatsappUrl, withOrigin } from '@/lib/whatsapp';
+
+const whatsappHref = whatsappUrl(site.contact.whatsapp, withOrigin(MESSAGES.generic, 'web'));
+// Espacio no separable dentro del enlace tel: (regla tel-non-breaking).
+const callLabel = nbsp('Llamar ahora');
+---
+
+<!-- Se prepara al acercarse (content-visibility, T32); altura estimada por pantalla. -->
+<section
+  aria-labelledby="cta-final-titulo"
+  class="py-14 [content-visibility:auto] [contain-intrinsic-size:auto_690px] sm:[contain-intrinsic-size:auto_670px] lg:[contain-intrinsic-size:auto_500px] sm:py-20"
+>
+  <Container>
+    <div class="rounded-card border border-line bg-surface px-6 py-10 text-center sm:px-12 lg:grid lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-x-12 lg:px-14 lg:text-left">
+      <Picture
+        src={heroChat}
+        formats={['avif', 'webp']}
+        widths={[200, 300, 400, 600]}
+        sizes="(min-width: 1024px) 300px, 200px"
+        alt="Chat de WhatsApp: un cliente envía la placa de su moto y recibe su póliza SOAT en PDF"
+        loading="lazy"
+        class="h-auto w-full"
+        pictureAttributes={{
+          class:
+            'mx-auto -mt-2 mb-5 block w-50 lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:m-0 lg:w-75',
+        }}
+      />
+      <h2 id="cta-final-titulo" class="font-display text-title sm:text-title-lg font-bold">
+        ¿Tu SOAT vence pronto? Déjalo listo hoy.
+      </h2>
+      <p class="sm:text-lead mx-auto mt-3 max-w-xl text-muted lg:mx-0">
+        Escríbenos por WhatsApp: te confirmamos el valor y te acompañamos en la compra.
+      </p>
+      <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
+        <Button
+          href={whatsappHref}
+          variant="whatsapp"
+          size="lg"
+          icon="simple-icons:whatsapp"
+          data-track="whatsapp_click"
+          data-track-ubicacion="cta_final"
+        >
+          Cotizar por WhatsApp
+        </Button>
+        <Button
+          href={`tel:${site.contact.phone}`}
+          variant="outline"
+          size="lg"
+          icon="phone"
+          aria-label={`Llamar ahora al ${site.contact.phoneDisplay}`}
+          data-track="phone_click"
+          data-track-ubicacion="cta_final"
+        >
+          {callLabel}
+        </Button>
+      </div>
+    </div>
+  </Container>
+</section>

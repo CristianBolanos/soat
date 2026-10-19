@@ -1,0 +1,76 @@
+---
+/**
+ * Botón o enlace con aspecto de botón.
+ * - `cta`: acción principal (amarillo). Una por pantalla (docs/cro-embudo.md).
+ * - `whatsapp`: abre WhatsApp directamente (verde accesible).
+ * - `outline`: acción secundaria.
+ * Con `href` se renderiza un <a>; sin `href`, un <button>.
+ */
+import type { HTMLAttributes } from 'astro/types';
+import Icon from './Icon.astro';
+
+type Variant = 'cta' | 'whatsapp' | 'outline';
+type Size = 'md' | 'lg' | 'lg-long';
+
+interface Props {
+  variant?: Variant;
+  size?: Size;
+  href?: string;
+  type?: 'button' | 'submit';
+  icon?: string;
+  block?: boolean;
+  external?: boolean;
+  class?: string;
+  [key: `data-${string}`]: string | undefined;
+  'aria-label'?: string;
+  form?: HTMLAttributes<'button'>['form'];
+}
+
+const {
+  variant = 'cta',
+  size = 'md',
+  href,
+  type = 'button',
+  icon,
+  block = false,
+  external = false,
+  class: className,
+  ...rest
+} = Astro.props;
+
+const VARIANTS: Record<Variant, string> = {
+  cta: 'bg-cta text-on-cta shadow-cta hover:brightness-95',
+  whatsapp: 'bg-wa text-on-wa hover:brightness-110',
+  outline: 'border-2 border-line bg-bg text-fg hover:border-fg',
+};
+// Con padding vertical: si una etiqueta se parte en dos líneas (pantallas de 320 px),
+// el texto no queda pegado a los bordes.
+const SIZES: Record<Size, string> = {
+  md: 'min-h-11 px-5 py-2 text-base',
+  lg: 'min-h-13 px-6 py-2.5 text-lg',
+  /** Etiquetas largas: 16 px en móvil para que quepan en una línea desde 360 px. */
+  'lg-long': 'min-h-13 px-6 py-2.5 text-base sm:text-lg',
+};
+const classes = [
+  'inline-flex items-center justify-center gap-2 rounded-control text-center leading-tight font-extrabold transition',
+  'active:translate-y-px',
+  VARIANTS[variant],
+  SIZES[size],
+  block && 'w-full',
+  className,
+];
+const externalProps = external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+---
+
+{href ? (
+  <a href={href} class:list={classes} {...externalProps} {...rest}>
+    {icon && <Icon name={icon} class="size-5" />}
+    <slot />
+    {external && <span class="sr-only"> (se abre en una pestaña nueva)</span>}
+  </a>
+) : (
+  <button type={type} class:list={classes} {...rest}>
+    {icon && <Icon name={icon} class="size-5" />}
+    <slot />
+  </button>
+)}
