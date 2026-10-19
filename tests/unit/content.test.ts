@@ -76,8 +76,8 @@ describe('lib/structured-data', () => {
   it('omite sameAs cuando no hay redes confirmadas', () => {
     const org = organizationSchema({
       name: 'SOAT YA',
-      url: 'https://soat-ya.pages.dev/',
-      logoUrl: 'https://soat-ya.pages.dev/icon-512.png',
+      url: 'https://soatya.pages.dev/',
+      logoUrl: 'https://soatya.pages.dev/icon-512.png',
       phone: '+573167341074',
       email: 'correo@ejemplo.com',
       opens: '07:00',

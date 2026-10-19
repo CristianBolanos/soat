@@ -40,7 +40,7 @@ Los eventos que llevan a otra página (WhatsApp, `tel:`, RUNT) se envían con `t
 | `utm_campaign` | `soat-{moto/carro}-{año}`, por ejemplo `soat-moto-2026`                 |
 | `utm_content`  | Variante del anuncio, por ejemplo `video-a` o `imagen-precio`           |
 
-**Ejemplo:** `https://soat-ya.pages.dev/?utm_source=facebook&utm_medium=cpc&utm_campaign=soat-moto-2026&utm_content=imagen-precio`
+**Ejemplo:** `https://soatya.pages.dev/?utm_source=facebook&utm_medium=cpc&utm_campaign=soat-moto-2026&utm_content=imagen-precio`
 
 Con `gclid`, `fbclid` o `utm_medium=cpc`, el mensaje de WhatsApp lleva la etiqueta `[ads]`; en los demás casos lleva `[web]`.
 

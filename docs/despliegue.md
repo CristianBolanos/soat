@@ -10,7 +10,7 @@ Todo es gratis; el único costo opcional es el dominio propio. Los pasos marcado
 2. Menú **Workers y Pages** → **Crear** → pestaña **Pages** → **Conectar a Git** (o _Import an existing Git repository_). Si el asistente te ofrece crear un **Worker**, busca abajo el enlace _Looking to deploy Pages? Get started_: este proyecto va en **Pages**.
 3. Autoriza la app de Cloudflare en GitHub. Cuando pregunte por los repositorios, elige **Only select repositories** → `cristianbolanos/soat`.
 4. Selecciona `soat` → **Comenzar configuración** y completa:
-   - **Nombre del proyecto:** `soat-ya` (define la URL `https://soat-ya.pages.dev`; si está ocupado, usa otro y avísame para cambiar `SITE_URL`)
+   - **Nombre del proyecto:** `soatya` (define la URL `https://soatya.pages.dev`; si está ocupado, usa otro y avísame para cambiar `SITE_URL`)
    - **Rama de producción:** `main`
    - **Framework preset:** `Astro`
    - **Comando de build:** `pnpm build`
@@ -35,7 +35,7 @@ git push -u origin astro-migration
 Si Git pide iniciar sesión, se abre el navegador con GitHub. Cloudflare detecta el push y construye la vista previa en unos 2 minutos. La URL queda así:
 
 ```
-https://astro-migration.soat-ya.pages.dev
+https://astro-migration.soatya.pages.dev
 ```
 
 (también está en Cloudflare → el proyecto → **Deployments**).
@@ -45,7 +45,7 @@ https://astro-migration.soat-ya.pages.dev
 ## 3. Comprobar la vista previa (lo hago yo)
 
 ```bash
-curl -sI https://astro-migration.soat-ya.pages.dev | grep -iE "x-robots-tag|strict-transport|x-frame|content-security"
+curl -sI https://astro-migration.soatya.pages.dev | grep -iE "x-robots-tag|strict-transport|x-frame|content-security"
 ```
 
 Debe mostrar `x-robots-tag: noindex` (la vista previa no se indexa), HSTS, `x-frame-options: DENY` y `frame-ancestors 'none'`.
@@ -76,7 +76,7 @@ Debe mostrar `x-robots-tag: noindex` (la vista previa no se indexa), HSTS, `x-fr
 3. **Sitio viejo de GitHub Pages:** antes de tocar `main`, se crea la rama `gh-pages` con una página que redirige a la URL nueva conservando el `#ancla`. 👤 En GitHub → Settings → Pages, cambias la fuente a `gh-pages`. Así el enlace viejo nunca queda roto.
 4. Se hace merge del PR `astro-migration` → `main`, con tu confirmación, y 👤 se activan los despliegues automáticos de producción en Cloudflare.
 5. **Analítica:** se comprueba que Web Analytics (paso 1.7) cuente las visitas de producción. **[Opcional]** Si GA4 no se activó antes, se activa ahora con `PUBLIC_GA4_ID` (ver `docs/medicion.md`).
-6. 👤 **Search Console:** agrega una propiedad de tipo **Prefijo de URL** con `https://soat-ya.pages.dev/`. Como método de verificación elige **Etiqueta HTML**, copia solo el valor de `content` y pásamelo: lo agrego al sitio y se publica. El método de Google Analytics no sirve aquí, porque GA4 se carga después de la primera interacción. Ya verificada la propiedad, envía `sitemap-index.xml` e inspecciona la URL principal.
+6. 👤 **Search Console:** agrega una propiedad de tipo **Prefijo de URL** con `https://soatya.pages.dev/`. Como método de verificación elige **Etiqueta HTML**, copia solo el valor de `content` y pásamelo: lo agrego al sitio y se publica. El método de Google Analytics no sirve aquí, porque GA4 se carga después de la primera interacción. Ya verificada la propiedad, envía `sitemap-index.xml` e inspecciona la URL principal.
 7. 👤 Actualiza el enlace en Facebook y en el perfil de WhatsApp Business.
 8. **Año automático:** «SOAT {año}» se calcula al construir el sitio, así que cada enero hay que volver a construirlo. Se crea un _Deploy hook_ (Settings → Builds → Deploy hooks, rama `main`) y un recordatorio anual en tu calendario para el 1.º de enero: ese día abres el enlace del hook o pulsas **Retry deployment** en el último despliegue.
 
@@ -89,4 +89,4 @@ Debe mostrar `x-robots-tag: noindex` (la vista previa no se indexa), HSTS, `x-fr
 
 1. Compra el dominio (por ejemplo, `soatya.com.co`) y agrégalo en **Custom domains** del proyecto.
 2. Cambia `SITE_URL` en `astro.config.mjs` y despliega (canonical, sitemap, robots y OG se actualizan solos).
-3. Crea en Cloudflare una redirección 301 de `soat-ya.pages.dev` al dominio nuevo (Bulk Redirects, gratis).
+3. Crea en Cloudflare una redirección 301 de `soatya.pages.dev` al dominio nuevo (Bulk Redirects, gratis).

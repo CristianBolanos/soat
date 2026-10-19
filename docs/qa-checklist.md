@@ -1,6 +1,6 @@
 # Checklist de QA en dispositivos reales (F9.2)
 
-Abre la **vista previa** (`https://astro-migration.soat-ya.pages.dev`) en cada dispositivo y marca cada punto. Si algo falla, anota el dispositivo, el navegador y qué pasó (una captura ayuda mucho).
+Abre la **vista previa** (`https://astro-migration.soatya.pages.dev`) en cada dispositivo y marca cada punto. Si algo falla, anota el dispositivo, el navegador y qué pasó (una captura ayuda mucho).
 
 ## Dispositivos y navegadores
 

@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // URL pública provisional (Cloudflare Pages, plan gratuito). Cuando exista el
 // dominio propio, se cambia solo aquí: canonical, sitemap, robots y OG lo heredan.
-const SITE_URL = 'https://soat-ya.pages.dev';
+const SITE_URL = 'https://soatya.pages.dev';
 
 // GA4 se activa definiendo PUBLIC_GA4_ID (p. ej. en Cloudflare Pages). Sin ID no se
 // carga nada de Google y sus dominios no entran a la CSP (mínimo privilegio).

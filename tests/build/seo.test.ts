@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { parse, type HTMLElement } from 'node-html-parser';
 import { describe, expect, it } from 'vitest';
 
-const SITE = 'https://soat-ya.pages.dev';
+const SITE = 'https://soatya.pages.dev';
 const INDEXABLE = [
   { file: 'index', url: `${SITE}/` },
   { file: 'politica-de-datos', url: `${SITE}/politica-de-datos` },
