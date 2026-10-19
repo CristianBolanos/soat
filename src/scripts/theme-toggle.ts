@@ -1,3 +1,4 @@
+import { track } from '@/lib/analytics';
 import {
   THEME_STORAGE_KEY,
   isTheme,
@@ -45,6 +46,7 @@ document.addEventListener('click', (event) => {
   const next = nextTheme(currentTheme());
   store(next);
   apply(next);
+  track('theme_change', { tema: next === 'dark' ? 'oscuro' : 'claro' });
 });
 
 // Si el visitante no eligió tema, seguimos los cambios del sistema en vivo.

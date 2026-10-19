@@ -2,7 +2,7 @@
 
 Landing de conversión para cotizar y comprar el **SOAT de moto o carro en Colombia por WhatsApp**. Es un sitio 100 % estático, hecho con Astro y alojado gratis en Cloudflare Pages.
 
-> **Estado:** migración en curso desde el sitio anterior (que está en `legacy/` mientras dura la migración). Las decisiones del plan están en `docs/decisiones.md` y el resto de la documentación en `docs/`.
+> **Estado:** landing completa (F0–F5): cotizador funcional, secciones, páginas legales y 404. Faltan SEO técnico (F6), analítica GA4 (F7), cabeceras de seguridad (F8), QA final y lanzamiento. El sitio anterior está en `legacy/` mientras dura la migración; las decisiones están en `docs/decisiones.md`.
 
 ## Requisitos
 
@@ -23,6 +23,7 @@ Landing de conversión para cotizar y comprar el **SOAT de moto o carro en Colom
 | `pnpm test`                         | Pruebas unitarias (Vitest)                                                   |
 | `pnpm test:build`                   | Pruebas de integración sobre `dist/`                                         |
 | `pnpm validate:html`                | html-validate y el Nu HTML Checker del W3C                                   |
+| `pnpm test:release`                 | Puerta de lanzamiento: falla si quedan datos «[PENDIENTE…]» en el sitio      |
 | `pnpm test:e2e`                     | Playwright más axe (5 perfiles de navegador)                                 |
 | `pnpm lhci`                         | Lighthouse CI (meta: 100 en las 4 categorías)                                |
 | `pnpm brand`                        | Regenera logo, favicons, imagen OG e ilustración del hero (`scripts/brand/`) |

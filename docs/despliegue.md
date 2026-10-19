@@ -32,10 +32,11 @@ Así solo llega a producción lo que pasó todas las pruebas.
 
 ## 3. Lanzamiento (F11, después de la compuerta G3)
 
-1. Se hace merge del PR `astro-migration` a `main`, con tu confirmación. Cloudflare despliega solo.
-2. **Redirección del sitio viejo:** el `index.html` de GitHub Pages se reemplaza por una página que redirige a la URL nueva conservando el `#ancla` (JS más `meta refresh` y `rel=canonical`).
-3. **Search Console:** agrega la propiedad `https://soat-ya.pages.dev/`, envía `sitemap-index.xml` e inspecciona la URL principal.
-4. Actualiza el enlace en Facebook y en el perfil de WhatsApp Business.
+1. **Puerta de lanzamiento:** `pnpm build && pnpm test:release` debe pasar (sin datos «[PENDIENTE…]», por ejemplo el responsable de la política de datos).
+2. Se hace merge del PR `astro-migration` a `main`, con tu confirmación. Cloudflare despliega solo.
+3. **Redirección del sitio viejo:** el `index.html` de GitHub Pages se reemplaza por una página que redirige a la URL nueva conservando el `#ancla` (JS más `meta refresh` y `rel=canonical`).
+4. **Search Console:** agrega la propiedad `https://soat-ya.pages.dev/`, envía `sitemap-index.xml` e inspecciona la URL principal.
+5. Actualiza el enlace en Facebook y en el perfil de WhatsApp Business.
 
 ## 4. Volver atrás (plan de reversa)
 

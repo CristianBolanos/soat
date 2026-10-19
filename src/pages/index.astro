@@ -1,8 +1,19 @@
 ---
-// Landing en construcción por fases: F3 (diseño) trae el header y el hero; las demás
-// secciones (¿Cuánto cuesta?, Cómo funciona, Compra segura, FAQ, pie) llegan en F5.
+/**
+ * Landing (plan, anexo 2.9): cada sección empuja a una sola acción, cotizar por
+ * WhatsApp. Orden: propuesta y cotizador → confianza → valor → pasos → seguridad
+ * → dudas → último empujón.
+ */
+import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
+import MobileCtaBar from '@/components/layout/MobileCtaBar.astro';
+import Faq from '@/components/sections/Faq.astro';
+import FinalCta from '@/components/sections/FinalCta.astro';
 import Hero from '@/components/sections/Hero.astro';
+import HowItWorks from '@/components/sections/HowItWorks.astro';
+import PriceFactors from '@/components/sections/PriceFactors.astro';
+import SafePurchase from '@/components/sections/SafePurchase.astro';
+import TrustStrip from '@/components/sections/TrustStrip.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { site } from '@/config/site';
 import { currentYear } from '@/lib/dates';
@@ -15,7 +26,15 @@ const year = currentYear(site.timeZone);
   description={`Cotiza y compra tu SOAT ${year} para moto o carro por WhatsApp. Te confirmamos el valor antes de pagar y tu póliza es verificable en el RUNT.`}
 >
   <Header />
-  <main>
+  <main id="contenido">
     <Hero />
+    <TrustStrip />
+    <PriceFactors />
+    <HowItWorks />
+    <SafePurchase />
+    <Faq />
+    <FinalCta />
   </main>
+  <Footer />
+  <MobileCtaBar />
 </BaseLayout>

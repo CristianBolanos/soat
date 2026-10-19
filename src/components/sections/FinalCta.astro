@@ -1,0 +1,48 @@
+---
+/** CTA final: último empujón a WhatsApp o a la llamada. */
+import Button from '@/components/ui/Button.astro';
+import Container from '@/components/ui/Container.astro';
+import { site } from '@/config/site';
+import { nbsp } from '@/lib/text';
+import { MESSAGES, whatsappUrl, withOrigin } from '@/lib/whatsapp';
+
+const whatsappHref = whatsappUrl(site.contact.whatsapp, withOrigin(MESSAGES.generic, 'web'));
+// Espacio no separable dentro del enlace tel: (regla tel-non-breaking).
+const callLabel = nbsp('Llamar ahora');
+---
+
+<section aria-labelledby="cta-final-titulo" class="py-14 sm:py-20">
+  <Container>
+    <div class="rounded-card border border-line bg-surface px-6 py-10 text-center sm:px-12">
+      <h2 id="cta-final-titulo" class="text-title sm:text-title-lg font-extrabold">
+        ¿Tu SOAT vence pronto? Déjalo listo hoy.
+      </h2>
+      <p class="sm:text-lead mx-auto mt-3 max-w-xl text-muted">
+        Escríbenos por WhatsApp: te confirmamos el valor y te acompañamos en la compra.
+      </p>
+      <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+        <Button
+          href={whatsappHref}
+          variant="whatsapp"
+          size="lg"
+          icon="simple-icons:whatsapp"
+          data-track="whatsapp_click"
+          data-track-ubicacion="cta_final"
+        >
+          Cotizar por WhatsApp
+        </Button>
+        <Button
+          href={`tel:${site.contact.phone}`}
+          variant="outline"
+          size="lg"
+          icon="phone"
+          aria-label={`Llamar ahora al ${site.contact.phoneDisplay}`}
+          data-track="phone_click"
+          data-track-ubicacion="cta_final"
+        >
+          {callLabel}
+        </Button>
+      </div>
+    </div>
+  </Container>
+</section>

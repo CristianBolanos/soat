@@ -1,0 +1,118 @@
+---
+/** Pie: contacto, aviso de punto aliado, enlaces legales y crédito discreto. */
+import Container from '@/components/ui/Container.astro';
+import Icon from '@/components/ui/Icon.astro';
+import Logo from '@/components/ui/Logo.astro';
+import { site } from '@/config/site';
+import { currentYear } from '@/lib/dates';
+import { nbsp } from '@/lib/text';
+import { MESSAGES, whatsappUrl, withOrigin } from '@/lib/whatsapp';
+
+interface Props {
+  base?: '' | '/';
+}
+
+const { base = '' } = Astro.props;
+const year = currentYear(site.timeZone);
+const whatsappHref = whatsappUrl(site.contact.whatsapp, withOrigin(MESSAGES.generic, 'web'));
+const partner = site.partnerNetwork ?? 'una red autorizada';
+const linkClass =
+  'inline-flex min-h-11 items-center gap-2 text-fg underline-offset-2 hover:underline';
+// Espacio no separable: el número de un enlace tel: nunca se parte entre líneas.
+const phoneLabel = nbsp(`Teléfono ${site.contact.phoneDisplay}`);
+---
+
+<footer class="border-t border-line bg-surface">
+  <Container class="grid gap-8 py-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
+    <div>
+      <a href={`${base}#hero`} aria-label="SOAT YA, ir al inicio" class="inline-block text-fg">
+        <Logo class="h-8 w-auto" />
+      </a>
+      <p class="mt-3 text-sm text-muted">
+        Cotización y compra asistida del SOAT para moto y carro en Colombia.
+      </p>
+      <p class="mt-3 text-xs text-muted">
+        SOAT YA es punto aliado de {partner} para la venta del SOAT. Las pólizas las expiden
+        aseguradoras vigiladas por la Superintendencia Financiera de Colombia.
+      </p>
+    </div>
+    <div>
+      <h2 class="text-sm font-bold">Contacto</h2>
+      <address class="mt-2 text-sm not-italic">
+        <a
+          href={whatsappHref}
+          class={linkClass}
+          data-track="whatsapp_click"
+          data-track-ubicacion="pie"
+        >
+          <Icon name="simple-icons:whatsapp" class="size-4" />
+          WhatsApp {site.contact.phoneDisplay}
+        </a>
+        <br />
+        <a
+          href={`tel:${site.contact.phone}`}
+          class={linkClass}
+          data-track="phone_click"
+          data-track-ubicacion="pie"
+        >
+          <Icon name="phone" class="size-4" />
+          {phoneLabel}
+        </a>
+        <br />
+        <a href={`mailto:${site.contact.email}`} class={linkClass}>
+          <Icon name="mail" class="size-4" />
+          {site.contact.email}
+        </a>
+        <span class="flex min-h-11 items-center gap-2 text-muted">
+          <Icon name="clock" class="size-4" />
+          {site.hours.display}
+        </span>
+      </address>
+    </div>
+    <nav aria-label="Información legal">
+      <h2 class="text-sm font-bold">Información legal</h2>
+      <ul class="mt-2 text-sm">
+        <li>
+          <a href="/politica-de-datos" class={linkClass}>
+            Política de tratamiento de datos
+          </a>
+        </li>
+        <li>
+          <a href="/terminos" class={linkClass}>
+            Términos del servicio
+          </a>
+        </li>
+        <li>
+          <a
+            href={site.links.runt}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={linkClass}
+            data-track="runt_click"
+          >
+            Verificar SOAT en el RUNT
+            <Icon name="external-link" class="size-4" />
+            <span class="sr-only">(se abre en una pestaña nueva)</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </Container>
+  <div class="border-t border-line">
+    <!-- Espacio inferior en móvil para que la barra fija no tape el pie. -->
+    <Container class="flex flex-col gap-1 pt-5 pb-28 text-xs text-muted sm:flex-row sm:justify-between lg:pb-5">
+      <p>© {year} SOAT YA</p>
+      <p>
+        Sitio desarrollado por
+        <a
+          href={site.links.developer}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline underline-offset-2"
+        >
+          Cristian Bolaños
+        </a>
+      </p>
+    </Container>
+  </div>
+</footer>

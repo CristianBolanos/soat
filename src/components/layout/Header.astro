@@ -10,16 +10,22 @@ import Logo from '@/components/ui/Logo.astro';
 import { site } from '@/config/site';
 import ThemeToggle from './ThemeToggle.astro';
 
+interface Props {
+  /** Prefijo de las anclas: '' en la portada, '/' en las demás páginas. */
+  base?: '' | '/';
+}
+
+const { base = '' } = Astro.props;
 const links = [
-  { href: '#tarifas', label: '¿Cuánto cuesta?' },
-  { href: '#como-funciona', label: 'Cómo funciona' },
-  { href: '#faq', label: 'Preguntas' },
+  { href: `${base}#tarifas`, label: '¿Cuánto cuesta?' },
+  { href: `${base}#como-funciona`, label: 'Cómo funciona' },
+  { href: `${base}#faq`, label: 'Preguntas' },
 ];
 ---
 
 <header class="border-b border-line">
   <Container class="flex h-16 items-center gap-3">
-    <a href="#hero" aria-label="SOAT YA, ir al inicio" class="rounded-md text-fg">
+    <a href={`${base}#hero`} aria-label="SOAT YA, ir al inicio" class="rounded-md text-fg">
       <Logo class="h-8 w-auto" />
     </a>
     <nav aria-label="Secciones" class="ml-auto hidden lg:block">

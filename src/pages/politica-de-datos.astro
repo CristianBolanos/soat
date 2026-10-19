@@ -1,0 +1,121 @@
+---
+/**
+ * Política de tratamiento de datos personales (Ley 1581 de 2012, Decreto 1377 de 2013).
+ * Los datos del responsable vienen de config/site.ts; los «[PENDIENTE…]» bloquean el
+ * lanzamiento (pnpm test:release). Recomendado: revisión de un abogado antes de publicar.
+ */
+import PageLayout from '@/layouts/PageLayout.astro';
+import { site } from '@/config/site';
+
+const { legal, contact } = site;
+---
+
+<PageLayout
+  title="Política de tratamiento de datos | SOAT YA"
+  description="Cómo SOAT YA recolecta, usa y protege tus datos personales, y cómo ejercer tus derechos según la Ley 1581 de 2012."
+  heading="Política de tratamiento de datos personales"
+>
+  <p>
+    En SOAT YA cuidamos tus datos. Esta política explica qué datos tratamos, para qué y cómo puedes
+    ejercer tus derechos, conforme a la Ley 1581 de 2012 y el Decreto 1377 de 2013.
+  </p>
+
+  <h2>1. Responsable del tratamiento</h2>
+  <ul>
+    <li>
+      <strong>Nombre o razón social:</strong> {legal.responsibleName}
+    </li>
+    <li>
+      <strong>Identificación:</strong> {legal.responsibleId}
+    </li>
+    <li>
+      <strong>Domicilio:</strong> {legal.responsibleAddress}
+    </li>
+    <li>
+      <strong>Correo para solicitudes:</strong>
+      <a href={`mailto:${legal.requestsEmail}`}>{legal.requestsEmail}</a>
+    </li>
+    <li>
+      <strong>Teléfono y WhatsApp:</strong> {contact.phoneDisplay}
+    </li>
+  </ul>
+
+  <h2>2. Datos que tratamos</h2>
+  <ul>
+    <li>La placa y el tipo de tu vehículo, que nos envías para cotizar.</li>
+    <li>
+      Los datos del propietario que aparecen en la licencia de tránsito, cuando decides comprar el
+      SOAT.
+    </li>
+    <li>Tu número de WhatsApp o de teléfono, cuando nos escribes o llamas.</li>
+    <li>Datos de navegación anónimos (páginas vistas y clics), sin placas ni teléfonos.</li>
+  </ul>
+  <p>No pedimos datos sensibles ni datos de menores de edad.</p>
+
+  <h2>3. Finalidades</h2>
+  <ul>
+    <li>Cotizar el SOAT de tu vehículo y confirmarte el valor antes del pago.</li>
+    <li>Gestionar la compra y la expedición de tu póliza con la aseguradora.</li>
+    <li>Responder tus preguntas y darte soporte por WhatsApp o teléfono.</li>
+    <li>Cumplir obligaciones legales y atender requerimientos de autoridades.</li>
+    <li>Medir de forma anónima el uso del sitio para mejorarlo.</li>
+  </ul>
+
+  <h2>4. Cómo recibimos tus datos</h2>
+  <p>
+    El sitio no guarda formularios: al pulsar «Cotizar por WhatsApp» se abre WhatsApp con tu placa y
+    eres tú quien decide enviar el mensaje. WhatsApp es un servicio de Meta Platforms, que puede
+    tratar los datos fuera de Colombia según sus propias políticas. Al enviarnos el mensaje
+    autorizas el tratamiento descrito en esta política.
+  </p>
+
+  <h2>5. Tus derechos</h2>
+  <ul>
+    <li>Conocer, actualizar y rectificar tus datos.</li>
+    <li>Pedir prueba de la autorización que nos diste.</li>
+    <li>Saber cómo hemos usado tus datos.</li>
+    <li>
+      Revocar la autorización o pedir que eliminemos tus datos, cuando no exista un deber legal de
+      conservarlos.
+    </li>
+    <li>Presentar quejas ante la Superintendencia de Industria y Comercio (SIC).</li>
+    <li>Acceder gratis a tus datos.</li>
+  </ul>
+
+  <h2>6. Cómo ejercer tus derechos</h2>
+  <p>
+    Escríbenos a <a href={`mailto:${legal.requestsEmail}`}>{legal.requestsEmail}</a> o por WhatsApp
+    al
+    {contact.phoneDisplay}, con tu nombre, tu solicitud y un medio de respuesta.
+  </p>
+  <ul>
+    <li>
+      <strong>Consultas:</strong> respondemos en máximo 10 días hábiles (prorrogables 5 días hábiles
+      más, con aviso).
+    </li>
+    <li>
+      <strong>Reclamos</strong> (corrección, actualización o supresión): respondemos en máximo 15
+      días hábiles (prorrogables 8 días hábiles más, con aviso).
+    </li>
+  </ul>
+
+  <h2>7. Seguridad</h2>
+  <p>
+    Aplicamos medidas razonables para proteger tus datos contra acceso, uso o divulgación no
+    autorizados. Nunca vendemos tus datos ni los usamos para fines distintos a los de esta política.
+  </p>
+
+  <h2>8. Cookies y analítica</h2>
+  <p>
+    Usamos herramientas de analítica para contar visitas y clics de forma agregada. No enviamos
+    placas, teléfonos ni documentos a esas herramientas. Puedes bloquear las cookies desde tu
+    navegador sin perder ninguna función del sitio.
+  </p>
+
+  <h2>9. Vigencia</h2>
+  <p>
+    Esta política rige desde el {legal.policyDate}. Conservamos los datos mientras sean necesarios
+    para las finalidades descritas y para cumplir obligaciones legales. Si la cambiamos,
+    publicaremos aquí la nueva versión.
+  </p>
+</PageLayout>

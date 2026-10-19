@@ -1,0 +1,73 @@
+---
+/** Términos del servicio. Fecha y responsable desde config/site.ts. */
+import PageLayout from '@/layouts/PageLayout.astro';
+import { site } from '@/config/site';
+
+const { legal, contact } = site;
+const partner = site.partnerNetwork ?? 'una red autorizada para la venta del SOAT';
+---
+
+<PageLayout
+  title="Términos del servicio | SOAT YA"
+  description="Condiciones del servicio de cotización y compra asistida del SOAT de SOAT YA."
+  heading="Términos del servicio"
+>
+  <h2>1. Quiénes somos</h2>
+  <p>
+    SOAT YA es un servicio de cotización y compra asistida del SOAT para motos y carros en Colombia.
+    Somos punto aliado de {partner}. No somos una aseguradora: las pólizas las expiden aseguradoras
+    vigiladas por la Superintendencia Financiera de Colombia. Responsable: {legal.responsibleName}.
+  </p>
+
+  <h2>2. El servicio</h2>
+  <ul>
+    <li>Te asesoramos por WhatsApp o teléfono para comprar el SOAT de tu vehículo.</li>
+    <li>
+      Revisamos los datos de tu vehículo y te confirmamos el valor exacto antes de que pagues.
+    </li>
+    <li>Gestionamos la expedición y te enviamos la póliza electrónica en PDF.</li>
+  </ul>
+
+  <h2>3. Valor y pagos</h2>
+  <ul>
+    <li>
+      El sitio no publica precios: el valor depende del tipo de vehículo, el cilindraje y el modelo,
+      y se confirma antes del pago.
+    </li>
+    <li>
+      Solo pagas por los canales oficiales que te indique el asesor. Nunca te pediremos transferir a
+      cuentas de personas.
+    </li>
+  </ul>
+
+  <h2>4. Tus responsabilidades</h2>
+  <ul>
+    <li>Entregar datos verdaderos y completos del vehículo y del propietario.</li>
+    <li>Revisar la información de la póliza al recibirla.</li>
+    <li>Verificar tu póliza en el RUNT y avisarnos de inmediato si algo no coincide.</li>
+  </ul>
+
+  <h2>5. Cobertura</h2>
+  <p>
+    La cobertura del SOAT se rige por la normativa colombiana vigente y por la póliza que expide la
+    aseguradora. SOAT YA no modifica las condiciones del seguro.
+  </p>
+
+  <h2>6. Datos personales</h2>
+  <p>
+    Tratamos tus datos según nuestra{' '}
+    <a href="/politica-de-datos">Política de tratamiento de datos</a>.
+  </p>
+
+  <h2>7. Contacto</h2>
+  <p>
+    WhatsApp y teléfono: {contact.phoneDisplay}. Correo:
+    <a href={`mailto:${contact.email}`}>{contact.email}</a>. Horario: {site.hours.display}.
+  </p>
+
+  <h2>8. Ley aplicable y cambios</h2>
+  <p>
+    Estos términos se rigen por las leyes de la República de Colombia. Podemos actualizarlos y la
+    versión vigente siempre estará en esta página. Última actualización: {legal.policyDate}.
+  </p>
+</PageLayout>

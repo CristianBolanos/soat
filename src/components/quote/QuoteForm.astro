@@ -1,8 +1,8 @@
 ---
 /**
  * Cotizador (#cotizador-pasos). Sin JavaScript el formulario va directo a wa.me
- * con un mensaje genérico (wa.me ignora los demás campos). Con JavaScript (F5)
- * valida la placa y arma el mensaje con el tipo y la placa.
+ * con un mensaje genérico (wa.me ignora los demás campos). Con JavaScript
+ * (scripts/quote-form.ts) valida la placa y arma el mensaje con tipo y placa.
  */
 import Button from '@/components/ui/Button.astro';
 import Icon from '@/components/ui/Icon.astro';
@@ -26,6 +26,7 @@ const trust = ['Valor confirmado antes de pagar', 'Verificable en el RUNT', site
   aria-label="Cotizador de SOAT"
   class="rounded-card border border-line bg-bg p-5 shadow-card sm:p-6"
   data-quote-form
+  data-whatsapp={site.contact.whatsapp}
 >
   <input type="hidden" name="text" value={withOrigin(MESSAGES.generic, 'web')} />
   <div class="space-y-4">
@@ -60,3 +61,7 @@ const trust = ['Valor confirmado antes de pagar', 'Verificable en el RUNT', site
     ))}
   </ul>
 </form>
+
+<script>
+  import '@/scripts/quote-form';
+</script>

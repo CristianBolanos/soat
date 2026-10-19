@@ -1,0 +1,28 @@
+---
+/** Franja de confianza (#beneficios): tres razones, sin repetir (hallazgo A4). */
+import Container from '@/components/ui/Container.astro';
+import Icon from '@/components/ui/Icon.astro';
+import { trustItems } from '@/data/landing';
+---
+
+<section
+  id="beneficios"
+  aria-label="Por qué elegir SOAT YA"
+  class="border-y border-line bg-surface py-8"
+>
+  <Container>
+    <ul class="grid gap-6 sm:grid-cols-3">
+      {trustItems.map((item) => (
+        <li class="flex gap-3">
+          <span class="flex size-11 shrink-0 items-center justify-center rounded-full bg-bg text-brand ring-1 ring-line">
+            <Icon name={item.icon} class="size-5" />
+          </span>
+          <div>
+            <p class="font-bold">{item.title}</p>
+            <p class="mt-0.5 text-sm text-muted">{item.text}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </Container>
+</section>

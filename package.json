@@ -22,7 +22,8 @@
     "validate:html": "html-validate \"dist/**/*.html\" && node scripts/validate-w3c.mjs",
     "lhci": "lhci autorun",
     "verify": "pnpm lint && pnpm format:check && pnpm check && pnpm test && pnpm build && pnpm test:build && pnpm validate:html",
-    "brand": "node scripts/brand/generate.mjs"
+    "brand": "node scripts/brand/generate.mjs",
+    "test:release": "vitest run --project release"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

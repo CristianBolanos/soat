@@ -1,0 +1,23 @@
+---
+/**
+ * Preguntas frecuentes (#faq) con <details> nativo: funciona sin JavaScript y con
+ * teclado. El contenido sale de data/faq.ts, igual que el JSON-LD FAQPage.
+ */
+import Icon from '@/components/ui/Icon.astro';
+import Section from '@/components/ui/Section.astro';
+import { faq } from '@/data/faq';
+---
+
+<Section id="faq" title="Preguntas frecuentes sobre el SOAT" tone="surface">
+  <div class="max-w-3xl divide-y divide-line rounded-card border border-line bg-bg">
+    {faq.map((item, index) => (
+      <details class="group px-5 py-4" data-faq-index={index + 1}>
+        <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 font-bold [&::-webkit-details-marker]:hidden">
+          {item.question}
+          <Icon name="chevron-down" class="size-5 text-muted transition group-open:rotate-180" />
+        </summary>
+        <p class="mt-2 pb-1 text-muted">{item.answer}</p>
+      </details>
+    ))}
+  </div>
+</Section>

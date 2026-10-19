@@ -2,7 +2,8 @@
  * Enlaces y mensajes de WhatsApp (docs/copy.md, «Mensajes de WhatsApp»).
  * Funciones puras: no tocan el DOM y se prueban en tests/unit/whatsapp.test.ts.
  */
-export type VehicleType = 'moto' | 'carro';
+import type { VehicleType } from './quote-validation';
+
 export type LeadOrigin = 'web' | 'ads';
 
 export const MESSAGES = {

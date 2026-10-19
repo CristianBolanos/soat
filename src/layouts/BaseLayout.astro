@@ -15,7 +15,7 @@ const { title, description, noindex = false } = Astro.props;
 <html lang="es-CO">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex" />}
@@ -44,6 +44,16 @@ const { title, description, noindex = false } = Astro.props;
     <Font cssVariable="--font-jakarta" preload />
   </head>
   <body>
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-control focus:bg-cta focus:px-4 focus:py-3 focus:font-bold focus:text-on-cta"
+    >
+      Saltar al contenido
+    </a>
     <slot />
+    <script>
+      import '@/scripts/track-clicks';
+      import '@/scripts/lead-origin';
+    </script>
   </body>
 </html>

@@ -17,6 +17,7 @@
     autocomplete="off"
     autocapitalize="characters"
     spellcheck="false"
+    enterkeyhint="send"
     maxlength="7"
     placeholder="ABC123"
     aria-describedby="placa-ayuda placa-error"
@@ -26,5 +27,11 @@
   <p id="placa-ayuda" class="mt-1.5 text-sm text-muted" data-plate-hint>
     Carro: ABC123 · Moto: ABC12D
   </p>
-  <p id="placa-error" class="mt-1.5 text-sm font-semibold text-danger" data-plate-error hidden></p>
+  <p
+    id="placa-error"
+    class="mt-1.5 text-sm font-semibold text-danger"
+    role="alert"
+    data-plate-error
+    hidden
+  ></p>
 </div>
