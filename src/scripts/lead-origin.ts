@@ -1,7 +1,7 @@
 /**
  * Si la visita viene de pauta (gclid, fbclid o utm_medium=cpc), los enlaces de
  * WhatsApp llevan la etiqueta [ads] en vez de [web], para que el asesor sepa de
- * dónde viene cada chat (docs/medicion.md). No envía nada a ningún servidor.
+ * dónde viene cada chat. No envía nada a ningún servidor.
  */
 import { originFromSearch } from '@/lib/whatsapp';
 

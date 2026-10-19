@@ -1,4 +1,4 @@
-/** Textos del cotizador (docs/copy.md). La lógica devuelve códigos; aquí está el texto. */
+/** Textos del cotizador. La lógica devuelve códigos; aquí está el texto. */
 import type { QuoteError, VehicleType } from '@/lib/quote-validation';
 
 export const QUOTE_ERRORS: Record<QuoteError, string> = {

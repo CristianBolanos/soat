@@ -1,11 +1,9 @@
 dist/
 .astro/
 node_modules/
-legacy/
 pnpm-lock.yaml
 playwright-report/
 test-results/
 .lighthouseci/
 coverage/
-docs/linea-base/
 *.docx

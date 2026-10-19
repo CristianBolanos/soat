@@ -1,5 +1,5 @@
 /**
- * Enlaces y mensajes de WhatsApp (docs/copy.md, «Mensajes de WhatsApp»).
+ * Enlaces y mensajes de WhatsApp.
  * Funciones puras: no tocan el DOM y se prueban en tests/unit/whatsapp.test.ts.
  */
 import type { VehicleType } from './quote-validation';

@@ -6,7 +6,7 @@ const PAGES = ['index', 'politica-de-datos', 'terminos', '404'];
 const read = (page: string) => parse(readFileSync(`dist/${page}.html`, 'utf8'));
 const index = existsSync('dist/index.html') ? read('index') : parse('');
 
-/** Anclas del sitio anterior que deben seguir funcionando (docs/paridad.md, fila 25). */
+/** Anclas del sitio anterior que deben seguir funcionando. */
 const LEGACY_ANCHORS = [
   'hero',
   'cotizador-pasos',

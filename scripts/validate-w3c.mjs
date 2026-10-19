@@ -5,7 +5,7 @@
  *
  * Falla solo con errores de HTML. Los mensajes "CSS:" vienen del CSS en línea que
  * genera Tailwind v4 (p. ej. `@property`), que el validador aún no reconoce: se
- * informan como falsos positivos documentados (docs/soporte.md) y el CSS se revisa
+ * informan como falsos positivos conocidos y el CSS se revisa
  * a mano en el validador CSS del W3C (plan, tarea F9.3).
  */
 import { spawnSync } from 'node:child_process';

@@ -111,7 +111,7 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/404') && !page.includes('/dev/'),
+      filter: (page) => !page.includes('/404'),
       lastmod: new Date(),
     }),
   ],

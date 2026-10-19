@@ -1,74 +1,74 @@
 # SOAT YA
 
-Landing de conversión para cotizar y comprar el **SOAT de moto o carro en Colombia por WhatsApp**. Es un sitio 100 % estático, hecho con Astro y alojado gratis en Cloudflare Pages.
-
-> **Estado:** landing completa con SEO técnico, analítica GA4 lista para activar y cabeceras de seguridad (F0–F8). Lighthouse: 100 en las cuatro categorías. Faltan QA en dispositivos reales (F9), revisión final (G3) y lanzamiento, que solo espera fijar la fecha de vigencia de la política al publicar. El sitio anterior está en `legacy/`; las decisiones están en `docs/decisiones.md`.
+Landing de conversión para cotizar y comprar el **SOAT de moto o carro en Colombia por WhatsApp**. Sitio 100 % estático hecho con Astro, TypeScript estricto y Tailwind, alojado gratis en Cloudflare Pages: https://soatya.pages.dev
 
 ## Requisitos
 
-- Node.js 22 o superior (ver `.node-version`)
-- pnpm 10 o superior
+- Node.js 22.22 o superior (la versión exacta está en `.node-version`)
+- pnpm 10
 
 ## Comandos
 
-| Comando                             | Qué hace                                                                     |
-| ----------------------------------- | ---------------------------------------------------------------------------- |
-| `pnpm install`                      | Instala las dependencias                                                     |
-| `pnpm dev`                          | Servidor de desarrollo en http://localhost:4321                              |
-| `pnpm build`                        | Genera el sitio estático en `dist/`                                          |
-| `pnpm preview`                      | Sirve `dist/` en local                                                       |
-| `pnpm lint`                         | ESLint (incluye las reglas de accesibilidad y de código limpio)              |
-| `pnpm format` / `pnpm format:check` | Prettier                                                                     |
-| `pnpm check`                        | Revisión de tipos (`astro check`)                                            |
-| `pnpm test`                         | Pruebas unitarias (Vitest)                                                   |
-| `pnpm test:build`                   | Pruebas de integración sobre `dist/`                                         |
-| `pnpm validate:html`                | html-validate y el Nu HTML Checker del W3C                                   |
-| `pnpm test:release`                 | Puerta de lanzamiento: falla si quedan datos «[PENDIENTE…]» en el sitio      |
-| `pnpm test:e2e`                     | Playwright más axe (5 perfiles de navegador)                                 |
-| `pnpm lhci`                         | Lighthouse CI (meta: 100 en las 4 categorías)                                |
-| `pnpm brand`                        | Regenera logo, favicons, imagen OG e ilustración del chat (`scripts/brand/`) |
-| `pnpm verify`                       | Todo lo anterior salvo E2E y Lighthouse                                      |
+| Comando                             | Qué hace                                                              |
+| ----------------------------------- | --------------------------------------------------------------------- |
+| `pnpm install`                      | Instala las dependencias                                              |
+| `pnpm dev`                          | Servidor de desarrollo en http://localhost:4321                       |
+| `pnpm build`                        | Genera el sitio estático en `dist/`                                   |
+| `pnpm preview`                      | Sirve `dist/` en local                                                |
+| `pnpm lint`                         | ESLint (accesibilidad y límites de código limpio)                     |
+| `pnpm format` / `pnpm format:check` | Prettier                                                              |
+| `pnpm check`                        | Revisión de tipos (`astro check`)                                     |
+| `pnpm test`                         | Pruebas unitarias (Vitest)                                            |
+| `pnpm test:build`                   | Pruebas sobre `dist/` (SEO, enlaces, seguridad, contenido)            |
+| `pnpm validate:html`                | html-validate y Nu HTML Checker del W3C                               |
+| `pnpm test:e2e`                     | Playwright y axe en 5 perfiles (Chromium, Firefox, WebKit, móviles)   |
+| `pnpm lhci`                         | Lighthouse CI (meta: 100 en las 4 categorías)                         |
+| `pnpm test:release`                 | Puerta de lanzamiento: datos legales completos y fecha de la política |
+| `pnpm verify`                       | Todo lo anterior salvo E2E y Lighthouse                               |
+
+El CI de GitHub (`.github/workflows/ci.yml`) corre todo esto en cada pull request y en `main`.
 
 ## Estructura
 
 ```
 src/
-  config/site.ts      Datos del negocio (contacto, horario, red aliada)
-  data/               Datos de contenido (FAQ)
+  config/site.ts      Datos del negocio: contacto, horario, enlaces y datos legales
+  data/               Contenido: faq.ts, landing.ts, payment.ts, quote-messages.ts
   lib/                Lógica pura y probada (validación, WhatsApp, analítica, JSON-LD)
+  scripts/            JavaScript del navegador (cotizador, tema, barra móvil, medición)
   layouts/            Layout base (SEO, tema, fuentes)
   components/         Componentes de presentación
-  pages/              Rutas del sitio
+  pages/              Rutas: portada, política de datos, términos, 404 y robots.txt
   styles/global.css   Tailwind y tokens de diseño (claro y oscuro)
-tests/
-  unit/  build/  e2e/
-docs/                 Decisiones, marca, copy, SEO, medición, soporte y despliegue
+public/               Íconos, imagen para compartir, manifest y `_headers` (seguridad)
+tests/                unit, build, e2e y release
+scripts/              Validación del HTML con el Nu Checker
 ```
 
-## Documentación
+## Cómo cambiar lo habitual
 
-- `docs/decisiones.md`: registro de decisiones
-- `docs/marca.md`: guía de marca y estudio de mercado
-- `docs/copy.md`: todos los textos del sitio
-- `docs/seo-palabras-clave.md`: mapa de palabras clave
-- `docs/cro-embudo.md`: CTA y embudo
-- `docs/medicion.md`: plan de analítica
-- `docs/tarifas-2026.md`: investigación de tarifas (referencia interna, no se publica)
-- `docs/paridad.md`: qué pasa con cada función del sitio anterior
-- `docs/insumos-cliente.md`: datos pendientes del cliente
-- `docs/soporte.md`: navegadores soportados
-- `docs/despliegue.md`: Cloudflare Pages paso a paso, lanzamiento y reversa
-- `docs/qa-checklist.md`: pruebas en celulares y navegadores reales (F9)
-- `docs/revision-final/`: revisión final por roles con evidencias y capturas (F10, compuerta G3)
-- `docs/seguridad.md`: controles activos, controles que no aplican y seguridad de las cuentas
-- `docs/linea-base/`: medición del sitio anterior
-- `docs/wireframes/`: wireframes de baja fidelidad (compuerta G1)
-- `docs/creditos.md`: origen y licencia de cada recurso visual
-- `docs/marca/`: logo e ilustración en vector
-- `docs/diseno/`: capturas del diseño (compuerta G2)
+- **Teléfono, correo, horario, Facebook o datos del responsable:** solo en `src/config/site.ts`.
+- **Preguntas frecuentes:** `src/data/faq.ts` (alimenta también los datos estructurados de Google).
+- **Textos de las secciones, medios de pago y mensajes del chat:** `src/data/landing.ts`, `src/data/payment.ts` y `src/data/quote-messages.ts`.
+- **Dirección pública:** `SITE_URL` en `astro.config.mjs` (canonical, sitemap y robots la heredan).
+- **Reglas del sitio:** no se publican precios ni nombres de aseguradoras (hay pruebas que fallan si aparecen), y la única vía de contacto es WhatsApp.
 
-## Mantenimiento
+## Despliegue (Cloudflare Pages)
 
-- **Precios:** el sitio no publica precios (decisión D5), así que no hay que actualizar tarifas cada año.
-- **Año:** `{año}` se calcula al compilar. Basta con reconstruir el sitio en enero (o activar el _deploy hook_ opcional, ver `docs/decisiones.md`, T10).
-- **Dependencias:** Dependabot abre PR semanales; el CI valida cada una antes del merge.
+Proyecto `soatya`, conectado a este repositorio:
+
+- Rama de producción: `main` (cada push publica). Las demás ramas generan una vista previa con `noindex`.
+- Comando de build `pnpm build`, directorio de salida `dist`, variable `PNPM_VERSION` = `10.17.1`. No definas `NODE_VERSION`: Cloudflare toma `.node-version`.
+- Las cabeceras de seguridad (CSP, HSTS, etc.) salen de `public/_headers` y de la CSP con hashes que genera Astro.
+- **Analítica opcional:** define `PUBLIC_GA4_ID` (`G-XXXXXXX`) en Cloudflare, en Producción y Vista previa. Sin esa variable no se carga nada de Google. Las visitas también se pueden contar con Cloudflare Web Analytics (sin cookies).
+- **Cada enero:** el año («SOAT 2027») se calcula al compilar, así que hay que reconstruir el sitio. Crea un _Deploy hook_ en Cloudflare (Settings → Builds) y ábrelo el 1 de enero, o pulsa _Retry deployment_ en el último despliegue.
+- **Volver atrás:** en Cloudflare, Deployments → elige el despliegue anterior → _Rollback_.
+- **Search Console:** agrega `https://soatya.pages.dev/` con la etiqueta HTML y envía `sitemap-index.xml`.
+
+## Seguridad
+
+Sitio estático: sin servidor, base de datos ni formularios que guarden datos. El riesgo real es el robo de cuentas: activa la verificación en dos pasos (con app de autenticación, no SMS) en GitHub, Cloudflare, Google, Facebook y WhatsApp Business, y guarda los códigos de respaldo.
+
+## Créditos
+
+Logo, íconos de app e ilustración son propios. Letras: Plus Jakarta Sans y Barlow Semi Condensed (SIL OFL 1.1, vía Fontsource). Íconos de interfaz: Lucide (ISC) y Simple Icons (CC0; el logo de WhatsApp es marca de Meta y solo indica el canal de contacto).

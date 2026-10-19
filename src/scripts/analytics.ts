@@ -1,5 +1,5 @@
 /**
- * Activa GA4 solo si se definió PUBLIC_GA4_ID al compilar (docs/medicion.md).
+ * Activa GA4 solo si se definió PUBLIC_GA4_ID al compilar.
  * Sin ID no se descarga nada de Google: la cola de eventos queda en memoria.
  */
 import { PUBLIC_GA4_ID } from 'astro:env/client';

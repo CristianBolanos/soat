@@ -1,5 +1,5 @@
 /**
- * Contenido de las secciones de la landing (docs/copy.md; diseño de la decisión D8).
+ * Contenido de las secciones de la landing.
  * Separado de la presentación: los componentes solo lo pintan.
  */
 import { site } from '@/config/site';

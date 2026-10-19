@@ -1,5 +1,5 @@
 /**
- * Preguntas frecuentes (docs/copy.md). Fuente única: alimenta la sección #faq
+ * Preguntas frecuentes. Fuente única: alimenta la sección #faq
  * y el JSON-LD FAQPage, así nunca se desincronizan (hallazgo M7).
  * Sin precios (D5) ni nombres de aseguradoras (R44).
  */

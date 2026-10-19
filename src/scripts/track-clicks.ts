@@ -1,5 +1,5 @@
 /**
- * Medición declarativa (docs/medicion.md): cualquier elemento con
+ * Medición declarativa: cualquier elemento con
  * `data-track="evento"` y `data-track-<parametro>="valor"` envía su evento al
  * hacer clic. También mide qué preguntas del FAQ se abren.
  */

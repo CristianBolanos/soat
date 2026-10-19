@@ -1,5 +1,5 @@
 /**
- * Analítica sin datos personales (docs/medicion.md).
+ * Analítica sin datos personales.
  * - Solo eventos y parámetros de la lista permitida; valores en minúsculas tipo «slug».
  *   Así una placa (ABC12D) o un teléfono nunca llegan a la analítica (políticas de GA4, Ley 1581).
  * - Encola con la firma de gtag; GA4 se carga más tarde (F7) y procesa la cola.

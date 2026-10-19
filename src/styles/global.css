@@ -93,7 +93,7 @@
   --color-success: var(--success);
 }
 
-/* Escala tipográfica, radios y sombras (docs/marca.md). */
+/* Escala tipográfica, radios y sombras. */
 @theme {
   /* Escala de títulos para la letra vial (font-display), más estrecha que la del texto. */
   --text-display-sm: 2.25rem;
