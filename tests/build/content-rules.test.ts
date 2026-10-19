@@ -16,6 +16,11 @@ function contentOf(file: string): string {
   return readFileSync(file, 'utf8').replace(/<style[\s\S]*?<\/style>/g, '');
 }
 
+/** Texto visible: sin scripts ni etiquetas. */
+function textOf(content: string): string {
+  return content.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<[^>]+>/g, ' ');
+}
+
 /**
  * R44: no se nombran aseguradoras (los proveedores cambian). Se buscan nombres
  * completos y con mayúsculas para no confundir palabras comunes (p. ej. «equidad»).
@@ -63,6 +68,10 @@ describe('reglas de contenido en dist/', () => {
 
     it(`${file}: no publica precios (D5)`, () => {
       expect(content.match(PRICE)?.[0] ?? null).toBeNull();
+    });
+
+    it(`${file}: sin puntos duplicados (p. ej. «p. m..»)`, () => {
+      expect(textOf(content).match(/[^.]\.\.(?!\.)/)?.[0] ?? null).toBeNull();
     });
   }
 });

@@ -33,7 +33,8 @@ const whatsappHref = whatsappUrl(site.contact.whatsapp, withOrigin(MESSAGES.gene
       data-track="phone_click"
       data-track-ubicacion="barra_movil"
     >
-      Llamar
+      <!-- Solo ícono en celulares: así «Cotizar por WhatsApp» cabe en una línea desde 360 px. -->
+      <span class="max-sm:sr-only">Llamar</span>
     </Button>
   </div>
 </div>

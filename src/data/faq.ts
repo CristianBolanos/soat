@@ -3,6 +3,8 @@
  * y el JSON-LD FAQPage, así nunca se desincronizan (hallazgo M7).
  * Sin precios (D5) ni nombres de aseguradoras (R44).
  */
+import { paymentMethods, paymentNotice } from '@/data/payment';
+
 export interface FaqItem {
   question: string;
   answer: string;
@@ -17,7 +19,7 @@ export const faq: FaqItem[] = [
   {
     question: '¿Qué necesito para comprar el SOAT?',
     answer:
-      'Solo la placa para cotizar. Para expedir la póliza, el asesor te pide por WhatsApp los datos del propietario tal como aparecen en la licencia de tránsito.',
+      'Solo la placa para cotizar. Para expedir la póliza, el asesor te pide por WhatsApp los datos del propietario tal como aparecen en la licencia de tránsito y un correo para enviártela.',
   },
   {
     question: '¿Cómo sé que mi SOAT no es falso?',
@@ -37,12 +39,11 @@ export const faq: FaqItem[] = [
   {
     question: '¿Cómo recibo mi póliza? ¿Tengo que imprimirla?',
     answer:
-      'Te llega la póliza electrónica en PDF por WhatsApp y puedes guardarla en tu celular. Las autoridades de tránsito verifican el SOAT en el RUNT con tu placa.',
+      'Te llega la póliza electrónica en PDF a tu correo y también te la enviamos por WhatsApp, para que la guardes en tu celular. Las autoridades de tránsito verifican el SOAT en el RUNT con tu placa.',
   },
   {
     question: '¿Cómo puedo pagar?',
-    answer:
-      'Te indicamos los canales oficiales de pago disponibles. Nunca te pediremos transferir a cuentas de personas.',
+    answer: `Puedes pagar ${paymentMethods}. El asesor te confirma las opciones antes de que pagues. ${paymentNotice}: si te los envían desde otro número, no pagues y avísanos.`,
   },
   {
     question: '¿Cobran algo adicional por la asesoría?',

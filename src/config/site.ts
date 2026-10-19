@@ -30,8 +30,8 @@ export const site = {
     developer: 'https://cristianbolanos.github.io/cb/',
   },
   social: {
-    /** Pendiente de confirmar (docs/insumos-cliente.md): solo si el cliente confirma que la página es suya. */
-    facebook: null as string | null,
+    /** Página del vendedor (confirmada el 2026-10-18). En el sitio se enlaza como «Facebook», sin el nombre de la página. */
+    facebook: 'https://www.facebook.com/refacil.soat' as string | null,
   },
   /** Pendiente (decisión D4): nombre de la red aliada, solo con su permiso. */
   partnerNetwork: null as string | null,

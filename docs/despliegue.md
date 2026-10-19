@@ -78,6 +78,7 @@ Debe mostrar `x-robots-tag: noindex` (la vista previa no se indexa), HSTS, `x-fr
 5. **Analítica:** se comprueba que Web Analytics (paso 1.7) cuente las visitas de producción. **[Opcional]** Si GA4 no se activó antes, se activa ahora con `PUBLIC_GA4_ID` (ver `docs/medicion.md`).
 6. 👤 **Search Console:** agrega una propiedad de tipo **Prefijo de URL** con `https://soat-ya.pages.dev/`. Como método de verificación elige **Etiqueta HTML**, copia solo el valor de `content` y pásamelo: lo agrego al sitio y se publica. El método de Google Analytics no sirve aquí, porque GA4 se carga después de la primera interacción. Ya verificada la propiedad, envía `sitemap-index.xml` e inspecciona la URL principal.
 7. 👤 Actualiza el enlace en Facebook y en el perfil de WhatsApp Business.
+8. **Año automático:** «SOAT {año}» se calcula al construir el sitio, así que cada enero hay que volver a construirlo. Se crea un _Deploy hook_ (Settings → Builds → Deploy hooks, rama `main`) y un recordatorio anual en tu calendario para el 1.º de enero: ese día abres el enlace del hook o pulsas **Retry deployment** en el último despliegue.
 
 ## 7. Volver atrás (plan de reversa)
 

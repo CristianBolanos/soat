@@ -31,7 +31,7 @@ const phoneLabel = nbsp(`Teléfono ${site.contact.phoneDisplay}`);
       <p class="mt-3 text-sm text-muted">
         Cotización y compra asistida del SOAT para moto y carro en Colombia.
       </p>
-      <p class="mt-3 text-xs text-muted">
+      <p class="mt-3 text-sm text-muted">
         SOAT YA es punto aliado de {partner} para la venta del SOAT. Las pólizas las expiden
         aseguradoras vigiladas por la Superintendencia Financiera de Colombia.
       </p>
@@ -63,6 +63,21 @@ const phoneLabel = nbsp(`Teléfono ${site.contact.phoneDisplay}`);
           <Icon name="mail" class="size-4" />
           {site.contact.email}
         </a>
+        {site.social.facebook && (
+          <>
+            <br />
+            <a
+              href={site.social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={linkClass}
+            >
+              <Icon name="simple-icons:facebook" class="size-4" />
+              Facebook
+              <span class="sr-only">(se abre en una pestaña nueva)</span>
+            </a>
+          </>
+        )}
         <span class="flex min-h-11 items-center gap-2 text-muted">
           <Icon name="clock" class="size-4" />
           {site.hours.display}
@@ -100,7 +115,7 @@ const phoneLabel = nbsp(`Teléfono ${site.contact.phoneDisplay}`);
   </Container>
   <div class="border-t border-line">
     <!-- Espacio inferior en móvil para que la barra fija no tape el pie. -->
-    <Container class="flex flex-col gap-1 pt-5 pb-28 text-xs text-muted sm:flex-row sm:justify-between lg:pb-5">
+    <Container class="flex flex-col gap-1 pt-5 pb-28 text-sm text-muted sm:flex-row sm:justify-between lg:pb-5">
       <p>© {year} SOAT YA</p>
       <p>
         Sitio desarrollado por

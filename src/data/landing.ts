@@ -2,6 +2,7 @@
  * Contenido de las secciones de la landing (docs/copy.md, aprobado en G1).
  * Separado de la presentación: los componentes solo lo pintan.
  */
+import { paymentNotice } from '@/data/payment';
 
 export interface Feature {
   icon: string;
@@ -62,7 +63,7 @@ export const steps: Feature[] = [
   {
     icon: 'message-circle-check',
     title: 'Confirma y paga',
-    text: 'Un asesor revisa los datos de tu vehículo, te confirma el valor y te indica cómo pagar por un canal oficial.',
+    text: 'Un asesor revisa los datos de tu vehículo y te confirma el valor y las opciones de pago.',
   },
   {
     icon: 'file-check',
@@ -80,8 +81,8 @@ export const safetyTips: Feature[] = [
   },
   {
     icon: 'shield-user',
-    title: 'Paga por canales oficiales',
-    text: 'Nunca transfieras a cuentas de personas desconocidas.',
+    title: 'Verifica quién te cobra',
+    text: `${paymentNotice}. Si te escriben desde otro número, no pagues.`,
   },
   {
     icon: 'search-check',

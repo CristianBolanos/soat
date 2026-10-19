@@ -3,6 +3,7 @@
 import PageLayout from '@/layouts/PageLayout.astro';
 import { site } from '@/config/site';
 import { formatLongDate } from '@/lib/dates';
+import { paymentMethods, paymentNotice } from '@/data/payment';
 
 const { legal, contact } = site;
 const updated = legal.policyDate ? formatLongDate(legal.policyDate) : null;
@@ -28,7 +29,10 @@ const partner = site.partnerNetwork ?? 'una red autorizada para la venta del SOA
     <li>
       Revisamos los datos de tu vehículo y te confirmamos el valor exacto antes de que pagues.
     </li>
-    <li>Gestionamos la expedición y te enviamos la póliza electrónica en PDF.</li>
+    <li>
+      Gestionamos la expedición y te enviamos la póliza electrónica en PDF por WhatsApp; también te
+      llega al correo que registres.
+    </li>
   </ul>
 
   <h2>3. Valor y pagos</h2>
@@ -38,8 +42,10 @@ const partner = site.partnerNetwork ?? 'una red autorizada para la venta del SOA
       y se confirma antes del pago.
     </li>
     <li>
-      Solo pagas por los canales oficiales que te indique el asesor. Nunca te pediremos transferir a
-      cuentas de personas.
+      Puedes pagar {paymentMethods}, según las opciones que te confirme el asesor. {paymentNotice}.
+    </li>
+    <li>
+      Si alguien te pide pagar en nombre de SOAT YA desde otro número, no lo hagas y avísanos.
     </li>
   </ul>
 
@@ -65,7 +71,7 @@ const partner = site.partnerNetwork ?? 'una red autorizada para la venta del SOA
   <h2>7. Contacto</h2>
   <p>
     WhatsApp y teléfono: {contact.phoneDisplay}. Correo:
-    <a href={`mailto:${contact.email}`}>{contact.email}</a>. Horario: {site.hours.display}.
+    <a href={`mailto:${contact.email}`}>{contact.email}</a>. Horario: {site.hours.display}
   </p>
 
   <h2>8. Ley aplicable y cambios</h2>

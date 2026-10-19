@@ -59,6 +59,7 @@ docs/                 Decisiones, marca, copy, SEO, medición, soporte y desplie
 - `docs/soporte.md`: navegadores soportados
 - `docs/despliegue.md`: Cloudflare Pages paso a paso, lanzamiento y reversa
 - `docs/qa-checklist.md`: pruebas en celulares y navegadores reales (F9)
+- `docs/revision-final/`: revisión final por roles con evidencias y capturas (F10, compuerta G3)
 - `docs/seguridad.md`: controles activos, controles que no aplican y seguridad de las cuentas
 - `docs/linea-base/`: medición del sitio anterior
 - `docs/wireframes/`: wireframes de baja fidelidad (compuerta G1)

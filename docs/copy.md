@@ -69,7 +69,7 @@ Estos son todos los textos del sitio. Se aprueban en la compuerta **G1** antes d
 - **H2:** Así de fácil: tu SOAT en 3 pasos
 
 1. **Envía tu placa.** Elige moto o carro, escribe la placa y abre WhatsApp.
-2. **Confirma y paga.** Un asesor revisa los datos de tu vehículo, te confirma el valor y te indica cómo pagar por un canal oficial.
+2. **Confirma y paga.** Un asesor revisa los datos de tu vehículo, y te confirma el valor y las opciones de pago.
 3. **Recibe tu póliza.** Te llega la póliza electrónica en PDF. Verifícala en el RUNT con tu placa.
 
 - **CTA:** Empezar ahora (lleva al cotizador)
@@ -80,7 +80,7 @@ Estos son todos los textos del sitio. Se aprueban en la compuerta **G1** antes d
 - **Introducción:** Cada año aparecen ofertas de SOAT falso. Con estos tres consejos compras con tranquilidad.
 
 1. **Desconfía de lo demasiado barato.** Las ofertas que parecen demasiado buenas son la trampa más común del SOAT falso.
-2. **Paga por canales oficiales.** Nunca transfieras a cuentas de personas desconocidas. `[Confirmar los medios de pago del cliente]`
+2. **Verifica quién te cobra.** Solo te damos los datos de pago desde nuestro número (+57) 316 734 1074, por WhatsApp o llamada. Si te escriben desde otro número, no pagues. (Medios de pago confirmados por el cliente, D7.)
 3. **Verifica en el RUNT.** Toda póliza válida queda registrada en el RUNT. Consúltala con tu placa después de comprar.
 
 - **Botón:** Verificar mi SOAT en el RUNT (abre runt.gov.co en otra pestaña; texto para lectores de pantalla: «se abre en una pestaña nueva»)
@@ -92,7 +92,7 @@ Estos son todos los textos del sitio. Se aprueban en la compuerta **G1** antes d
 1. **¿Cuánto cuesta el SOAT de mi moto o carro?**
    Depende del tipo de vehículo, el cilindraje y, en carros y camionetas, la antigüedad. Además, el valor cambia cada año. Escríbenos tu placa por WhatsApp y te confirmamos el valor exacto antes de que pagues.
 2. **¿Qué necesito para comprar el SOAT?**
-   Solo la placa para cotizar. Para expedir la póliza, el asesor te pide por WhatsApp los datos del propietario tal como aparecen en la licencia de tránsito.
+   Solo la placa para cotizar. Para expedir la póliza, el asesor te pide por WhatsApp los datos del propietario tal como aparecen en la licencia de tránsito y un correo para enviártela.
 3. **¿Cómo sé que mi SOAT no es falso?**
    Toda póliza válida queda registrada en el RUNT. Después de comprar, consulta tu placa en el portal del RUNT. Si no aparece, no circules y comunícate con nosotros.
 4. **¿Qué pasa si manejo con el SOAT vencido?**
@@ -100,9 +100,9 @@ Estos son todos los textos del sitio. Se aprueban en la compuerta **G1** antes d
 5. **¿Puedo comprar el SOAT si ya está vencido?**
    Sí. Escríbenos y lo gestionamos de inmediato. Mientras no tengas un SOAT vigente, no deberías circular.
 6. **¿Cómo recibo mi póliza? ¿Tengo que imprimirla?**
-   Te llega la póliza electrónica en PDF por WhatsApp y puedes guardarla en tu celular. Las autoridades de tránsito verifican el SOAT en el RUNT con tu placa.
+   Te llega la póliza electrónica en PDF a tu correo y también te la enviamos por WhatsApp, para que la guardes en tu celular. Las autoridades de tránsito verifican el SOAT en el RUNT con tu placa.
 7. **¿Cómo puedo pagar?** `[Confirmar]`
-   Te indicamos los canales oficiales de pago disponibles. Nunca te pediremos transferir a cuentas de personas.
+   Puedes pagar por transferencia, con link de pago o en efectivo en persona. El asesor te confirma las opciones antes de que pagues. Solo te damos los datos de pago desde nuestro número (+57) 316 734 1074, por WhatsApp o llamada: si te los envían desde otro número, no pagues y avísanos.
 8. **¿Cobran algo adicional por la asesoría?** `[Confirmar con el cliente; si cobra, se ajusta o se elimina esta pregunta]`
    No. Te confirmamos el valor total antes de que pagues.
 

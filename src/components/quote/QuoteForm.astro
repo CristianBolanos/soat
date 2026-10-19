@@ -15,7 +15,6 @@ const otherVehicleHref = whatsappUrl(
   site.contact.whatsapp,
   withOrigin(MESSAGES.otherVehicle, 'web'),
 );
-const trust = ['Valor confirmado antes de pagar', 'Verificable en el RUNT', site.hours.short];
 ---
 
 <form
@@ -52,14 +51,11 @@ const trust = ['Valor confirmado antes de pagar', 'Verificable en el RUNT', site
       ¿Taxi, camión, bus u otro vehículo? Escríbenos por WhatsApp
     </a>
   </p>
-  <ul class="mt-4 flex flex-wrap gap-x-4 gap-y-1 border-t border-line pt-4 text-xs text-muted">
-    {trust.map((item) => (
-      <li class="flex items-center gap-1.5">
-        <Icon name="check" class="size-4 text-success" />
-        {item}
-      </li>
-    ))}
-  </ul>
+  <!-- Solo el horario: los beneficios ya están en el subtítulo y en la franja #beneficios. -->
+  <p class="mt-4 flex items-center gap-1.5 border-t border-line pt-4 text-sm text-muted">
+    <Icon name="clock" class="size-4" />
+    Te atendemos {site.hours.short}
+  </p>
 </form>
 
 <script>

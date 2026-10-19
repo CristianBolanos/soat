@@ -38,6 +38,10 @@ Abre la **vista previa** (`https://astro-migration.soat-ya.pages.dev`) en cada d
 - [ ] En el pie, «Política de tratamiento de datos» y «Términos del servicio» abren sus páginas.
 - [ ] Una dirección inexistente (por ejemplo, `/prueba`) muestra «Esta página no existe».
 
+**Lector de pantalla [Opcional]** (TalkBack en Android o VoiceOver en iPhone):
+
+- [ ] Con el lector activado puedes elegir Moto, escribir la placa y pulsar «Cotizar por WhatsApp», y el lector anuncia cada paso.
+
 **Compartir:**
 
 - [ ] Al enviar el enlace por WhatsApp a ti mismo, se ve la tarjeta con la imagen de SOAT YA (en la vista previa puede tardar o no aparecer; se confirma en producción).
