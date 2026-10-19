@@ -5,11 +5,13 @@ import Icon from '@/components/ui/Icon.astro';
 import Logo from '@/components/ui/Logo.astro';
 import { site } from '@/config/site';
 import { currentYear } from '@/lib/dates';
+import { withBase } from '@/lib/paths';
 import { nbsp } from '@/lib/text';
 import { MESSAGES, whatsappUrl, withOrigin } from '@/lib/whatsapp';
 
 interface Props {
-  base?: '' | '/';
+  /** Prefijo de las anclas: '' en la portada; en las demás páginas, la portada (`withBase('/')`). */
+  base?: string;
 }
 
 const { base = '' } = Astro.props;
@@ -88,12 +90,12 @@ const phoneLabel = nbsp(`Teléfono ${site.contact.phoneDisplay}`);
       <h2 class="text-sm font-bold">Información legal</h2>
       <ul class="mt-2 text-sm">
         <li>
-          <a href="/politica-de-datos" class={linkClass}>
+          <a href={withBase('/politica-de-datos')} class={linkClass}>
             Política de tratamiento de datos
           </a>
         </li>
         <li>
-          <a href="/terminos" class={linkClass}>
+          <a href={withBase('/terminos')} class={linkClass}>
             Términos del servicio
           </a>
         </li>

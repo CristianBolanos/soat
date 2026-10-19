@@ -3,6 +3,7 @@
 import Button from '@/components/ui/Button.astro';
 import PageLayout from '@/layouts/PageLayout.astro';
 import { site } from '@/config/site';
+import { withBase } from '@/lib/paths';
 import { MESSAGES, whatsappUrl, withOrigin } from '@/lib/whatsapp';
 
 const whatsappHref = whatsappUrl(site.contact.whatsapp, withOrigin(MESSAGES.generic, 'web'));
@@ -16,7 +17,7 @@ const whatsappHref = whatsappUrl(site.contact.whatsapp, withOrigin(MESSAGES.gene
 >
   <p>Puede que el enlace esté mal escrito o que la página ya no exista.</p>
   <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-    <Button href="/" variant="cta" size="lg" icon="house">
+    <Button href={withBase('/')} variant="cta" size="lg" icon="house">
       Ir al inicio
     </Button>
     <Button

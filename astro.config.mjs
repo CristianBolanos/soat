@@ -7,6 +7,17 @@ import tailwindcss from '@tailwindcss/vite';
 // dominio propio, se cambia solo aquí: canonical, sitemap, robots y OG lo heredan.
 const SITE_URL = 'https://soatya.pages.dev';
 
+// El sitio sale en dos lugares: Cloudflare Pages (en la raíz) y GitHub Pages
+// (https://cristianbolanos.github.io/soat/, bajo /soat). El workflow de GitHub define
+// DEPLOY_BASE=/soat; sin esa variable el sitio queda en la raíz. El canonical, Open Graph,
+// sitemap y JSON-LD apuntan siempre a SITE_URL, así que Google ve una sola dirección principal.
+// Se acepta «soat» o «/soat»; solo letras, números, guiones y guion bajo.
+const BASE_NAME = (process.env['DEPLOY_BASE'] ?? '').replace(/^\/+|\/+$/g, '');
+if (BASE_NAME && !/^[\w-]+$/.test(BASE_NAME)) {
+  throw new Error(`DEPLOY_BASE inválida: ${process.env['DEPLOY_BASE']}`);
+}
+const BASE = BASE_NAME ? `/${BASE_NAME}` : '/';
+
 // GA4 se activa definiendo PUBLIC_GA4_ID (p. ej. en Cloudflare Pages). Sin ID no se
 // carga nada de Google y sus dominios no entran a la CSP (mínimo privilegio).
 const GA4_ID = process.env['PUBLIC_GA4_ID'] ?? '';
@@ -34,6 +45,7 @@ const sources = (...lists) => ["'self'", ...lists.flat()].join(' ');
 
 export default defineConfig({
   site: SITE_URL,
+  base: BASE,
   trailingSlash: 'never',
   // Astro 7 cambió el valor por defecto a 'jsx', que elimina espacios entre
   // elementos en línea; se mantiene el comportamiento clásico.
@@ -109,12 +121,16 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: false,
   },
-  integrations: [
-    sitemap({
-      filter: (page) => !page.includes('/404'),
-      lastmod: new Date(),
-    }),
-  ],
+  // El mapa del sitio solo se publica desde la dirección principal.
+  integrations:
+    BASE === '/'
+      ? [
+          sitemap({
+            filter: (page) => !page.includes('/404'),
+            lastmod: new Date(),
+          }),
+        ]
+      : [],
   vite: {
     plugins: [tailwindcss()],
   },

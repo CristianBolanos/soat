@@ -3,6 +3,7 @@
 import PageLayout from '@/layouts/PageLayout.astro';
 import { site } from '@/config/site';
 import { formatLongDate } from '@/lib/dates';
+import { withBase } from '@/lib/paths';
 import { paymentMethods, paymentNotice } from '@/data/payment';
 
 const { legal, contact } = site;
@@ -65,7 +66,7 @@ const partner = site.partnerNetwork ?? 'una red autorizada para la venta del SOA
   <h2>6. Datos personales</h2>
   <p>
     Tratamos tus datos según nuestra{' '}
-    <a href="/politica-de-datos">Política de tratamiento de datos</a>.
+    <a href={withBase('/politica-de-datos')}>Política de tratamiento de datos</a>.
   </p>
 
   <h2>7. Contacto</h2>

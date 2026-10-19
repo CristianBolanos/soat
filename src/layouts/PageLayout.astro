@@ -4,6 +4,7 @@ import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
 import MobileCtaBar from '@/components/layout/MobileCtaBar.astro';
 import Container from '@/components/ui/Container.astro';
+import { withBase } from '@/lib/paths';
 import BaseLayout from './BaseLayout.astro';
 
 interface Props {
@@ -17,7 +18,7 @@ const { title, description, heading, noindex = false } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} noindex={noindex}>
-  <Header base="/" />
+  <Header base={withBase('/')} />
   <main id="contenido">
     <Container class="py-12 sm:py-16">
       <article class="legal max-w-3xl">
@@ -26,7 +27,7 @@ const { title, description, heading, noindex = false } = Astro.props;
       </article>
     </Container>
   </main>
-  <Footer base="/" />
+  <Footer base={withBase('/')} />
   <MobileCtaBar />
 </BaseLayout>
 

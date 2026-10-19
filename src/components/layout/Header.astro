@@ -11,8 +11,8 @@ import { site } from '@/config/site';
 import ThemeToggle from './ThemeToggle.astro';
 
 interface Props {
-  /** Prefijo de las anclas: '' en la portada, '/' en las demás páginas. */
-  base?: '' | '/';
+  /** Prefijo de las anclas: '' en la portada; en las demás páginas, la portada (`withBase('/')`). */
+  base?: string;
 }
 
 const { base = '' } = Astro.props;
